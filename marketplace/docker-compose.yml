@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  marketplace:
+    build: .
+    container_name: yuezhitong-marketplace
+    restart: unless-stopped
+    ports:
+      - "8010:8010"
+    environment:
+      MONGODB_URI: "mongodb://admin:password@mongodb:27017/?authSource=admin"
+      MONGODB_DB: yuezhitong
+      REDIS_URL: "redis://:password@redis:6379/0"
+      JWT_SECRET: "7PMmSxgGdcUHZnwXIdRGCqABtv4Q8EG5IbtDUCjbJ1GNcgcitZzWz2cRjLkiNwBi"
+      INTERNAL_TOKEN: "6SIYEflXz0pYFFc5S3uoCJz9nFX7KhTl00kXP64AM0m4aTxp"
+      PORT: 8010
+    networks:
+      - yuezhitong-network
+
+networks:
+  yuezhitong-network:
+    external: true
