@@ -33,10 +33,11 @@
 - **评论挖掘**：识别"怎么买"等高转化信号
 - **品牌监测**：实时追踪品牌讨论
 
-### 💰 Monetize - 内容变现 / Content Monetization (即将上线)
+### 💰 Monetize - 内容变现 / Content Monetization
 - **内容交易市场**：品牌方发布任务，创作者接单
 - **CPS/CPE/CPM** 三种结算模式
 - **AI审核**：自动判断内容匹配度
+- 🔗 **线上访问**: `https://ai.yuezhitong.com/api/market/tasks`
 
 ---
 
