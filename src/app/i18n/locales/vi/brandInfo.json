@@ -1,0 +1,22 @@
+{
+  "title": "Thông tin thương hiệu",
+  "brandName": "Tên thương hiệu",
+  "brandDescription": "Mô tả thương hiệu",
+  "website": "Trang web",
+  "industry": "Ngành",
+  "targetAudience": "Đối tượng mục tiêu",
+  "brandVoice": "Giọng điệu thương hiệu",
+  "keywords": "Từ khóa",
+  "competitors": "Đối thủ",
+  "save": "Lưu",
+  "saving": "Đang lưu...",
+  "saveSuccess": "Lưu thành công",
+  "saveFailed": "Lưu thất bại",
+  "addCompetitor": "Thêm đối thủ",
+  "removeCompetitor": "Xóa đối thủ",
+  "brandColors": "Màu sắc thương hiệu",
+  "primaryColor": "Màu chính",
+  "secondaryColor": "Màu phụ",
+  "logo": "Logo",
+  "uploadLogo": "Tải logo lên"
+}

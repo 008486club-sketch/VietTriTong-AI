@@ -1,0 +1,85 @@
+{
+  "title": "Case Studies",
+  "subtitle": "Xem các thương hiệu Việt Nam tăng trưởng mạng xã hội cùng Nền tảng AI Việt Trí Thông",
+  "cases": [
+    {
+      "id": "beauty-tiktok",
+      "title": "Thương hiệu mỹ phẩm Việt - Khởi động TikTok từ 0",
+      "tag": "Vận hành TikTok",
+      "challenge": "Thương hiệu mới bắt đầu từ 0 follower, cần nhanh chóng xây dựng hiện diện trên TikTok",
+      "solution": "Nền tảng AI Việt Trí Thông xây dựng chiến lược nội dung bản địa hóa, AI tạo hàng loạt video giới thiệu sản phẩm 15-30 giây, kết hợp nhạc nền và hashtag trending tại Việt Nam, đăng đều 2-3 video mỗi ngày",
+      "results": [
+        {
+          "label": "Tăng follow sau 30 ngày",
+          "value": "120K+"
+        },
+        {
+          "label": "Video cao nhất",
+          "value": "2.8M views"
+        },
+        {
+          "label": "Giảm chi phí nội dung",
+          "value": "70%"
+        },
+        {
+          "label": "Lượt tư vấn/tháng",
+          "value": "500+"
+        }
+      ]
+    },
+    {
+      "id": "fnb-video",
+      "title": "Chuỗi F&B - Sản xuất video AI quy mô lớn",
+      "tag": "Sản xuất video AI",
+      "challenge": "Hơn 30 chi nhánh cần sản xuất video khám phá liên tục, đội quay phim truyền thống chi phí cao và tốc độ chậm",
+      "solution": "Tích hợp BytePlus Seedance 2.0, tạo video khám phá hàng loạt theo mẫu. Mỗi chi nhánh chỉ cần gửi 3-5 ảnh thực tế, AI tự động tạo video khám phá chuyên nghiệp 15 giây",
+      "results": [
+        {
+          "label": "Sản lượng video/tháng",
+          "value": "200+"
+        },
+        {
+          "label": "Chi phí mỗi video",
+          "value": "200.000-320.000₫"
+        },
+        {
+          "label": "Tổng lượt xem",
+          "value": "15M+"
+        },
+        {
+          "label": "Tỷ lệ chuyển đổi",
+          "value": "Tăng 35%"
+        }
+      ]
+    },
+    {
+      "id": "crossborder-social",
+      "title": "Thương hiệu TMĐT xuyên biên giới - Quản lý toàn diện MXH",
+      "tag": "Quản lý MXH",
+      "challenge": "Thương hiệu vận hành đồng thời trên TikTok, Facebook, Instagram, YouTube, thiếu nhân sự và không thể quản lý nội dung đa nền tảng thống nhất",
+      "solution": "Nền tảng AI Việt Trí Thông cung cấp dịch vụ quản lý toàn diện: lập kế hoạch → AI sáng tạo → đăng một chạm đa nền tảng → AI tự động trả lời bình luận. Thương hiệu chỉ cần cung cấp tài liệu sản phẩm và định hướng thương hiệu",
+      "results": [
+        {
+          "label": "Nền tảng quản lý",
+          "value": "5 nền tảng"
+        },
+        {
+          "label": "Lượt đăng/tháng",
+          "value": "120+"
+        },
+        {
+          "label": "Tỷ lệ tương tác",
+          "value": "Tăng 3 lần"
+        },
+        {
+          "label": "Chi phí vận hành",
+          "value": "Giảm 60%"
+        }
+      ]
+    }
+  ],
+  "cta": "Muốn thương hiệu của bạn trở thành case study tiếp theo?",
+  "ctaButton": "Liên hệ ngay →",
+  "ctaHref": "/websit/contact",
+  "disclaimer": "* Số liệu dựa trên dịch vụ thực tế, thông tin khách hàng đã được ẩn danh"
+}

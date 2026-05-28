@@ -1,0 +1,85 @@
+{
+  "title": "客户案例",
+  "subtitle": "看看越南品牌如何通过越智通AI实现社媒增长",
+  "cases": [
+    {
+      "id": "beauty-tiktok",
+      "title": "越南美妆品牌 TikTok 冷启动",
+      "tag": "TikTok运营",
+      "challenge": "新品牌零粉丝起步，需要快速建立TikTok品牌声量",
+      "solution": "越智通AI制定越南本地化内容策略，AI批量生成15-30秒产品展示视频，结合越南热门BGM和话题标签，每日稳定发布2-3条",
+      "results": [
+        {
+          "label": "30天涨粉",
+          "value": "12万+"
+        },
+        {
+          "label": "单条最高播放",
+          "value": "280万"
+        },
+        {
+          "label": "内容成本降低",
+          "value": "70%"
+        },
+        {
+          "label": "月均咨询量",
+          "value": "500+"
+        }
+      ]
+    },
+    {
+      "id": "fnb-video",
+      "title": "连锁品牌 AI视频规模化",
+      "tag": "AI视频制作",
+      "challenge": "30+门店需要持续产出推广短视频，传统拍摄团队成本高、产出慢",
+      "solution": "接入BytePlus Seedance 2.0 AI视频引擎，模板化批量生成探店视频。门店只需提供3-5张实拍图，AI自动生成15秒专业探店短片",
+      "results": [
+        {
+          "label": "月产视频量",
+          "value": "200+条"
+        },
+        {
+          "label": "单条成本",
+          "value": "¥50-80"
+        },
+        {
+          "label": "播放总量",
+          "value": "1,500万+"
+        },
+        {
+          "label": "到店转化率",
+          "value": "提升35%"
+        }
+      ]
+    },
+    {
+      "id": "crossborder-social",
+      "title": "跨境电商品牌 社媒全域托管",
+      "tag": "社媒托管",
+      "challenge": "品牌同时在TikTok、Facebook、Instagram、YouTube运营，团队人力不足，多平台内容无法统一管理",
+      "solution": "越智通AI提供社媒全域托管服务：内容策划→AI创作→多平台一键发布→AI自动评论互动。品牌方只需提供产品资料和品牌调性",
+      "results": [
+        {
+          "label": "托管平台数",
+          "value": "5个"
+        },
+        {
+          "label": "月发布量",
+          "value": "120+条"
+        },
+        {
+          "label": "互动率提升",
+          "value": "3倍"
+        },
+        {
+          "label": "运营成本",
+          "value": "降低60%"
+        }
+      ]
+    }
+  ],
+  "cta": "想让您的品牌也成为下一个案例？",
+  "ctaButton": "立即咨询 →",
+  "ctaHref": "/websit/contact",
+  "disclaimer": "* 以上案例基于真实服务数据，客户信息已做匿名化处理"
+}

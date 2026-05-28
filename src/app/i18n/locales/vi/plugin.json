@@ -1,0 +1,18 @@
+{
+  "title": "Tiện ích",
+  "description": "Tiện ích trình duyệt cho Nền tảng AI Việt Trí Thông",
+  "install": "Cài đặt",
+  "installed": "Đã cài đặt",
+  "notInstalled": "Chưa cài đặt",
+  "version": "Phiên bản",
+  "checkUpdate": "Kiểm tra cập nhật",
+  "updateAvailable": "Có bản cập nhật mới",
+  "upToDate": "Đã là phiên bản mới nhất",
+  "permissions": "Quyền",
+  "grantPermissions": "Cấp quyền",
+  "permissionDenied": "Quyền bị từ chối",
+  "autoStart": "Tự động khởi động",
+  "notifications": "Thông báo",
+  "uninstall": "Gỡ cài đặt",
+  "settings": "Cài đặt"
+}

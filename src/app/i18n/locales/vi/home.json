@@ -1,0 +1,470 @@
+{
+  "dropToUpload": "Kéo thả để tải lên",
+  "announcement": {
+    "text": "Nền tảng AI Việt Trí Thông sử dụng Agent để đáp ứng mọi nhu cầu nội dung của bạn. Tạo video, hình ảnh và bài viết bằng AI chỉ với một câu lệnh."
+  },
+  "releaseBanner": {
+    "tag": "Phát hành v1.0",
+    "text": "Xây dựng và Mở rộng Quy trình AI với Plugin và Tác nhân"
+  },
+  "header": {
+    "logo": "Nền tảng AI Việt Trí Thông",
+    "nav": {
+      "home": "Trang chủ",
+      "marketplace": "Thị trường",
+      "pricing": "Bảng giá",
+      "status": "Trạng thái",
+      "docs": "Tài liệu",
+      "blog": "Blog",
+      "download": "Tải xuống",
+      "brand": "Thương hiệu",
+      "resources": "Tài nguyên"
+    },
+    "getStarted": "Bắt đầu ngay"
+  },
+  "hero": {
+    "stars": "105.2k",
+    "starsText": "sao trên",
+    "github": "GitHub",
+    "title": "AI Agent Tiếp Thị\nNội Dung Tốt Nhất",
+    "subtitle": "Từ hôm nay, dễ dàng quản lý mạng xã hội của bạn với AI. Nền tảng AI Việt Trí Thông cung cấp giải pháp toàn diện từ cảm hứng sáng tạo, sản xuất nội dung, phân phối nội dung đến quản lý tương tác, giúp AI trong tầm tay bạn.",
+    "getStarted": "Bắt đầu ngay",
+    "useMobilePhone": "Sử dụng trên điện thoại"
+  },
+  "seo": {
+    "title": "AI Video & Sáng Tạo Nội Dung cho 15+ Nền Tảng Xã Hội",
+    "description": "Nền tảng AI Việt Trí Thông là nhân viên vận hành mạng xã hội AI của bạn. Tạo video, hình ảnh và nội dung bằng AI, sau đó đăng lên 15+ nền tảng bao gồm TikTok, YouTube, Instagram, Facebook và X chỉ với một cú nhấp. Cung cấp các tính năng: sáng tạo nội dung AI, chỉnh sửa video thông minh, chuyển đổi phong cách, dịch video, khám phá xu hướng, giám sát thương hiệu và bảng điều khiển tương tác hợp nhất dành cho nhà sáng tạo và doanh nghiệp.",
+    "keywords": "tiếp thị nội dung AI, quản lý mạng xã hội AI, tạo video AI, đăng đa nền tảng, sáng tạo nội dung AI, tự động hóa mạng xã hội, tiếp thị TikTok, tiếp thị YouTube, tiếp thị Instagram, AI Agent, phân phối nội dung, công cụ người ảnh hưởng, viết nội dung AI, chỉnh sửa video AI, giám sát thương hiệu, Nền tảng AI Việt Trí Thông"
+  },
+  "agentGenerator": {
+    "title": "Tôi có thể giúp gì cho bạn?",
+    "subtitle": "Nhân Viên Vận Hành AI của Bạn"
+  },
+  "aiGeneration": {
+    "inputPlaceholder": "Nhập ý tưởng nội dung của bạn, AI sẽ tạo ra tác phẩm hoàn chỉnh...",
+    "generateButton": "Bắt Đầu Sáng Tạo",
+    "generating": "Đang sáng tạo...",
+    "emptyPromptAlert": "Vui lòng nhập gợi ý để tạo nội dung",
+    "createTaskFailed": "Tạo tác vụ thất bại",
+    "uploadSuccess": "Tải ảnh lên thành công",
+    "uploadFailed": "Tải ảnh lên thất bại, vui lòng thử lại",
+    "taskCreatedSuccess": "Tạo tác vụ thành công",
+    "thinking": "AI đang suy nghĩ...",
+    "topicPrefix": "Chủ đề sáng tạo: ",
+    "generatedTitlePrefix": "Tiêu đề đã tạo: ",
+    "descriptionPrefix": "📄 ",
+    "failedReasonPrefix": "Lý do thất bại: ",
+    "taskTimeout": "Tác vụ quá thời gian, vui lòng thử lại sau",
+    "unknownError": "Lỗi không xác định",
+    "status": {
+      "thinking": "AI đang suy nghĩ...",
+      "waiting": "Đang chờ xử lý...",
+      "generatingContent": "Đang tạo nội dung",
+      "generatingImage": "Đang tạo hình ảnh",
+      "generatingVideo": "Đang tạo video",
+      "generatingText": "Đang tạo văn bản",
+      "completed": "Hoàn thành!",
+      "failed": "Thất bại",
+      "cancelled": "Đã hủy"
+    },
+    "channelAuthRequired": "Vui lòng thêm và ủy quyền kênh trước",
+    "channelAuthExpired": "Ủy quyền kênh đã hết hạn, vui lòng ủy quyền lại",
+    "channelNotSupported": "Nền tảng này chưa hỗ trợ đăng trực tiếp",
+    "taskStopped": "Đã dừng tạo",
+    "stopTaskFailed": "Dừng tác vụ thất bại",
+    "newConversation": "Đã bắt đầu hội thoại mới",
+    "generatingWarning": "Đang trong quá trình tạo, vui lòng dừng tác vụ hiện tại trước",
+    "conversationId": "ID Hội thoại",
+    "startNewConversation": "Bắt đầu hội thoại mới",
+    "currentCost": "Chi phí hiện tại",
+    "aiGenerationProcess": "Quá trình tạo AI",
+    "waitingAiResponse": "Đang đợi phản hồi AI...",
+    "uploadImage": "Tải ảnh lên",
+    "removeImage": "Xóa ảnh",
+    "agentMode": "Chế độ Agent",
+    "imageGeneration": "Tạo hình ảnh",
+    "videoGeneration": "Tạo video",
+    "draftBox": "Hộp nháp",
+    "batchPublish": "Đăng hàng loạt",
+    "stopGeneration": "Dừng tạo",
+    "sendMessage": "Gửi tin nhắn",
+    "inspirationPrompt": "Có cảm hứng chưa? Bắt đầu sáng tạo bằng một câu",
+    "onboardingTitle": "Không biết bắt đầu sáng tạo thế nào?",
+    "onboardingDescription": "Bắt đầu sáng tạo bằng một câu",
+    "gotIt": "Đã hiểu",
+    "saveDraftFailed": "Lưu nháp thất bại",
+    "saveDraftSuccess": "Lưu nháp thành công",
+    "noDraftGroupFound": "Không tìm thấy nhóm nháp khả dụng, vui lòng tạo nhóm trước",
+    "noDraftGroup": "Không tìm thấy nhóm nháp khả dụng",
+    "needAddChannel": "Cần Thêm Kênh",
+    "channelNotAdded": "Chúng tôi phát hiện bạn chưa thêm kênh {platform}. Bạn có muốn thêm không?",
+    "goAdd": "Đi thêm",
+    "cancel": "Hủy",
+    "channelAuthExpiredTitle": "Ủy Quyền Kênh Đã Hết Hạn",
+    "channelAuthExpiredContent": "Ủy quyền kênh của bạn đã hết hạn. Bạn có muốn ủy quyền lại không?",
+    "reauthorize": "Ủy quyền lại",
+    "needLoginChannel": "Cần Đăng Nhập Kênh",
+    "needLogin": "Cần Đăng Nhập",
+    "pleaseLoginChannel": "Vui lòng đăng nhập tài khoản kênh này trước",
+    "goLogin": "Đi đăng nhập",
+    "needBindChannel": "Kết Nối Kênh",
+    "needBindChannelTitle": "Kết Nối Kênh",
+    "needBindChannelContent": "Không tìm thấy tài khoản {{platform}}. Vui lòng thêm tài khoản {{platform}} để đăng.",
+    "goBind": "Thêm Kênh",
+    "platformRequiresPlugin": "Nền tảng này yêu cầu plugin để đăng, vui lòng ủy quyền plugin trước",
+    "needAuthorizePlugin": "Cần Ủy Quyền Plugin",
+    "pluginAuthorizeDescription": "Nền tảng này yêu cầu plugin để đăng, vui lòng nhấp vào đây để ủy quyền plugin",
+    "noAccountFound": "Không tìm thấy tài khoản cho nền tảng này, vui lòng thêm tài khoản trước",
+    "publishTaskSubmitted": "Tác vụ đăng đã được gửi đến plugin",
+    "publishingViaPlugin": "Đang đăng qua plugin...",
+    "pluginPublishFailed": "Plugin đăng thất bại"
+  },
+  "plugin": {
+    "platformNeedsPlugin": "Nền tảng này yêu cầu plugin để đăng, vui lòng ủy quyền plugin trước",
+    "authorizePluginTitle": "Cần Ủy Quyền Plugin",
+    "authorizePluginDescription": "Nền tảng này yêu cầu plugin để đăng, vui lòng nhấp vào đây để ủy quyền plugin",
+    "noAccountFound": "Không tìm thấy tài khoản cho nền tảng này, vui lòng thêm tài khoản trước",
+    "publishTaskSubmitted": "Tác vụ đăng đã được gửi đến plugin",
+    "publishingViaPlugin": "Đang đăng qua plugin...",
+    "publishFailed": "Plugin đăng thất bại"
+  },
+  "status": {
+    "generatingInProcess": "Đang trong quá trình tạo, vui lòng dừng tác vụ hiện tại trước",
+    "stopGenerating": "Dừng Tạo",
+    "sendMessage": "Gửi Tin Nhắn"
+  },
+  "messages": {
+    "generatingInProcessStopFirst": "Đang trong quá trình tạo, vui lòng dừng tác vụ hiện tại trước",
+    "newConversationStarted": "Đã bắt đầu hội thoại mới",
+    "draftSavedSuccessfully": "Đã lưu nháp thành công",
+    "saveDraftFailed": "Lưu nháp thất bại",
+    "noDraftGroupFound": "Không tìm thấy nhóm nháp khả dụng, vui lòng tạo nhóm trước",
+    "createDraftGroupFirst": "Không tìm thấy nhóm nháp khả dụng"
+  },
+  "platformNames": {
+    "douyin": "Douyin",
+    "xhs": "Xiaohongshu",
+    "wxSph": "WeChat Channels",
+    "KWAI": "Kwai",
+    "youtube": "YouTube",
+    "wxGzh": "WeChat Official Account",
+    "bilibili": "Bilibili",
+    "twitter": "Twitter",
+    "tiktok": "TikTok",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "threads": "Threads",
+    "pinterest": "Pinterest",
+    "linkedin": "LinkedIn"
+  },
+  "channel": {
+    "addChannelRequiredTitle": "Cần Thêm Kênh",
+    "addChannelRequiredContent": "Chúng tôi phát hiện bạn chưa thêm kênh {platform}. Bạn có muốn thêm không?",
+    "goToAdd": "Đi thêm",
+    "authExpiredTitle": "Ủy Quyền Kênh Đã Hết Hạn",
+    "authExpiredContent": "Ủy quyền kênh của bạn đã hết hạn. Bạn có muốn ủy quyền lại không?",
+    "reauthorize": "Ủy quyền lại",
+    "loginRequiredTitle": "Cần Đăng Nhập Kênh",
+    "loginRequiredContent": "Vui lòng đăng nhập tài khoản kênh này trước",
+    "goToLogin": "Đi đăng nhập"
+  },
+  "guide": {
+    "aiInputTitle": "Không biết bắt đầu sáng tạo thế nào?",
+    "aiInputDescription": "Bắt đầu sáng tạo bằng một câu"
+  },
+  "download": {
+    "downloadNow": "Tải Xuống Ngay"
+  },
+  "wechat": {
+    "officialAccount": "WeChat Official Account",
+    "communityOfficialAccount": "Tài Khoản Cộng Đồng"
+  },
+  "brandBar": {
+    "title": "Các Nền Tảng Mạng Xã Hội Được Hỗ Trợ"
+  },
+  "buildSection": {
+    "badge": "Tính năng 1",
+    "title": "Đăng Nội Dung",
+    "titleBlue": " — Một Chạm Đa Nền Tảng",
+    "features": {
+      "hotTopic": {
+        "title": "Phân Phối Khắp Nơi",
+        "description": "Đăng lên nhiều nền tảng toàn cầu nhất (Douyin, Kwai, WeChat, Bilibili, Rednote, Facebook, Instagram, TikTok, LinkedIn, Threads, YouTube, Pinterest, X)."
+      },
+      "international": {
+        "title": "Lập Lịch Theo Lịch",
+        "description": "Lên kế hoạch và phối hợp nội dung như lịch trên tất cả các nền tảng. Bảng Điều Khiển Hợp Nhất: Quản lý mọi tương tác tại một nơi."
+      }
+    },
+    "carouselHint": "Sử dụng con lăn chuột để chuyển ảnh"
+  },
+  "hotspotSection": {
+    "badge": "Tính năng 2",
+    "title": "Nội Dung Hot — Cỗ Máy Cảm Hứng Lan Truyền",
+    "titleBlue": "Thư Viện Mẫu & Radar Xu Hướng",
+    "features": {
+      "hotTopic": {
+        "title": "Thư Viện Mẫu",
+        "description": "Khám phá cách người khác tạo bài đăng đạt 10.000+ lượt thích."
+      },
+      "international": {
+        "title": "Radar Xu Hướng",
+        "description": "Phát hiện xu hướng lan truyền mới nhất ngay lập tức, giảm lo âu cho nhà sáng tạo."
+      }
+    },
+    "carouselHint": "Sử dụng con lăn chuột để chuyển ảnh"
+  },
+  "searchSection": {
+    "badge": "Tính năng 3",
+    "title": "Tìm Kiếm Nội Dung — Thông Tin Thương Hiệu & Thị Trường",
+    "titleBlue": "Giám Sát Thương Hiệu & Khám Phá Nội Dung",
+    "features": {
+      "hotTopic": {
+        "title": "Giám Sát Thương Hiệu",
+        "description": "Theo dõi cuộc trò chuyện về thương hiệu của bạn theo thời gian thực."
+      },
+      "international": {
+        "title": "Khám Phá Nội Dung",
+        "description": "Tìm kiếm bài đăng, chủ đề và cộng đồng để tương tác có mục tiêu."
+      }
+    },
+    "carouselHint": "Sử dụng con lăn chuột để chuyển ảnh"
+  },
+  "commentsSection": {
+    "badge": "Tính năng 4",
+    "title": "Tìm Kiếm Bình Luận — Khai Thác Người Dùng Chính Xác",
+    "titleBlue": "Tìm Kiếm Bình Luận Thông Minh & Tăng Cường Chuyển Đổi",
+    "features": {
+      "hotTopic": {
+        "title": "Tìm Kiếm Bình Luận Thông Minh",
+        "description": "Phát hiện tín hiệu chuyển đổi cao như \"cho xin link\" hoặc \"mua thế nào\"."
+      },
+      "international": {
+        "title": "Tăng Cường Chuyển Đổi",
+        "description": "Trả lời ngay lập tức, thúc đẩy tương tác và doanh số cao hơn."
+      }
+    },
+    "carouselHint": "Sử dụng con lăn chuột để chuyển ảnh"
+  },
+  "connectSection": {
+    "badge": "Tính năng 5",
+    "title": "Tương Tác Nội Dung — Cỗ Máy Tăng Trưởng",
+    "titleBlue": "Bảng Điều Khiển Hợp Nhất & Tương Tác Chủ Động",
+    "features": {
+      "creation": {
+        "title": "Bảng Điều Khiển Hợp Nhất",
+        "description": "Quản lý mọi tương tác tại một nơi."
+      },
+      "distribution": {
+        "title": "Tương Tác Chủ Động",
+        "description": "Tham gia cuộc trò chuyện xu hướng, kết nối với khách hàng tiềm năng. Biến vận hành thụ động thành tăng trưởng lưu lượng chủ động."
+      }
+    },
+    "carouselHint": "Sử dụng con lăn chuột để chuyển ảnh"
+  },
+  "upcomingSection": {
+    "badge": "Sắp Ra Mắt",
+    "title": "Nền Tảng Tăng Trưởng & Kiếm Tiền Nội Dung Toàn Diện Hỗ Trợ Bởi AI",
+    "titleBlue": "Tính Năng Sắp Ra Mắt, Hãy Đón Chờ",
+    "features": {
+      "smartImport": {
+        "title": "Nhập Thông Minh",
+        "description": "Nhập nội dung cũ để chỉnh sửa nhanh và phân phối lại. Ví dụ: Đồng bộ bài đăng Xiaohongshu của bạn sang YouTube chỉ với một cú nhấp."
+      },
+      "analytics": {
+        "title": "Phân Tích Nội Dung — Dữ Liệu Toàn Phễu",
+        "description": "So Sánh Đa Nền Tảng: Một nền tảng có thể chặn lưu lượng, nhưng nền tảng khác thì không. Giám Sát Đầu Cuối: Theo dõi hiệu suất và xây dựng lộ trình đạt 1 triệu+ người theo dõi."
+      },
+      "aiCreation": {
+        "title": "Sáng Tạo Nội Dung AI — Trợ Lý Toàn Diện",
+        "description": "Viết Nội Dung AI: Tự động tạo tiêu đề, chú thích & mô tả. Bình Luận AI: Tương tác chủ động, thu hút lưu lượng. Tạo Hình Ảnh & Thẻ: Tăng tốc quy trình nội dung. Hỗ trợ các Mô hình Video AI và Mô hình Hình Ảnh."
+      },
+      "marketplace": {
+        "title": "Thị Trường Nội Dung — Giao Dịch & Kiếm Tiền",
+        "description": "Nhà Sáng Tạo: Bán nội dung trực tiếp, tìm người mua nhanh chóng. Thương Hiệu: Mua nội dung chất lượng cao có sẵn. Tăng Trưởng Hỗ Trợ Bởi AI: Hãy cùng dùng AI để kiếm tiền. Cùng nhau kiếm tiền nào!"
+      }
+    }
+  },
+  "downloadSection": {
+    "title": "Bắt Đầu Sáng Tạo Mọi Lúc, Mọi Nơi",
+    "titleBlue": "Quản Lý Dễ Dàng Trên Di Động",
+    "description": "Với ứng dụng di động AI ToEarn, sự sáng tạo của bạn không còn giới hạn trên máy tính. Chúng tôi cũng cung cấp ứng dụng iOS và Android để bạn thỏa sức sáng tạo mọi lúc mọi nơi, chỉ với một chiếc điện thoại!",
+    "qrCodeText": "Quét Mã QR để Tải Xuống",
+    "appStore": {
+      "text": "Tải về trên",
+      "store": "App Store"
+    },
+    "googlePlay": {
+      "text": "TẢI VỀ TRÊN",
+      "store": "Google Play"
+    }
+  },
+  "enterpriseSection": {
+    "badge": "Dịch Vụ Doanh Nghiệp",
+    "title": "Giải Pháp Truyền Thông Mạng Xã Hội AI Chuyên Nghiệp",
+    "titleBlue": "Thúc Đẩy Thành Công Tiếp Thị Doanh Nghiệp",
+    "subtitle": "Chuyển đổi tiếp thị AI doanh nghiệp không chỉ cần công cụ, mà còn cần hạ tầng vững chắc. AI ToEarn cung cấp nền tảng đáng tin cậy để phân phối năng lực sáng tạo nội dung AI đến nhiều phòng ban, đạt hiệu quả tiếp thị vượt trội."
+  },
+  "statsSection": {
+    "stats": {
+      "users": {
+        "number": "50K+",
+        "label": "Người Dùng"
+      },
+      "platforms": {
+        "number": "15+",
+        "label": "Nền Tảng Xã Hội"
+      },
+      "countries": {
+        "number": "100+",
+        "label": "Quốc Gia"
+      },
+      "content": {
+        "number": "5M+",
+        "label": "Nội Dung Đã Đăng"
+      }
+    },
+    "testimonial": {
+      "quote": "Trong bối cảnh tiếp thị nội dung cạnh tranh cao hiện nay, công cụ xác thực và sáng tạo nhanh chóng không chỉ hữu ích — chúng là yếu tố sống còn. Đối với các công ty tiếp thị như chúng tôi, AI ToEarn mang lại giá trị không thể thiếu trong lĩnh vực AI tiên phong này.",
+      "author": "John Smith",
+      "title": "Giám Đốc Vận Hành Nội Dung tại Công Ty MCN Hàng Đầu"
+    },
+    "caseStudies": {
+      "timeSaved": {
+        "title": "Thời gian sáng tạo nội dung tiết kiệm ước tính hàng năm",
+        "number": "50.000 giờ"
+      },
+      "aiAssistant": {
+        "title": "Trợ Lý Tiếp Thị AI: Phục vụ 500+ khách hàng doanh nghiệp với phân phối nội dung đa nền tảng"
+      }
+    }
+  },
+  "communitySection": {
+    "badge": "Hệ Sinh Thái Cộng Đồng",
+    "title": "Tham Gia",
+    "titleBlue": "Cộng Đồng Nhà Sáng Tạo Sôi Động",
+    "subtitle": "AI ToEarn được thúc đẩy bởi cộng đồng nhà sáng tạo nội dung AI toàn cầu. Hãy tham gia cùng chúng tôi để khám phá ranh giới vô hạn của tiếp thị nội dung AI.",
+    "buttons": {
+      "wechat": "Nhóm WeChat",
+      "community": "Cộng Đồng Sáng Tạo"
+    },
+    "wechatPopup": "Quét mã QR để theo dõi Tài Khoản Chính Thức WeChat",
+    "communityPopup": "Quét mã QR để tham gia nhóm cộng đồng",
+    "stats": {
+      "downloads": {
+        "number": "200K+",
+        "label": "Lượt Tải"
+      },
+      "members": {
+        "number": "15K",
+        "label": "Thành Viên Cộng Đồng"
+      },
+      "creators": {
+        "number": "500+",
+        "label": "Nhà Sáng Tạo Tích Cực"
+      }
+    }
+  },
+  "footer": {
+    "resources": {
+      "title": "Tài Nguyên",
+      "links": {
+        "docs": "Tài Liệu",
+        "blog": "Blog",
+        "download": "Tải Xuống",
+        "education": "Giáo Dục",
+        "partner": "Đối Tác",
+        "support": "Hỗ Trợ",
+        "roadmap": "Lộ Trình"
+      }
+    },
+    "company": {
+      "title": "Công Ty",
+      "links": {
+        "talk": "Liên Hệ",
+        "terms": "Điều Khoản Dịch Vụ",
+        "privacy": "Chính Sách Bảo Mật",
+        "cookies": "Cài Đặt Cookie",
+        "data": "Thỏa Thuận Bảo Vệ Dữ Liệu",
+        "marketplace": "Thỏa Thuận Thị Trường",
+        "brand": "Hướng Dẫn Thương Hiệu"
+      }
+    },
+    "description": "Giải pháp nền tảng quản lý mạng xã hội toàn diện AI ToEarn, từ cảm hứng sáng tạo đến sản xuất nội dung, từ phân phối nội dung đến quản lý tương tác nội dung",
+    "social": {
+      "github": "GitHub",
+      "discord": "Discord",
+      "youtube": "YouTube",
+      "linkedin": "LinkedIn",
+      "twitter": "Twitter"
+    },
+    "bigText": "Hãy Cùng Dùng AI Để",
+    "copyright": "© 2025 Nền tảng AI Việt Trí Thông, Công Nghệ",
+    "tagline": "",
+    "dataDeletion": {
+      "title": "Hướng Dẫn Xóa Dữ Liệu",
+      "prelaunch": "Ứng dụng của chúng tôi hiện đang trong giai đoạn tiền ra mắt và chưa lưu trữ dữ liệu người dùng thực. Nếu bạn đã tương tác với hệ thống thử nghiệm của chúng tôi, hãy liên hệ để xóa dữ liệu.",
+      "standardTitle": "Quy Trình Chuẩn (Sau Khi Ra Mắt):",
+      "standardSteps": [
+        "Đăng nhập vào tài khoản Nền tảng AI Việt Trí Thông của bạn",
+        "Điều hướng đến Cài đặt > Quyền riêng tư",
+        "Nhấp \"Yêu Cầu Xóa Tài Khoản\"",
+        "Xác nhận sẽ được gửi đến email đã đăng ký của bạn"
+      ],
+      "contactTitle": "Liên Hệ Để Được Hỗ Trợ:",
+      "contactEmail": "Email: metat@yuezhitonging.com (Chỉ dành cho yêu cầu giai đoạn tiền ra mắt)"
+    }
+  },
+  "ecosystem": {
+    "title": "Tìm Hiểu Nền tảng AI Việt Trí Thông",
+    "subtitle": "Hệ Sinh Thái Sáng Tạo & Kiếm Tiền Nội Dung Hỗ Trợ Bởi AI",
+    "creator": "Nhà Sáng Tạo Nội Dung",
+    "consumer": "Người Tiêu Dùng Nội Dung",
+    "publish": "Đăng Nội Dung",
+    "publishDesc": "Phân phối đa nền tảng một chạm",
+    "publishDetails": [
+      "Douyin, Xiaohongshu (Rednote), WeChat Video, Kuaishou, Bilibili, WeChat Official Account",
+      "TikTok, YouTube, Facebook, Instagram, Threads, Twitter (X), Pinterest, LinkedIn"
+    ],
+    "create": "Sáng Tạo Nội Dung",
+    "createDesc": "AI tạo video, hình ảnh, nội dung",
+    "createDetails": [
+      "Tạo Video: Veo3.1, Sora-2",
+      "Tạo & Chỉnh Sửa Hình Ảnh: Nano banana Pro, GPT-image-1.5",
+      "Chỉnh Sửa Video: Kết hợp, trộn, xoay, chia, tốc độ, cắt, chuyển cảnh, hiệu ứng, âm thanh, văn bản, bộ lọc & hơn thế nữa",
+      "Hiểu Video: Nhận diện video dựa trên AI đa phương thức",
+      "Chuyển Đổi Phong Cách Video: Chuyển video thực thành phong cách anime, hoạt hình hoặc phác thảo",
+      "Dịch Video: Nhân bản giọng nói, đồng bộ khẩu hình, hỗ trợ tiếng Trung, Anh, Nhật, Hàn, Đức, Pháp, Nga, Thái, Tây Ban Nha, Bồ Đào Nha, Ý & hơn thế nữa",
+      "Cắt Thông Minh: Trích xuất điểm nổi bật từ phim truyền hình, chương trình TV, livestream & video dài"
+    ],
+    "manage": "Quản Lý Nội Dung",
+    "manageDesc": "Tự động thích, lưu, bình luận",
+    "manageDetails": [
+      "Tự động thích, lưu và bình luận trên nội dung cụ thể"
+    ],
+    "analyze": "Phân Tích Nội Dung",
+    "analyzeDesc": "Xu hướng toàn cầu & cảm hứng sáng tạo",
+    "analyzeDetails": [
+      "Chủ Đề Xu Hướng Toàn Cầu",
+      "Cảm Hứng Sáng Tạo"
+    ],
+    "dashboard": "Bảng Dữ Liệu",
+    "dashboardDesc": "Phân tích dữ liệu hợp nhất đa nền tảng",
+    "dashboardDetails": [
+      "Phân tích dữ liệu hợp nhất trên tất cả các nền tảng"
+    ],
+    "trade": "Giao Dịch Nội Dung",
+    "sell": "Bán",
+    "buy": "Mua",
+    "platforms": "Nền Tảng Hỗ Trợ",
+    "features": {
+      "video": "Tạo Video: Veo3.1, Sora-2",
+      "image": "Tạo & Chỉnh Sửa Hình Ảnh: Nano banana Pro, GPT-image-1.5",
+      "edit": "Chỉnh Sửa Video: Kết hợp, trộn, xoay, chia, tốc độ, cắt, chuyển cảnh, hiệu ứng, âm thanh, văn bản, bộ lọc & hơn thế nữa",
+      "understand": "Hiểu Video: Nhận diện video dựa trên AI đa phương thức",
+      "style": "Chuyển Đổi Phong Cách Video: Chuyển video thực thành phong cách anime, hoạt hình hoặc phác thảo",
+      "translate": "Dịch Video: Nhân bản giọng nói, đồng bộ khẩu hình, hỗ trợ tiếng Trung, Anh, Nhật, Hàn, Đức, Pháp, Nga, Thái, Tây Ban Nha, Bồ Đào Nha, Ý & hơn thế nữa",
+      "clip": "Cắt Thông Minh: Trích xuất điểm nổi bật từ phim truyền hình, chương trình TV, livestream & video dài"
+    }
+  }
+}

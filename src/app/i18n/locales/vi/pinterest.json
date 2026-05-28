@@ -1,0 +1,21 @@
+{
+  "title": "Pinterest",
+  "description": "Quản lý tài khoản Pinterest",
+  "connect": "Kết nối Pinterest",
+  "disconnect": "Ngắt kết nối",
+  "connected": "Đã kết nối",
+  "notConnected": "Chưa kết nối",
+  "createPin": "Tạo Pin",
+  "boards": "Bảng",
+  "noBoards": "Không có bảng",
+  "uploadImage": "Tải ảnh lên",
+  "pinTitle": "Tiêu đề Pin",
+  "pinDescription": "Mô tả Pin",
+  "destinationLink": "Liên kết đích",
+  "publish": "Xuất bản",
+  "publishing": "Đang xuất bản...",
+  "publishSuccess": "Xuất bản thành công",
+  "publishFailed": "Xuất bản thất bại",
+  "schedule": "Lên lịch",
+  "analytics": "Phân tích"
+}

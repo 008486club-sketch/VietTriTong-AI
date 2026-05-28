@@ -1,0 +1,149 @@
+{
+  "title": "Xuất bản",
+  "allChannels": "Tất cả kênh",
+  "publish": "Xuất bản",
+  "videoCover": {
+    "title": "Đặt ảnh bìa",
+    "localUpload": "Tải lên",
+    "coverPreview": "Xem trước bìa",
+    "grabFrameFailed": "Lấy khung hình thất bại, thử lại",
+    "uploadFailed": "Tải bìa lên thất bại, thử lại",
+    "loading": "Đang tải...",
+    "selectFrame": "Chọn khung hình",
+    "aspectRatio": "Tỷ lệ",
+    "free": "Tự do"
+  },
+  "confirmClose": {
+    "title": "Xác nhận đóng",
+    "content": "Sau khi đóng, nội dung đã điền sẽ được lưu. Bạn có thể khôi phục khi mở lại. Xác nhận đóng?"
+  },
+  "restoreData": {
+    "title": "Nhắc nhở",
+    "content": "Hệ thống phát hiện bạn có bản ghi xuất bản chưa hoàn thành. Bạn có muốn khôi phục?",
+    "okText": "Khôi phục",
+    "cancelText": "Không khôi phục"
+  },
+  "buttons": {
+    "customizePerAccount": "Tùy chỉnh mỗi tài khoản",
+    "cancel": "Hủy",
+    "cancelPublish": "Hủy xuất bản",
+    "schedulePublish": "Hẹn giờ đăng",
+    "publishNow": "Đăng ngay",
+    "copyLink": "Sao chép liên kết",
+    "delete": "Xóa",
+    "confirm": "Xác nhận",
+    "morePublishOptions": "Thêm tùy chọn đăng",
+    "morePostingActions": "Thêm thao tác đăng",
+    "defaultPublishAction": "Thao tác đăng mặc định",
+    "setDateTime": "Đặt ngày giờ",
+    "publishNowDesc": "Đăng bài ngay lập tức.",
+    "schedulePublishDesc": "Chọn thời gian cụ thể để đăng."
+  },
+  "publishing": {
+    "title": "Đang xuất bản",
+    "subtitle": "Vui lòng đợi trong khi chúng tôi xuất bản nội dung của bạn",
+    "progress": "Tiến độ",
+    "success": "Xuất bản thành công",
+    "partialSuccess": "Một số kênh xuất bản thành công",
+    "failed": "Xuất bản thất bại",
+    "retry": "Thử lại",
+    "viewPost": "Xem bài đăng",
+    "close": "Đóng",
+    "publishingTo": "Đang đăng lên {{platform}}",
+    "publishedCount": "Đã đăng {{count}}/{{total}}",
+    "remaining": "Còn lại",
+    "completed": "Hoàn thành",
+    "cancelled": "Đã hủy"
+  },
+  "schedule": {
+    "title": "Lên lịch đăng",
+    "selectDate": "Chọn ngày",
+    "selectTime": "Chọn giờ",
+    "timezone": "Múi giờ",
+    "scheduled": "Đã lên lịch",
+    "scheduleSuccess": "Lên lịch thành công",
+    "scheduleFailed": "Lên lịch thất bại",
+    "scheduledPosts": "Bài đã lên lịch",
+    "noScheduledPosts": "Không có bài lên lịch",
+    "cancelSchedule": "Hủy lịch",
+    "cancelConfirm": "Hủy lịch đăng này?"
+  },
+  "accounts": {
+    "title": "Chọn tài khoản",
+    "selected": "Đã chọn",
+    "selectAll": "Chọn tất cả",
+    "deselectAll": "Bỏ chọn tất cả",
+    "noAccounts": "Không có tài khoản",
+    "addAccount": "Thêm tài khoản",
+    "accountStatus": {
+      "ready": "Sẵn sàng",
+      "expired": "Hết hạn",
+      "error": "Lỗi",
+      "publishing": "Đang đăng"
+    }
+  },
+  "content": {
+    "title": "Nội dung",
+    "textContent": "Văn bản",
+    "mediaContent": "Media",
+    "addMedia": "Thêm media",
+    "removeMedia": "Xóa media",
+    "caption": "Chú thích",
+    "hashtags": "Hashtag",
+    "mentionUsers": "Nhắc đến",
+    "location": "Địa điểm",
+    "link": "Liên kết",
+    "noContent": "Chưa có nội dung",
+    "draftSaved": "Bản nháp đã lưu",
+    "autoSave": "Tự động lưu",
+    "characterCount": "{{current}}/{{max}} ký tự",
+    "mediaCount": "{{current}}/{{max}} media",
+    "title_short": "Tiêu đề",
+    "description": "Mô tả"
+  },
+  "platformSettings": {
+    "title": "Cài đặt nền tảng",
+    "perPlatform": "Cài đặt mỗi nền tảng",
+    "globalSettings": "Cài đặt chung",
+    "visibility": "Hiển thị",
+    "public": "Công khai",
+    "private": "Riêng tư",
+    "unlisted": "Không công khai",
+    "allowComments": "Cho phép bình luận",
+    "allowDuet": "Cho phép Duet",
+    "allowStitch": "Cho phép Stitch",
+    "brandedContent": "Nội dung thương hiệu",
+    "ageRestriction": "Giới hạn độ tuổi"
+  },
+  "errors": {
+    "noAccountSelected": "Vui lòng chọn ít nhất một tài khoản",
+    "noContentToPublish": "Vui lòng thêm nội dung để xuất bản",
+    "publishFailed": "Xuất bản thất bại. Vui lòng thử lại.",
+    "networkError": "Lỗi mạng. Vui lòng kiểm tra kết nối.",
+    "accountExpired": "Một số tài khoản đã hết hạn. Vui lòng kết nối lại.",
+    "mediaUploadFailed": "Tải media lên thất bại",
+    "fileTooBig": "Tệp quá lớn",
+    "unsupportedFormat": "Định dạng không được hỗ trợ",
+    "rateLimitExceeded": "Vượt quá giới hạn. Vui lòng thử lại sau.",
+    "unknownError": "Lỗi không xác định"
+  },
+  "success": {
+    "published": "Đã xuất bản thành công!",
+    "scheduled": "Đã lên lịch thành công!",
+    "saved": "Đã lưu bản nháp!"
+  },
+  "preview": {
+    "title": "Xem trước",
+    "desktop": "Máy tính",
+    "mobile": "Điện thoại",
+    "noPreview": "Không có bản xem trước"
+  },
+  "history": {
+    "title": "Lịch sử xuất bản",
+    "recent": "Gần đây",
+    "all": "Tất cả",
+    "noHistory": "Chưa có lịch sử xuất bản",
+    "republish": "Đăng lại",
+    "deleteRecord": "Xóa bản ghi"
+  }
+}

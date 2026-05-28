@@ -1,0 +1,83 @@
+{
+  "title": "定价方案",
+  "subtitle": "从单人创作者到企业品牌，找到适合你的方案",
+  "contactUs": "联系我们获取定制方案",
+  "plans": [
+    {
+      "id": "starter",
+      "name": "单人创作者",
+      "price": "¥50",
+      "unit": "/条AI视频",
+      "description": "适合TikTok个人创作者，快速产出专业AI视频",
+      "features": [
+        "Seedance 2.0 AI视频生成",
+        "1080P高清输出",
+        "基础剪辑+配乐",
+        "TikTok格式适配",
+        "3天内交付"
+      ],
+      "cta": "开始创作",
+      "ctaHref": "/chat",
+      "highlight": false
+    },
+    {
+      "id": "growth",
+      "name": "成长品牌",
+      "price": "¥350",
+      "unit": "/5条AI视频",
+      "description": "适合小型品牌，AI视频 + TikTok运营指导",
+      "features": [
+        "全部单人版功能",
+        "品牌风格定制",
+        "TikTok运营指导",
+        "越语配音+字幕",
+        "多平台格式适配",
+        "5个工作日内交付"
+      ],
+      "cta": "获取方案",
+      "ctaHref": "/chat",
+      "highlight": true
+    },
+    {
+      "id": "enterprise",
+      "name": "企业全托管",
+      "price": "详询",
+      "unit": "/月",
+      "description": "适合中大型品牌，全托管 TikTok + 社媒运营",
+      "features": [
+        "全部成长版功能",
+        "TikTok账号全托管",
+        "月度内容日历",
+        "AI视频批量生产",
+        "社媒跨平台发布",
+        "数据分析报告",
+        "专属客户经理"
+      ],
+      "cta": "联系销售",
+      "ctaHref": "/zh-CN/websit/contact",
+      "highlight": false
+    }
+  ],
+  "disclaimer": "* 所有方案均支持BytePlus Seedance 2.0顶级AI视频引擎。价格不含税。",
+  "faq": {
+    "title": "常见问题",
+    "items": [
+      {
+        "q": "AI视频支持哪些平台？",
+        "a": "主要优化TikTok格式（9:16竖屏），同时支持YouTube Shorts、Instagram Reels、Facebook Reels等主流短视频平台。"
+      },
+      {
+        "q": "交付周期是多久？",
+        "a": "单人版3个工作日内，成长版5个工作日内。企业版根据月度计划灵活安排。"
+      },
+      {
+        "q": "支持越南语配音吗？",
+        "a": "支持。我们提供标准越南语配音+字幕，也支持中英双语字幕。"
+      },
+      {
+        "q": "可以自定义品牌风格吗？",
+        "a": "成长版及以上支持品牌色、Logo、字体等自定义，确保视频风格与品牌一致。"
+      }
+    ]
+  }
+}

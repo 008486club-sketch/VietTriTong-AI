@@ -1,0 +1,14 @@
+{
+  "title": "YouTube",
+  "description": "Quản lý kênh YouTube",
+  "connect": "Kết nối YouTube",
+  "disconnect": "Ngắt kết nối",
+  "connected": "Đã kết nối",
+  "notConnected": "Chưa kết nối",
+  "upload": "Tải lên video",
+  "schedule": "Lên lịch",
+  "analytics": "Phân tích",
+  "comments": "Bình luận",
+  "noVideos": "Không có video",
+  "processing": "Đang xử lý"
+}

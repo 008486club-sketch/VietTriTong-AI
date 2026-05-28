@@ -1,0 +1,19 @@
+{
+  "title": "Hồ sơ cá nhân",
+  "editProfile": "Sửa hồ sơ",
+  "avatar": "Ảnh đại diện",
+  "username": "Tên người dùng",
+  "email": "Email",
+  "phone": "Số điện thoại",
+  "bio": "Giới thiệu",
+  "save": "Lưu",
+  "saving": "Đang lưu...",
+  "saveSuccess": "Lưu thành công",
+  "saveFailed": "Lưu thất bại",
+  "changeAvatar": "Đổi ảnh đại diện",
+  "uploadAvatar": "Tải ảnh lên",
+  "removeAvatar": "Xóa ảnh đại diện",
+  "accountInfo": "Thông tin tài khoản",
+  "memberSince": "Tham gia từ",
+  "accountType": "Loại tài khoản"
+}

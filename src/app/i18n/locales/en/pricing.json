@@ -1,0 +1,83 @@
+{
+  "title": "Pricing Plans",
+  "subtitle": "From solo creators to enterprise brands, find the right plan",
+  "contactUs": "Contact us for custom pricing",
+  "plans": [
+    {
+      "id": "starter",
+      "name": "Solo Creator",
+      "price": "200.000₫",
+      "unit": "/AI video",
+      "description": "For TikTok solo creators, produce professional AI videos fast",
+      "features": [
+        "Seedance 2.0 AI video generation",
+        "1080P HD output",
+        "Basic editing + music",
+        "TikTok format optimized",
+        "Delivery in 3 days"
+      ],
+      "cta": "Start Creating",
+      "ctaHref": "/chat",
+      "highlight": false
+    },
+    {
+      "id": "growth",
+      "name": "Growing Brand",
+      "price": "1.400.000₫",
+      "unit": "/5 AI videos",
+      "description": "For small brands, AI videos + TikTok operation guidance",
+      "features": [
+        "All Solo features",
+        "Brand style customization",
+        "TikTok operation guidance",
+        "Vietnamese voiceover + subtitles",
+        "Multi-platform format",
+        "Delivery in 5 business days"
+      ],
+      "cta": "Get Started",
+      "ctaHref": "/chat",
+      "highlight": true
+    },
+    {
+      "id": "enterprise",
+      "name": "Enterprise",
+      "price": "Contact Us",
+      "unit": "/month",
+      "description": "For large brands, fully managed TikTok + social media",
+      "features": [
+        "All Brand features",
+        "Full TikTok account management",
+        "Monthly content calendar",
+        "Bulk AI video production",
+        "Cross-platform publishing",
+        "Data analytics reports",
+        "Dedicated account manager"
+      ],
+      "cta": "Contact Sales",
+      "ctaHref": "/en/websit/contact",
+      "highlight": false
+    }
+  ],
+  "disclaimer": "* All plans powered by BytePlus Seedance 2.0 AI video engine. Prices exclude tax.",
+  "faq": {
+    "title": "FAQ",
+    "items": [
+      {
+        "q": "Which platforms are supported?",
+        "a": "Primarily optimized for TikTok (9:16 vertical), also supports YouTube Shorts, Instagram Reels, Facebook Reels, and other short video platforms."
+      },
+      {
+        "q": "What's the delivery timeline?",
+        "a": "Solo: 3 business days. Brand: 5 business days. Enterprise: flexible monthly schedule."
+      },
+      {
+        "q": "Do you support Vietnamese voiceover?",
+        "a": "Yes, we provide standard Vietnamese voiceover + subtitles, as well as bilingual Chinese-Vietnamese subtitles."
+      },
+      {
+        "q": "Can I customize brand style?",
+        "a": "Brand tier and above supports custom brand colors, logo, and fonts for consistent brand identity."
+      }
+    ]
+  }
+}

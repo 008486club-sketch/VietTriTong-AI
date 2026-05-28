@@ -1,0 +1,185 @@
+{
+  "common": {
+    "previous": "上一个",
+    "next": "下一个"
+  },
+  "seo": {
+    "title": "AI驱动的社媒内容创作与管理平台",
+    "description": "越智通AI平台为越南企业提供TikTok运营、AI视频制作和社媒账号托管服务。一键多平台发布，AI自动创作，帮您降低90%内容成本。",
+    "keywords": "AI视频制作,TikTok越南运营,社媒管理,多平台发布,AI营销,内容创作,社交媒体自动化,越智通AI平台,越南市场,一键发布"
+  },
+  "navbar": {
+    "pricing": "定价",
+    "docs": "文档",
+    "brandPromotion": "产品",
+    "aiSocial": "AI发布",
+    "login": "登录",
+    "getDemo": "免费开始"
+  },
+  "hero": {
+    "badge": "BytePlus 战略合作伙伴 · Seedance 2.0 驱动",
+    "title": "一人公司的AI运营员工",
+    "subtitle": "越智通AI是BytePlus生态合作伙伴，接入Seedance 2.0顶级AI视频引擎。TikTok越南运营 + AI视频制作 + 社媒全域托管，帮您的品牌在越南市场快速起量。",
+    "placeholder": "输入您的品牌名称",
+    "cta": "获取我的AI助手",
+    "selectFirst": "请先输入品牌名称",
+    "tags": {
+      "aiVideo": "AI视频制作",
+      "socialMedia": "社媒托管"
+    },
+    "error": {
+      "draftFailed": "创建草稿失败，请重试"
+    }
+  },
+  "owners": {
+    "title": "越南企业主的信赖之选",
+    "subtitle": "使用 越智通AI平台，获得更多流量、更多销售、更多客户"
+  },
+  "features": {
+    "title": "使用 越智通AI平台，获得更多流量、更多销售、更多客户",
+    "onlineOrdering": {
+      "title": "TikTok越南运营",
+      "description": "专业TikTok内容策略，AI生成+人工精修，越南本地化运营"
+    },
+    "mobileApp": {
+      "title": "AI视频制作",
+      "description": "接入Seedance 2.0等顶级AI视频引擎，单条视频¥50-100，帮您降本60%+"
+    },
+    "marketing": {
+      "title": "社媒全域托管",
+      "description": "内容策划→AI创作→多平台发布→评论互动，全流程自动化"
+    }
+  },
+  "reviews": {
+    "title": "用户评价",
+    "subtitle": "加入数千位信任 越智通AI平台 的企业主和创业者",
+    "viewOnGithub": "在 GitHub 上查看",
+    "review1": {
+      "content": "终于有支持TikTok越南的多平台发布工具！一键发布到TikTok、Facebook、YouTube，每周省下大把时间。"
+    },
+    "review2": {
+      "content": "AI视频功能太强了，以前请团队拍一条15秒视频成本上千，现在AI自动生成效果不输专业团队。"
+    },
+    "review3": {
+      "content": "作为在越南做电商的创业者，越智通AI平台的社媒托管让我把精力放回产品和客户上。社媒涨粉全靠它。"
+    },
+    "review4": {
+      "content": "最棒的是支持越南语内容。AI生成后自动优化成地道的越南语文案，本地客户看了就说好。"
+    },
+    "review5": {
+      "content": "按量付费太良心了。用多少付多少，不做内容的时候不收费。对我们小品牌来说非常友好。"
+    },
+    "review6": {
+      "content": "接入了Seedance和多个AI视频引擎，一条指令几分钟出片。15秒探店视频、产品展示视频，全自动搞定。"
+    },
+    "review7": {
+      "content": "越南市场很特别，TikTok是绝对主力。越智通AI平台懂越南，运营策略都是本地化的，不是套模版。"
+    },
+    "review8": {
+      "content": "自动评论回复帮了大忙。AI识别越南语评论自动互动，客户觉得我们24小时在线。"
+    },
+    "review9": {
+      "content": "支持15+平台，从TikTok到Zalo到微信。真正的一站式，再也不用每个平台单独登录发了。"
+    }
+  },
+  "tech": {
+    "title": "AI 生成专业社媒视频",
+    "subtitle": "接入顶级AI引擎，单条成本下降90%+",
+    "description": "BytePlus Seedance 2.0 + 多AI引擎驱动。文字转视频、图片转视频，15秒探店到3分钟品牌片全覆盖。越南市场AI视频能力第一梯队。",
+    "playVideo": "播放视频",
+    "video1": {
+      "title": "产品展示 AI 视频"
+    },
+    "video2": {
+      "title": "品牌故事短视频"
+    },
+    "video3": {
+      "title": "探店推广视频"
+    }
+  },
+  "testimonials": {
+    "title": "听听越南品牌方怎么说",
+    "watchVideo": "观看视频"
+  },
+  "beliefs": {
+    "title": "为什么选择 越智通AI平台",
+    "subtitle": "专注越南市场，服务出海品牌和本地企业",
+    "belief1": {
+      "title": "BytePlus生态 · 顶级技术底座",
+      "description": "越智通AI是BytePlus官方生态合作伙伴，直接接入Seedance 2.0等最新AI视频引擎。技术底子硬，不是套壳产品。"
+    },
+    "belief2": {
+      "title": "全流程 AI 托管",
+      "description": "策划、创作、优化、发布、评论互动全自动。AI 代替重复劳动，你专注业务增长。"
+    },
+    "belief4": {
+      "title": "按量付费，透明定价",
+      "description": "没有订阅捆绑，没有隐藏费用。用多少付多少，积分12个月有效，定价透明不额外加价。"
+    }
+  },
+  "guides": {
+    "title": "核心功能",
+    "subtitle": "三大能力，助力越南市场品牌增长",
+    "viewDocs": "查看文档",
+    "learnMore": "了解更多",
+    "feature1": {
+      "title": "TikTok越南运营",
+      "subtitle": "AI创作 + 本地化策略",
+      "description": "专业TikTok内容策略规划，AI自动生成视频和文案，越南本地化优化，数据驱动持续迭代。"
+    },
+    "feature2": {
+      "title": "AI视频工厂 · BytePlus驱动",
+      "subtitle": "Seedance 2.0 + 多引擎，降本60%+",
+      "description": "BytePlus生态直接接入Seedance 2.0等顶级AI视频引擎。文字→视频、图片→视频，15秒探店到3分钟品牌片全覆盖。单条¥50-100，帮越南品牌降本60%以上。"
+    },
+    "feature3": {
+      "title": "社媒全域托管",
+      "subtitle": "一条内容，15+平台自动发布",
+      "description": "支持TikTok、Facebook、YouTube、Instagram、Zalo等15+平台，自动评论互动，AI模型集成。"
+    }
+  },
+  "experience": {
+    "title": "使用 越智通AI平台，获得更多流量、更多销售、更多客户",
+    "subtitle": "从TikTok运营到多平台发布，让 AI 为您代劳",
+    "tab1": {
+      "title": "TikTok越南运营",
+      "subtitle": "AI创作 + 本地策略",
+      "description": "我们为你的品牌制定越南TikTok内容策略，AI自动生成专业视频和文案，持续优化提升曝光。"
+    },
+    "tab2": {
+      "title": "多平台发布",
+      "subtitle": "一条内容，全平台覆盖",
+      "description": "一次创建，全网同步。支持以下所有平台："
+    },
+    "tab3": {
+      "title": "AI 视频创作",
+      "subtitle": "全流程 AI 处理",
+      "description": "从策划到生成到优化，Seedance 2.0等顶级AI引擎驱动。文字转视频、图片转视频，全自动。"
+    },
+    "tab4": {
+      "title": "自动化社媒互动",
+      "subtitle": "浏览器插件驱动",
+      "description": "强大的浏览器插件，在任何社媒平台自动化互动。点赞、评论、关注、养号——全自动，每天节省数小时。"
+    }
+  },
+  "footer": {
+    "ctaTitle": "开始试用，注册即送100积分！",
+    "startTrial": "立即开始",
+    "resources": "资源",
+    "account": "账户",
+    "legal": "法律协议",
+    "docs": "文档",
+    "login": "登录",
+    "register": "注册",
+    "privacy": "隐私政策",
+    "terms": "服务条款",
+    "dataProtection": "数据保护协议",
+    "dataDeletion": "数据删除",
+    "pluginGuide": "插件使用指南",
+    "extensionPrivacy": "扩展隐私政策",
+    "contact": "联系我们",
+    "supportedPlatforms": "支持平台",
+    "copyright": "© 2026 越智通AI平台. 保留所有权利。",
+    "caseStudies": "客户案例"
+  }
+}

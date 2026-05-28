@@ -1,0 +1,15 @@
+/*  全局css变量 - 越智通 */
+:root {
+  --gradientBackColor: linear-gradient(to right, #d4af37, #1a1a2e);
+
+  /* 品牌色 - 越智通 */
+  --brand-purple: #d4af37;        /* 金色 */
+  --brand-cyan: #1a1a2e;          /* 深黑 */
+
+  /* Section 交替背景色 */
+  --section-alt-bg: #f8f9fa;
+}
+
+.dark {
+  --section-alt-bg: rgba(255, 255, 255, 0.03);
+}

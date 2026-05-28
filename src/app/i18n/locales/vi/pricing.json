@@ -1,0 +1,83 @@
+{
+  "title": "Bảng giá",
+  "subtitle": "Từ nhà sáng tạo cá nhân đến doanh nghiệp, tìm gói phù hợp với bạn",
+  "contactUs": "Liên hệ để được tư vấn gói tùy chỉnh",
+  "plans": [
+    {
+      "id": "starter",
+      "name": "Cá nhân",
+      "price": "200.000₫",
+      "unit": "/video AI",
+      "description": "Dành cho nhà sáng tạo TikTok cá nhân, sản xuất video AI chuyên nghiệp nhanh chóng",
+      "features": [
+        "Tạo video AI Seedance 2.0",
+        "Đầu ra HD 1080P",
+        "Chỉnh sửa cơ bản + nhạc nền",
+        "Định dạng TikTok tối ưu",
+        "Giao trong 3 ngày"
+      ],
+      "cta": "Bắt đầu",
+      "ctaHref": "/chat",
+      "highlight": false
+    },
+    {
+      "id": "growth",
+      "name": "Thương hiệu",
+      "price": "1.400.000₫",
+      "unit": "/5 video AI",
+      "description": "Dành cho thương hiệu nhỏ, video AI + hướng dẫn vận hành TikTok",
+      "features": [
+        "Tất cả tính năng gói Cá nhân",
+        "Tùy chỉnh phong cách thương hiệu",
+        "Hướng dẫn vận hành TikTok",
+        "Lồng tiếng + phụ đề tiếng Việt",
+        "Định dạng đa nền tảng",
+        "Giao trong 5 ngày làm việc"
+      ],
+      "cta": "Nhận tư vấn",
+      "ctaHref": "/chat",
+      "highlight": true
+    },
+    {
+      "id": "enterprise",
+      "name": "Doanh nghiệp",
+      "price": "Liên hệ",
+      "unit": "/tháng",
+      "description": "Dành cho thương hiệu lớn, quản lý toàn diện TikTok + mạng xã hội",
+      "features": [
+        "Tất cả tính năng gói Thương hiệu",
+        "Quản lý tài khoản TikTok toàn diện",
+        "Lịch nội dung hàng tháng",
+        "Sản xuất video AI hàng loạt",
+        "Đăng bài đa nền tảng",
+        "Báo cáo phân tích dữ liệu",
+        "Quản lý khách hàng riêng"
+      ],
+      "cta": "Liên hệ",
+      "ctaHref": "/vi/websit/contact",
+      "highlight": false
+    }
+  ],
+  "disclaimer": "* Tất cả gói đều sử dụng công nghệ video AI BytePlus Seedance 2.0. Giá chưa bao gồm thuế.",
+  "faq": {
+    "title": "Câu hỏi thường gặp",
+    "items": [
+      {
+        "q": "Video AI hỗ trợ những nền tảng nào?",
+        "a": "Tối ưu chính cho TikTok (định dạng dọc 9:16), đồng thời hỗ trợ YouTube Shorts, Instagram Reels, Facebook Reels và các nền tảng video ngắn phổ biến khác."
+      },
+      {
+        "q": "Thời gian giao hàng là bao lâu?",
+        "a": "Gói Cá nhân: 3 ngày làm việc. Gói Thương hiệu: 5 ngày làm việc. Gói Doanh nghiệp linh hoạt theo kế hoạch hàng tháng."
+      },
+      {
+        "q": "Có hỗ trợ lồng tiếng Việt không?",
+        "a": "Có. Chúng tôi cung cấp lồng tiếng + phụ đề tiếng Việt chuẩn, cũng hỗ trợ phụ đề song ngữ Trung-Việt."
+      },
+      {
+        "q": "Có thể tùy chỉnh phong cách thương hiệu không?",
+        "a": "Gói Thương hiệu trở lên hỗ trợ tùy chỉnh màu sắc thương hiệu, Logo, font chữ để đảm bảo video đồng nhất với nhận diện thương hiệu."
+      }
+    ]
+  }
+}

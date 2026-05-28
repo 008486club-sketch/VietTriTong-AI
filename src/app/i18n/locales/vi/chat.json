@@ -1,0 +1,227 @@
+{
+  "input": {
+    "placeholder": "Tạo video quảng cáo dọc 8 giây cho đĩa Sushi mới của chúng tôi. Sử dụng nhạc jazz vui tươi, cảnh quay cận cảnh cá hồi tươi, tạo phụ đề và kết thúc bằng logo của chúng tôi.",
+    "send": "Gửi",
+    "stop": "Dừng",
+    "uploading": "Đang tải lên...",
+    "upload": "Tải lên",
+    "linkPromotionPlan": "Liên kết kế hoạch quảng bá (để agent vận hành kế hoạch quảng bá của bạn)",
+    "selectPromotionPlan": "Chọn kế hoạch quảng bá",
+    "noPromotionPlan": "Chưa có kế hoạch quảng bá",
+    "clearSelection": "Xóa lựa chọn"
+  },
+  "message": {
+    "thinking": "Đang suy nghĩ...",
+    "error": "Thao tác thất bại, vui lòng thử lại",
+    "loadFailed": "Tải thất bại",
+    "connectionInterrupted": "Kết nối bị gián đoạn"
+  },
+  "error": {
+    "insufficientCredits": {
+      "title": "Không đủ điểm Agent",
+      "content": "Điểm Agent của bạn không đủ, vui lòng đăng ký thành viên",
+      "okText": "OK"
+    }
+  },
+  "task": {
+    "newChat": "Cuộc trò chuyện mới",
+    "delete": "Xóa",
+    "deleteConfirm": "Bạn có chắc chắn muốn xóa cuộc trò chuyện này không?",
+    "deleteSuccess": "Đã xóa thành công",
+    "deleteFailed": "Xóa thất bại",
+    "status": {
+      "running": "Đang chạy",
+      "completed": "Đã hoàn thành",
+      "requiresAction": "Cần thao tác",
+      "failed": "Thất bại"
+    },
+    "rate": "Đánh giá",
+    "favorite": "Yêu thích",
+    "unfavorite": "Bỏ yêu thích",
+    "editTitle": "Chỉnh sửa tiêu đề",
+    "share": "Chia sẻ",
+    "titleLabel": "Tiêu đề nhiệm vụ",
+    "titlePlaceholder": "Nhập tiêu đề nhiệm vụ",
+    "titleUpdated": "Đã cập nhật tiêu đề",
+    "moreActions": "Thêm"
+  },
+  "home": {
+    "title": "Tôi có thể giúp gì cho bạn?",
+    "recentTasks": "Nhiệm vụ gần đây",
+    "viewAll": "Xem tất cả",
+    "noTasks": "Chưa có nhiệm vụ nào",
+    "startChat": "Bắt đầu sáng tạo",
+    "aiCreation": "Sáng tạo AI",
+    "supportUpload": "Hỗ trợ tải lên hình ảnh/video",
+    "enterToSend": "Nhấn Enter để gửi",
+    "connectTools": "Đăng tới",
+    "loginRequired": "Vui lòng đăng nhập trước",
+    "defaultImageGroup": "Nhóm hình ảnh mặc định",
+    "defaultVideoGroup": "Nhóm video mặc định",
+    "materialLibrary": "Thư viện phương tiện",
+    "affiliateReward": "Kiếm $716.4",
+    "imageMaterial": "Hình ảnh",
+    "videoMaterial": "Video",
+    "agentAssets": "Tài nguyên Agent",
+    "noData": "Không có dữ liệu"
+  },
+  "history": {
+    "meta": {
+      "title": "Lịch Sử Nhiệm Vụ AI - Hội Thoại & Bản Ghi Tạo Nội Dung",
+      "description": "Xem và quản lý bản ghi nhiệm vụ AI Agent của bạn, bao gồm lịch sử hội thoại, nhật ký sử dụng AI và lịch sử tạo video. Hỗ trợ phân trang, đánh giá nhiệm vụ và quản lý lịch sử.",
+      "keywords": "bản ghi nhiệm vụ AI, lịch sử hội thoại, lịch sử AI Agent, quản lý nhiệm vụ, nhật ký sử dụng AI, lịch sử tạo video, bản ghi lịch sử, đánh giá nhiệm vụ, bản ghi trò chuyện AI, lịch sử quy trình, bản ghi sáng tạo nội dung, lịch sử sáng tạo AI"
+    },
+    "title": "Lịch sử nhiệm vụ",
+    "empty": "Chưa có nhiệm vụ nào",
+    "loadMore": "Tải thêm",
+    "loading": "Đang tải...",
+    "logs": "Nhật ký sử dụng",
+    "logsTitle": "Nhật Ký Sử Dụng AI",
+    "logsEmpty": "Chưa có bản ghi sử dụng",
+    "logsLoading": "Đang tải nhật ký...",
+    "logsError": "Tải nhật ký thất bại",
+    "pageInfo": "Trang {{page}} / {{totalPages}}, tổng {{total}} bản ghi",
+    "logType": {
+      "agent": "AI Agent",
+      "chat": "Trò chuyện AI"
+    },
+    "logFields": {
+      "model": "Mô hình",
+      "channel": "Kênh",
+      "points": "Điểm đã dùng",
+      "duration": "Thời gian",
+      "taskId": "ID nhiệm vụ"
+    },
+    "videoHistory": "Lịch sử video",
+    "videoHistoryTitle": "Lịch Sử Tạo Video",
+    "videoHistoryEmpty": "Chưa có bản ghi tạo video",
+    "videoGeneration": "Tạo video",
+    "videoSize": "Kích thước video",
+    "videoDuration": "Thời lượng video",
+    "prompt": "Prompt",
+    "progress": "Tiến độ",
+    "previewVideo": "Xem trước video",
+    "playVideo": "Phát video",
+    "downloadVideo": "Tải video",
+    "logStatus": {
+      "success": "Thành công",
+      "failed": "Thất bại",
+      "pending": "Đang xử lý"
+    },
+    "videoStatus": {
+      "pending": "Đang chờ",
+      "processing": "Đang xử lý",
+      "completed": "Đã hoàn thành",
+      "failed": "Thất bại"
+    },
+    "duration": {
+      "seconds": "giây",
+      "minutes": "phút",
+      "secondsUnit": "giây"
+    },
+    "searchPlaceholder": "Tìm kiếm nhiệm vụ...",
+    "favoriteOnly": "Yêu thích của tôi",
+    "emptyFavorites": "Chưa có nhiệm vụ yêu thích",
+    "emptySearch": "Không tìm thấy nhiệm vụ phù hợp",
+    "clearFilters": "Xóa bộ lọc"
+  },
+  "rating": {
+    "title": "Đánh giá & Nhận xét",
+    "submit": "Gửi",
+    "cancel": "Hủy",
+    "requireComment": "Vui lòng cung cấp nhận xét cho đánh giá thấp",
+    "saveSuccess": "Đã lưu thành công",
+    "saveFailed": "Lưu thất bại",
+    "noRating": "Chưa đánh giá",
+    "commentLabel": "Nhận xét (tùy chọn)",
+    "commentPlaceholder": "Viết nhận xét của bạn...",
+    "commentRequiredIfLow": "Cần cung cấp lý do cho đánh giá dưới 3 sao",
+    "loading": "Đang tải...",
+    "feedbackPrompt": "Phản hồi của bạn giúp chúng tôi cải thiện",
+    "submitSuccess": "Đã gửi thành công, cảm ơn phản hồi của bạn!"
+  },
+  "detail": {
+    "title": "Chi tiết trò chuyện",
+    "continuePlaceholder": "Tiếp tục cuộc trò chuyện...",
+    "back": "Quay lại",
+    "workflowProcess": "Quy trình AI",
+    "waitingResponse": "Đang chờ phản hồi AI...",
+    "scrollToBottom": "Về cuối trang"
+  },
+  "media": {
+    "video": "Video",
+    "image": "Hình ảnh",
+    "document": "Tài liệu",
+    "uploadFailed": "Tải lên thất bại, vui lòng thử lại",
+    "uploadCancelled": "Đã hủy tải lên"
+  },
+  "workflow": {
+    "toolCallCompleted": "Đã hoàn thành gọi công cụ",
+    "toolResult": "Đã trả về kết quả",
+    "processing": "Đang xử lý..."
+  },
+  "toolDetail": {
+    "input": "Tham số đầu vào",
+    "output": "Kết quả thực thi",
+    "noResult": "Chưa có kết quả"
+  },
+  "action": {
+    "connectChannel": "Kết nối kênh",
+    "connectChannelDesc": "Bạn chưa kết nối tài khoản {{platform}}. Vui lòng kết nối tài khoản kênh để đăng nội dung.",
+    "connectNow": "Kết nối ngay",
+    "addChannel": "Thêm kênh",
+    "addChannelDesc": "Bạn chưa kết nối tài khoản {{platform}}. Vui lòng thêm kênh để đăng nội dung.",
+    "addChannelNow": "Thêm kênh",
+    "updateAuth": "Cập nhật ủy quyền",
+    "updateAuthDesc": "Ủy quyền tài khoản {{platform}} của bạn đã hết hạn. Vui lòng ủy quyền lại.",
+    "reauthorize": "Ủy quyền lại",
+    "loginChannel": "Đăng nhập kênh",
+    "loginChannelDesc": "Vui lòng đăng nhập tài khoản {{platform}} trước.",
+    "goLogin": "Đăng nhập",
+    "readyToPublish": "Sẵn sàng đăng",
+    "readyToPublishDesc": "Nội dung đã sẵn sàng và có thể đăng lên {{platform}}.",
+    "goPublish": "Đăng ngay",
+    "insufficientCredits": "Không đủ điểm",
+    "insufficientCreditsDesc": "Nhiệm vụ đã tạm dừng. Vui lòng nạp điểm để tiếp tục.",
+    "rechargeCredits": "Nạp điểm",
+    "action": "Thao tác",
+    "actionDesc": "Vui lòng hoàn thành thao tác sau",
+    "continue": "Tiếp tục"
+  },
+  "publishDetail": {
+    "title": "Chi tiết đăng",
+    "loading": "Đang tải...",
+    "publishing": "Đang đăng...",
+    "published": "Đã đăng",
+    "failed": "Thất bại",
+    "unpublished": "Chờ đăng",
+    "viewWork": "Xem bài đăng",
+    "noTitle": "Không có tiêu đề",
+    "retry": "Thử lại"
+  },
+  "pluginPublish": {
+    "autoPublishIn": "Sẽ tự động đăng lên {{platform}} sau {{seconds}} giây",
+    "publishNow": "Đăng ngay",
+    "cancel": "Hủy",
+    "publishing": "Đang đăng lên {{platform}}...",
+    "doNotCloseBrowser": "Đang trong quá trình đăng, vui lòng không đóng cửa sổ trình duyệt này",
+    "publishSuccess": "Đăng thành công!",
+    "publishFailed": "Đăng thất bại",
+    "retryPublish": "Thử lại",
+    "viewWork": "Xem bài đăng",
+    "pluginNotReady": "Plugin chưa sẵn sàng, vui lòng cài đặt và ủy quyền plugin trước",
+    "noAccountFound": "Không tìm thấy tài khoản đăng khả dụng",
+    "goPublish": "Đăng ngay",
+    "pluginNotInstalled": "Bạn chưa cài đặt plugin trình duyệt, không thể đăng,",
+    "installPlugin": "Nhấp để cài đặt plugin",
+    "platformNotLogged": "Bạn chưa đăng nhập {{platform}} trên trình duyệt này,",
+    "goLogin": "Đăng nhập",
+    "retry": "Thử lại",
+    "stage": {
+      "download": "Đang tải tài nguyên...",
+      "upload": "Đang tải lên...",
+      "publish": "Đang đăng...",
+      "complete": "Đã đăng"
+    }
+  }
+}

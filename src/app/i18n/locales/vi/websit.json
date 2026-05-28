@@ -1,0 +1,113 @@
+{
+  "privacyPolicy": {
+    "title": "Chính sách Bảo mật - Cách Chúng tôi Bảo vệ Dữ liệu của Bạn",
+    "description": "Đọc Chính sách Bảo mật của Nền tảng AI Việt Trí Thông để hiểu cách chúng tôi thu thập, sử dụng, lưu trữ và bảo vệ thông tin cá nhân của bạn. Tuân thủ Nghị định về Bảo vệ Dữ liệu Cá nhân và các quy định pháp luật Việt Nam.",
+    "keywords": "chính sách bảo mật, bảo vệ dữ liệu, thông tin cá nhân, Nghị định bảo vệ dữ liệu cá nhân, an ninh dữ liệu, quyền riêng tư người dùng, Nền tảng AI Việt Trí Thông",
+    "lastUpdated": "Cập nhật lần cuối: 01/05/2026",
+    "content": {
+      "introduction": "Chính sách Bảo mật này giải thích cách Nền tảng AI Việt Trí Thông (\"chúng tôi\", \"nền tảng\") thu thập, sử dụng, lưu trữ và bảo vệ thông tin cá nhân của bạn khi bạn sử dụng dịch vụ của chúng tôi. Chúng tôi cam kết tuân thủ Nghị định về Bảo vệ Dữ liệu Cá nhân của Việt Nam và các quy định pháp luật liên quan.",
+      "legalBasis": "Căn cứ pháp lý: Nghị định về Bảo vệ Dữ liệu Cá nhân (Nghị định số 13/2023/NĐ-CP), Luật An toàn Thông tin Mạng (số 86/2015/QH13), và Luật Trí tuệ Nhân tạo Việt Nam.",
+      "informationCollection": "1. Thu thập Thông tin",
+      "informationCollectionContent": "Chúng tôi thu thập các loại thông tin sau: (a) Thông tin bạn tự nguyện cung cấp khi đăng ký tài khoản, bao gồm tên, email, số điện thoại và thông tin thương hiệu; (b) Thông tin tự động thu thập khi bạn sử dụng dịch vụ, bao gồm địa chỉ IP, loại trình duyệt, nhật ký truy cập và dữ liệu tương tác; (c) Nội dung bạn tạo ra thông qua nền tảng, bao gồm văn bản, hình ảnh và video do AI tạo ra. Việc thu thập dữ liệu được thực hiện theo nguyên tắc minh bạch, hợp pháp và có sự đồng ý của chủ thể dữ liệu theo quy định của Nghị định về Bảo vệ Dữ liệu Cá nhân.",
+      "informationUse": "2. Mục đích Sử dụng Thông tin",
+      "informationUseContent": "Chúng tôi sử dụng thông tin thu thập được cho các mục đích: (a) Cung cấp, duy trì và cải thiện dịch vụ nền tảng AI; (b) Xử lý thanh toán và quản lý tài khoản; (c) Gửi thông báo về dịch vụ, cập nhật tính năng và hỗ trợ khách hàng; (d) Phân tích xu hướng sử dụng để tối ưu trải nghiệm người dùng; (e) Tuân thủ nghĩa vụ pháp lý theo quy định của pháp luật Việt Nam. Mọi hoạt động xử lý dữ liệu đều tuân thủ nguyên tắc giới hạn mục đích theo Nghị định về Bảo vệ Dữ liệu Cá nhân.",
+      "informationSharing": "3. Chia sẻ Thông tin",
+      "informationSharingContent": "Chúng tôi cam kết không bán, trao đổi hoặc chuyển giao thông tin cá nhân của bạn cho bên thứ ba vì mục đích thương mại. Việc chia sẻ dữ liệu chỉ được thực hiện trong các trường hợp: (a) Có sự đồng ý rõ ràng của bạn; (b) Theo yêu cầu của cơ quan nhà nước có thẩm quyền theo quy định pháp luật Việt Nam; (c) Với các đối tác cung cấp dịch vụ hạ tầng kỹ thuật, có ràng buộc bảo mật chặt chẽ. Dữ liệu của người dùng Việt Nam được ưu tiên lưu trữ tại các máy chủ đặt tại Việt Nam, phù hợp với quy định về lưu trữ dữ liệu nội địa.",
+      "dataSecurity": "4. Bảo mật Dữ liệu",
+      "dataSecurityContent": "Chúng tôi thực hiện các biện pháp bảo mật kỹ thuật và tổ chức phù hợp để bảo vệ thông tin cá nhân của bạn, bao gồm: mã hóa dữ liệu truyền tải (TLS 1.3), mã hóa dữ liệu lưu trữ (AES-256), kiểm soát truy cập nghiêm ngặt, giám sát an ninh 24/7, và đánh giá bảo mật định kỳ. Các biện pháp này tuân thủ tiêu chuẩn bảo mật theo Nghị định về Bảo vệ Dữ liệu Cá nhân và các tiêu chuẩn quốc tế như ISO 27001.",
+      "userRights": "5. Quyền của Chủ thể Dữ liệu",
+      "userRightsContent": "Theo quy định của Nghị định về Bảo vệ Dữ liệu Cá nhân, bạn có các quyền sau: (a) Quyền được biết về hoạt động xử lý dữ liệu cá nhân của mình; (b) Quyền truy cập và chỉnh sửa dữ liệu cá nhân; (c) Quyền rút lại sự đồng ý; (d) Quyền yêu cầu xóa dữ liệu (quyền được lãng quên); (e) Quyền yêu cầu hạn chế xử lý dữ liệu; (f) Quyền khiếu nại với cơ quan có thẩm quyền. Để thực hiện các quyền này, vui lòng liên hệ với chúng tôi theo thông tin bên dưới.",
+      "aiSpecific": "6. Quy định về Xử lý Dữ liệu AI",
+      "aiSpecificContent": "Tuân thủ Điều 12 Luật Trí tuệ Nhân tạo Việt Nam về quản lý dữ liệu trong hệ thống AI, chúng tôi cam kết: (a) Dữ liệu dùng để huấn luyện và vận hành mô hình AI được thu thập và xử lý hợp pháp; (b) Nội dung do AI tạo ra được gắn nhãn rõ ràng; (c) Người dùng có quyền kiểm soát dữ liệu đầu vào cho các mô hình AI; (d) Có cơ chế khiếu nại và khắc phục đối với nội dung do AI tạo ra không phù hợp. Chúng tôi định kỳ đánh giá tác động của hệ thống AI đến quyền riêng tư và bảo vệ dữ liệu.",
+      "contact": "7. Liên hệ",
+      "contactContent": "Mọi thắc mắc về quyền riêng tư và bảo vệ dữ liệu, vui lòng liên hệ: Email: privacy@yuezhitong.com | Điện thoại: +84 24 1234 5678 | Địa chỉ: Tầng 15, Tòa nhà Vietcombank, 198 Trần Quang Khải, Hoàn Kiếm, Hà Nội, Việt Nam"
+    }
+  },
+  "termsOfService": {
+    "title": "Điều khoản Dịch vụ - Thỏa thuận Người dùng & Quy định Sử dụng",
+    "description": "Xem xét Điều khoản Dịch vụ của Nền tảng AI Việt Trí Thông bao gồm quyền người dùng, quy định nội dung, điều khoản thanh toán và quy tắc sử dụng nền tảng cho dịch vụ quản lý mạng xã hội của chúng tôi.",
+    "keywords": "điều khoản dịch vụ, thỏa thuận người dùng, quy tắc nền tảng, quy định nội dung, điều khoản thanh toán, Nền tảng AI Việt Trí Thông điều khoản",
+    "lastUpdated": "Cập nhật lần cuối: 01/05/2026",
+    "content": {
+      "introduction": "Chào mừng bạn đến với Nền tảng AI Việt Trí Thông. Vui lòng đọc kỹ các Điều khoản Dịch vụ (\"Điều khoản\") sau đây trước khi sử dụng nền tảng và dịch vụ của chúng tôi. Bằng việc truy cập hoặc sử dụng dịch vụ, bạn xác nhận đã đọc, hiểu và đồng ý bị ràng buộc bởi các Điều khoản này.",
+      "acceptance": "1. Chấp nhận Điều khoản",
+      "acceptanceContent": "Bằng cách truy cập và sử dụng Nền tảng AI Việt Trí Thông, bạn đồng ý tuân thủ Thỏa thuận Người dùng này và tất cả các quy định pháp luật hiện hành của Việt Nam, bao gồm nhưng không giới hạn Luật Giao dịch Điện tử (số 20/2023/QH15), Luật An toàn Thông tin Mạng, và Luật Trí tuệ Nhân tạo Việt Nam. Nếu bạn không đồng ý với bất kỳ điều khoản nào, vui lòng không sử dụng dịch vụ.",
+      "serviceDescription": "2. Mô tả Dịch vụ",
+      "serviceDescriptionContent": "Nền tảng AI Việt Trí Thông cung cấp các dịch vụ sau: (a) Sáng tạo và sản xuất nội dung video bằng công nghệ AI (bao gồm tích hợp BytePlus Seedance 2.0); (b) Quản lý và vận hành tài khoản mạng xã hội đa nền tảng (TikTok, Facebook, YouTube, Instagram, Zalo...); (c) Tự động hóa đăng bài và tương tác qua tiện ích trình duyệt; (d) Phân tích dữ liệu và báo cáo hiệu quả nội dung. Dịch vụ được cung cấp theo hình thức trả theo lượt sử dụng hoặc gói đăng ký.",
+      "userResponsibilities": "3. Trách nhiệm của Người dùng",
+      "userResponsibilitiesContent": "Người dùng cam kết: (a) Cung cấp thông tin đăng ký chính xác, đầy đủ và cập nhật; (b) Bảo mật thông tin tài khoản và mật khẩu, chịu trách nhiệm về mọi hoạt động dưới tài khoản của mình; (c) Tuân thủ pháp luật Việt Nam và quốc tế, không sử dụng dịch vụ cho mục đích bất hợp pháp, lừa đảo, phát tán nội dung độc hại hoặc vi phạm quyền sở hữu trí tuệ; (d) Đảm bảo có quyền sử dụng hợp pháp đối với mọi nội dung tải lên nền tảng; (e) Không can thiệp trái phép vào hệ thống kỹ thuật của nền tảng. Vi phạm các trách nhiệm này có thể dẫn đến đình chỉ hoặc chấm dứt tài khoản.",
+      "aiContent": "4. Nội dung do AI Tạo ra",
+      "aiContentContent": "Theo Điều 12 Luật Trí tuệ Nhân tạo Việt Nam, chúng tôi quy định: (a) Mọi nội dung do AI tạo ra thông qua nền tảng phải được người dùng kiểm duyệt trước khi xuất bản; (b) Người dùng chịu trách nhiệm pháp lý về nội dung do mình xuất bản, kể cả nội dung do AI hỗ trợ tạo ra; (c) Chúng tôi có quyền từ chối tạo nội dung vi phạm pháp luật, thuần phong mỹ tục Việt Nam hoặc chính sách nội dung của nền tảng; (d) Nội dung do AI tạo ra cần được gắn nhãn minh bạch theo quy định.",
+      "payment": "5. Thanh toán và Hoàn tiền",
+      "paymentContent": "Dịch vụ được cung cấp theo mô hình trả theo lượt sử dụng (điểm) hoặc gói đăng ký định kỳ. (a) Điểm có hiệu lực trong vòng 12 tháng kể từ ngày mua; (b) Thanh toán được xử lý qua các cổng thanh toán được ủy quyền tại Việt Nam; (c) Chính sách hoàn tiền: Yêu cầu hoàn tiền được xem xét trong vòng 7 ngày làm việc đối với điểm chưa sử dụng; (d) Giá dịch vụ có thể thay đổi và sẽ được thông báo trước 30 ngày.",
+      "intellectualProperty": "6. Sở hữu Trí tuệ",
+      "intellectualPropertyContent": "(a) Nền tảng và công nghệ AI của chúng tôi, bao gồm mã nguồn, giao diện và thuật toán, là tài sản trí tuệ được bảo hộ theo Luật Sở hữu Trí tuệ Việt Nam; (b) Người dùng giữ quyền sở hữu đối với nội dung gốc do mình tạo ra và tải lên; (c) Đối với nội dung do AI tạo ra, người dùng được cấp quyền sử dụng thương mại không độc quyền trong phạm vi dịch vụ; (d) Không bên nào được sử dụng nhãn hiệu, logo của bên kia khi chưa có sự đồng ý bằng văn bản.",
+      "termination": "7. Chấm dứt Dịch vụ",
+      "terminationContent": "Chúng tôi có quyền: (a) Tạm ngừng hoặc chấm dứt tài khoản của bạn nếu phát hiện vi phạm Điều khoản hoặc pháp luật; (b) Ngừng cung cấp dịch vụ với thông báo trước 30 ngày; (c) Xóa dữ liệu của tài khoản đã chấm dứt sau 90 ngày, trừ khi có yêu cầu lưu trữ theo quy định pháp luật. Người dùng có thể chấm dứt tài khoản bất kỳ lúc nào qua trang cài đặt hoặc liên hệ hỗ trợ.",
+      "contact": "8. Liên hệ và Giải quyết Tranh chấp",
+      "contactContent": "Mọi thắc mắc hoặc tranh chấp phát sinh từ Điều khoản này sẽ được giải quyết thông qua thương lượng, hòa giải. Nếu không đạt được thỏa thuận, tranh chấp sẽ được giải quyết tại tòa án có thẩm quyền tại Việt Nam. Liên hệ: Email: contact@yuezhitong.com | Điện thoại: +84 24 1234 5678"
+    }
+  },
+  "dataDeletion": {
+    "title": "Hướng dẫn Xóa Dữ liệu - Xóa Tài khoản & Dữ liệu Cá nhân",
+    "description": "Hướng dẫn từng bước để xóa tài khoản và dữ liệu cá nhân trên Nền tảng AI Việt Trí Thông. Tìm hiểu về chính sách lưu trữ dữ liệu và gửi yêu cầu xóa dữ liệu theo quy định Nghị định về Bảo vệ Dữ liệu Cá nhân.",
+    "keywords": "xóa dữ liệu, xóa tài khoản, quyền riêng tư, xóa thông tin cá nhân, quyền được lãng quên, Nền tảng AI Việt Trí Thông xóa dữ liệu",
+    "lastUpdated": "Cập nhật lần cuối: 01/05/2026",
+    "content": {
+      "introduction": "Nền tảng AI Việt Trí Thông tôn trọng quyền kiểm soát dữ liệu của bạn. Trang này hướng dẫn cách yêu cầu xóa dữ liệu cá nhân khỏi hệ thống của chúng tôi, tuân thủ quyền được lãng quên theo Nghị định về Bảo vệ Dữ liệu Cá nhân và các quy định pháp luật Việt Nam.",
+      "prelaunchNote": "Lưu ý cho Người dùng Giai đoạn Trước Ra mắt:",
+      "prelaunchContent": "Nền tảng đang trong giai đoạn hoàn thiện. Để yêu cầu xóa dữ liệu, vui lòng liên hệ trực tiếp với đội ngũ hỗ trợ của chúng tôi qua email. Chúng tôi cam kết xử lý yêu cầu của bạn trong thời gian sớm nhất.",
+      "standardProcedure": "Quy trình Xóa Dữ liệu Tiêu chuẩn:",
+      "steps": [
+        "Bước 1: Đăng nhập vào tài khoản Nền tảng AI Việt Trí Thông của bạn",
+        "Bước 2: Vào trang Cài đặt (Settings) từ menu người dùng",
+        "Bước 3: Chọn mục 'Quản lý Dữ liệu' (Data Management)",
+        "Bước 4: Nhấp vào 'Yêu cầu Xóa Dữ liệu của Tôi' (Request Data Deletion)",
+        "Bước 5: Chọn phạm vi dữ liệu cần xóa (toàn bộ hoặc một phần)",
+        "Bước 6: Xác nhận yêu cầu xóa bằng mật khẩu hoặc mã xác thực hai yếu tố",
+        "Bước 7: Nhận email xác nhận yêu cầu đã được tiếp nhận"
+      ],
+      "contactInfo": "Thông tin Liên hệ Hỗ trợ Xóa Dữ liệu:",
+      "contactEmail": "Để được hỗ trợ xóa dữ liệu, vui lòng gửi email đến: datadeletion@yuezhitong.com với tiêu đề 'Yêu cầu Xóa Dữ liệu - [Tên đăng nhập của bạn]'. Vui lòng bao gồm: Họ tên đầy đủ, tên đăng nhập, địa chỉ email đăng ký và lý do yêu cầu xóa dữ liệu.",
+      "processingTime": "Thời gian Xử lý:",
+      "processingTimeContent": "Theo quy định của Nghị định về Bảo vệ Dữ liệu Cá nhân, yêu cầu xóa dữ liệu sẽ được xử lý trong vòng 7-14 ngày làm việc kể từ khi nhận được yêu cầu hợp lệ. Bạn sẽ nhận được thông báo qua email khi quá trình xóa hoàn tất.",
+      "retentionPolicy": "Chính sách Lưu trữ Dữ liệu:",
+      "retentionPolicyContent": "Sau khi tài khoản bị xóa: (a) Dữ liệu cá nhân sẽ bị xóa vĩnh viễn khỏi hệ thống chính trong vòng 30 ngày; (b) Dữ liệu trong bản sao lưu hệ thống có thể mất đến 90 ngày để xóa hoàn toàn; (c) Một số dữ liệu có thể được giữ lại theo yêu cầu pháp luật (như hồ sơ thanh toán, nhật ký giao dịch) trong thời gian theo quy định của pháp luật Việt Nam; (d) Nội dung đã xuất bản công khai trên các nền tảng mạng xã hội không thuộc phạm vi kiểm soát xóa của chúng tôi.",
+      "importantNote": "Lưu ý Quan trọng:",
+      "importantNoteContent": "Dữ liệu đã xóa không thể khôi phục. Vui lòng sao lưu dữ liệu quan trọng trước khi yêu cầu xóa. Việc xóa tài khoản sẽ hủy mọi điểm và gói dịch vụ chưa sử dụng. Một số dữ liệu theo yêu cầu pháp luật có thể không được xóa ngay lập tức."
+    }
+  },
+  "dataProtection": {
+    "title": "Thỏa thuận Bảo vệ Dữ liệu - Tuân thủ Pháp luật & Bảo mật",
+    "description": "Thỏa thuận Bảo vệ Dữ liệu của Nền tảng AI Việt Trí Thông nêu rõ các tiêu chuẩn xử lý dữ liệu tuân thủ Nghị định về Bảo vệ Dữ liệu Cá nhân, các biện pháp bảo mật và quyền của bạn đối với dữ liệu cá nhân.",
+    "keywords": "bảo vệ dữ liệu, thỏa thuận bảo vệ dữ liệu, tuân thủ pháp luật Việt Nam, xử lý dữ liệu, bảo mật dữ liệu, Nghị định bảo vệ dữ liệu cá nhân, Nền tảng AI Việt Trí Thông",
+    "lastUpdated": "Cập nhật lần cuối: 01/05/2026",
+    "content": {
+      "introduction": "Thỏa thuận Bảo vệ Dữ liệu này (\"Thỏa thuận\") là một phần không thể tách rời của Điều khoản Dịch vụ Nền tảng AI Việt Trí Thông. Thỏa thuận này quy định quyền và nghĩa vụ của các bên liên quan đến việc xử lý và bảo vệ dữ liệu cá nhân, tuân thủ Nghị định về Bảo vệ Dữ liệu Cá nhân (Nghị định số 13/2023/NĐ-CP), Luật An toàn Thông tin Mạng, và Luật Trí tuệ Nhân tạo Việt Nam.",
+      "scopeAndDefinitions": "1. Phạm vi và Định nghĩa",
+      "scopeAndDefinitionsContent": "Thỏa thuận này áp dụng cho mọi hoạt động xử lý dữ liệu cá nhân diễn ra trên Nền tảng AI Việt Trí Thông. Trong Thỏa thuận này: (a) 'Dữ liệu Cá nhân' là thông tin dưới dạng ký hiệu, chữ viết, chữ số, hình ảnh, âm thanh hoặc dạng tương tự gắn liền với một con người cụ thể hoặc giúp xác định một con người cụ thể; (b) 'Xử lý Dữ liệu' bao gồm thu thập, ghi, phân tích, xác nhận, lưu trữ, chỉnh sửa, công khai, kết hợp, truy cập, truy xuất, thu hồi, mã hóa, giải mã, sao chép, chia sẻ, truyền tải, cung cấp, chuyển giao, xóa, hủy dữ liệu cá nhân; (c) 'Chủ thể Dữ liệu' là cá nhân được dữ liệu cá nhân phản ánh.",
+      "dataProcessingPrinciples": "2. Nguyên tắc Xử lý Dữ liệu",
+      "dataProcessingPrinciplesContent": "Chúng tôi cam kết xử lý dữ liệu cá nhân theo các nguyên tắc sau: (a) Tính hợp pháp, công bằng và minh bạch - dữ liệu chỉ được xử lý khi có cơ sở pháp lý rõ ràng; (b) Giới hạn mục đích - dữ liệu chỉ được thu thập cho mục đích cụ thể, rõ ràng và hợp pháp; (c) Tối thiểu hóa dữ liệu - chỉ thu thập dữ liệu cần thiết cho mục đích xử lý; (d) Tính chính xác - dữ liệu phải chính xác và được cập nhật; (e) Giới hạn lưu trữ - dữ liệu chỉ được lưu trữ trong thời gian cần thiết; (f) Tính bảo mật và toàn vẹn - dữ liệu được bảo vệ bằng các biện pháp kỹ thuật và tổ chức phù hợp.",
+      "securityMeasures": "3. Biện pháp Bảo mật Kỹ thuật và Tổ chức",
+      "securityMeasuresContent": "Chúng tôi triển khai các biện pháp bảo vệ dữ liệu toàn diện: (a) Mã hóa dữ liệu truyền tải sử dụng giao thức TLS 1.3; (b) Mã hóa dữ liệu lưu trữ sử dụng AES-256; (c) Hệ thống kiểm soát truy cập dựa trên vai trò (RBAC); (d) Xác thực đa yếu tố (MFA) cho truy cập quản trị; (e) Giám sát an ninh liên tục 24/7 và hệ thống phát hiện xâm nhập (IDS/IPS); (f) Sao lưu dữ liệu định kỳ và kế hoạch khôi phục thảm họa (DRP); (g) Đánh giá bảo mật và kiểm thử thâm nhập định kỳ; (h) Đào tạo nhân viên về bảo vệ dữ liệu định kỳ hàng năm.",
+      "aiDataProcessing": "4. Xử lý Dữ liệu trong Hệ thống AI",
+      "aiDataProcessingContent": "Theo Điều 12 Luật Trí tuệ Nhân tạo Việt Nam, chúng tôi cam kết: (a) Dữ liệu sử dụng để huấn luyện mô hình AI được thu thập từ các nguồn hợp pháp và có sự đồng ý khi cần thiết; (b) Không sử dụng dữ liệu cá nhân của người dùng để huấn luyện mô hình AI khi chưa có sự đồng ý rõ ràng; (c) Triển khai các biện pháp kỹ thuật để ngăn chặn mô hình AI ghi nhớ hoặc tiết lộ dữ liệu cá nhân; (d) Thực hiện đánh giá tác động bảo vệ dữ liệu (DPIA) đối với các hoạt động xử lý AI có rủi ro cao; (e) Cung cấp cơ chế để người dùng từ chối việc dữ liệu của họ được sử dụng trong huấn luyện AI.",
+      "breachNotification": "5. Thông báo Vi phạm Dữ liệu",
+      "breachNotificationContent": "Trong trường hợp xảy ra vi phạm dữ liệu cá nhân, chúng tôi cam kết: (a) Thông báo cho cơ quan có thẩm quyền trong vòng 72 giờ theo quy định của Nghị định về Bảo vệ Dữ liệu Cá nhân; (b) Thông báo cho chủ thể dữ liệu bị ảnh hưởng không chậm trễ khi vi phạm có khả năng gây rủi ro cao; (c) Cung cấp thông tin chi tiết về bản chất vi phạm, dữ liệu bị ảnh hưởng, các biện pháp đã thực hiện và khuyến nghị cho người dùng; (d) Duy trì nhật ký ghi nhận mọi vi phạm dữ liệu và biện pháp khắc phục.",
+      "rightsAndObligations": "6. Quyền và Nghĩa vụ của Các bên",
+      "rightsAndObligationsContent": "Quyền của Chủ thể Dữ liệu: truy cập, chỉnh sửa, xóa dữ liệu, rút lại sự đồng ý, khiếu nại. Nghĩa vụ của Nền tảng: xử lý dữ liệu đúng mục đích, bảo mật, thông báo vi phạm, hỗ trợ thực hiện quyền của chủ thể dữ liệu. Nghĩa vụ của Người dùng: cung cấp dữ liệu chính xác, không xâm phạm dữ liệu của người khác, tuân thủ quy định bảo mật.",
+      "contact": "7. Liên hệ về Bảo vệ Dữ liệu",
+      "contactContent": "Mọi thắc mắc về bảo vệ dữ liệu, vui lòng liên hệ Cán bộ Bảo vệ Dữ liệu (DPO) của chúng tôi: Email: dpo@yuezhitong.com | Điện thoại: +84 24 1234 5678 | Địa chỉ: Tầng 15, Tòa nhà Vietcombank, 198 Trần Quang Khải, Hoàn Kiếm, Hà Nội, Việt Nam"
+    }
+  },
+  "extensionPrivacy": {
+    "title": "Chính sách Bảo mật Tiện ích Trình duyệt - Sử dụng Dữ liệu & Quyền hạn",
+    "description": "Tìm hiểu cách tiện ích trình duyệt Nền tảng AI Việt Trí Thông xử lý dữ liệu của bạn. Thông tin về quyền hạn, thực hành thu thập dữ liệu và biện pháp bảo mật cho tiện ích Chrome của chúng tôi.",
+    "keywords": "bảo mật tiện ích, tiện ích trình duyệt, Chrome extension, quyền dữ liệu, thu thập dữ liệu tiện ích, Nền tảng AI Việt Trí Thông tiện ích"
+  },
+  "pluginGuide": {
+    "title": "Hướng dẫn Tiện ích Trình duyệt - Cài đặt Plugin Nền tảng AI Việt Trí Thông",
+    "description": "Hướng dẫn từng bước cài đặt và sử dụng tiện ích trình duyệt Nền tảng AI Việt Trí Thông để tự động hóa đăng bài và quản lý nội dung mạng xã hội.",
+    "keywords": "tiện ích trình duyệt, hướng dẫn plugin, hướng dẫn cài đặt, Chrome extension, tự động hóa mạng xã hội, Nền tảng AI Việt Trí Thông"
+  }
+}

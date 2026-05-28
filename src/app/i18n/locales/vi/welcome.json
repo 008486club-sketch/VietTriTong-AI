@@ -1,0 +1,185 @@
+{
+  "common": {
+    "previous": "Trước",
+    "next": "Tiếp"
+  },
+  "seo": {
+    "title": "Nền tảng AI Việt Trí Thông Sáng tạo Nội dung & Quản lý Mạng xã hội",
+    "description": "Nền tảng AI Việt Trí Thông cung cấp dịch vụ vận hành TikTok, sản xuất video AI và quản lý mạng xã hội cho doanh nghiệp tại Việt Nam. Đăng bài một chạm đa nền tảng, AI tự động sáng tạo, giảm 90% chi phí nội dung.",
+    "keywords": "sản xuất video AI,vận hành TikTok Việt Nam,quản lý mạng xã hội,đăng bài đa nền tảng,tiếp thị AI,sáng tạo nội dung,tự động hóa mạng xã hội,nền tảng AI,thị trường Việt Nam,một chạm đăng bài"
+  },
+  "navbar": {
+    "pricing": "Bảng giá",
+    "docs": "Tài liệu",
+    "brandPromotion": "Sản phẩm",
+    "aiSocial": "Đăng bài AI",
+    "login": "Đăng nhập",
+    "getDemo": "Dùng thử miễn phí"
+  },
+  "hero": {
+    "badge": "Đối tác chiến lược BytePlus · Vận hành bởi Seedance 2.0",
+    "title": "Nhân viên vận hành AI cho doanh nghiệp một người",
+    "subtitle": "Nền tảng AI Việt Trí Thông là đối tác hệ sinh thái BytePlus, tích hợp trực tiếp công cụ AI video Seedance 2.0. Vận hành TikTok Việt Nam + Sản xuất video AI + Quản lý toàn diện mạng xã hội, giúp thương hiệu của bạn tăng trưởng nhanh tại thị trường Việt Nam.",
+    "placeholder": "Nhập tên thương hiệu của bạn",
+    "cta": "Nhận trợ lý AI của tôi",
+    "selectFirst": "Vui lòng nhập tên thương hiệu trước",
+    "tags": {
+      "aiVideo": "Sản xuất video AI",
+      "socialMedia": "Quản lý mạng xã hội"
+    },
+    "error": {
+      "draftFailed": "Tạo bản nháp thất bại, vui lòng thử lại"
+    }
+  },
+  "owners": {
+    "title": "Được các chủ doanh nghiệp Việt Nam tin dùng",
+    "subtitle": "Dùng Nền tảng AI Việt Trí Thông, có thêm lưu lượng, thêm doanh số, thêm khách hàng"
+  },
+  "features": {
+    "title": "Dùng Nền tảng AI Việt Trí Thông, có thêm lưu lượng, thêm doanh số, thêm khách hàng",
+    "onlineOrdering": {
+      "title": "Vận hành TikTok Việt Nam",
+      "description": "Chiến lược nội dung TikTok chuyên nghiệp, AI sáng tạo + biên tập thủ công, vận hành bản địa hóa cho thị trường Việt"
+    },
+    "mobileApp": {
+      "title": "Sản xuất video AI",
+      "description": "Tích hợp Seedance 2.0 và các công cụ AI video hàng đầu, mỗi video chỉ 200.000-400.000₫, giúp bạn tiết kiệm hơn 60% chi phí"
+    },
+    "marketing": {
+      "title": "Quản lý toàn diện mạng xã hội",
+      "description": "Lên kế hoạch → AI sáng tạo → đăng đa nền tảng → tương tác bình luận, toàn bộ quy trình tự động hóa"
+    }
+  },
+  "reviews": {
+    "title": "Đánh giá từ người dùng",
+    "subtitle": "Tham gia cùng hàng nghìn chủ doanh nghiệp và nhà sáng tạo tin dùng Nền tảng AI Việt Trí Thông",
+    "viewOnGithub": "Xem trên GitHub",
+    "review1": {
+      "content": "Cuối cùng cũng có công cụ đăng bài đa nền tảng hỗ trợ TikTok Việt Nam! Một chạm đăng lên TikTok, Facebook, YouTube — tiết kiệm hàng giờ mỗi tuần."
+    },
+    "review2": {
+      "content": "Tính năng video AI quá mạnh. Trước đây thuê đội quay một video 15 giây tốn hàng triệu đồng, giờ AI tự tạo mà chất lượng không thua gì đội chuyên nghiệp."
+    },
+    "review3": {
+      "content": "Là người kinh doanh online tại Việt Nam, dịch vụ quản lý mạng xã hội của Nền tảng AI Việt Trí Thông giúp tôi tập trung vào sản phẩm và khách hàng. Tăng follow nhờ nó."
+    },
+    "review4": {
+      "content": "Điểm tuyệt nhất là hỗ trợ nội dung tiếng Việt. AI tạo xong tự động tối ưu thành văn phong tiếng Việt tự nhiên, khách hàng bản địa xem là thích ngay."
+    },
+    "review5": {
+      "content": "Thanh toán theo lượt dùng quá hợp lý. Dùng bao nhiêu trả bấy nhiêu, không làm nội dung thì không tốn phí. Rất thân thiện với thương hiệu nhỏ."
+    },
+    "review6": {
+      "content": "Tích hợp Seedance và nhiều công cụ AI video, một câu lệnh là có video trong vài phút. Video khám phá 15 giây, video giới thiệu sản phẩm — hoàn toàn tự động."
+    },
+    "review7": {
+      "content": "Thị trường Việt Nam rất đặc thù, TikTok là kênh chủ lực tuyệt đối. Nền tảng AI Việt Trí Thông hiểu Việt Nam, chiến lược vận hành đều được bản địa hóa, không phải dùng mẫu có sẵn."
+    },
+    "review8": {
+      "content": "Tự động trả lời bình luận giúp ích rất nhiều. AI nhận diện bình luận tiếng Việt và tự động tương tác, khách hàng nghĩ chúng tôi online 24/7."
+    },
+    "review9": {
+      "content": "Hỗ trợ hơn 15 nền tảng, từ TikTok đến Zalo đến WeChat. Giải pháp tất cả trong một thực sự, không cần đăng nhập từng nền tảng riêng lẻ nữa."
+    }
+  },
+  "tech": {
+    "title": "AI tạo video mạng xã hội chuyên nghiệp",
+    "subtitle": "Tích hợp công cụ AI hàng đầu, giảm hơn 90% chi phí mỗi video",
+    "description": "BytePlus Seedance 2.0 + đa công cụ AI. Văn bản→video, hình ảnh→video. Từ video khám phá 15 giây đến phim thương hiệu 3 phút. Năng lực AI video hàng đầu thị trường Việt Nam.",
+    "playVideo": "Phát video",
+    "video1": {
+      "title": "Video giới thiệu sản phẩm AI"
+    },
+    "video2": {
+      "title": "Video câu chuyện thương hiệu"
+    },
+    "video3": {
+      "title": "Video quảng bá thương hiệu"
+    }
+  },
+  "testimonials": {
+    "title": "Lắng nghe từ các thương hiệu tại Việt Nam",
+    "watchVideo": "Xem video"
+  },
+  "beliefs": {
+    "title": "Tại sao chọn Nền tảng AI Việt Trí Thông",
+    "subtitle": "Tập trung thị trường Việt Nam, phục vụ thương hiệu quốc tế và doanh nghiệp bản địa",
+    "belief1": {
+      "title": "Hệ sinh thái BytePlus · Nền tảng công nghệ hàng đầu",
+      "description": "Nền tảng AI Việt Trí Thông là đối tác chính thức hệ sinh thái BytePlus, tích hợp trực tiếp Seedance 2.0 và các công cụ AI video mới nhất. Công nghệ thực sự, không phải sản phẩm vỏ bọc."
+    },
+    "belief2": {
+      "title": "Quản lý toàn quy trình bằng AI",
+      "description": "Lên kế hoạch, sáng tạo, tối ưu, đăng bài, tương tác bình luận — toàn bộ tự động. AI làm việc lặp lại, bạn tập trung phát triển kinh doanh."
+    },
+    "belief4": {
+      "title": "Thanh toán theo lượt dùng, giá minh bạch",
+      "description": "Không ràng buộc gói đăng ký, không phí ẩn. Dùng bao nhiêu trả bấy nhiêu, điểm có hiệu lực 12 tháng, giá minh bạch không phụ thu thêm."
+    }
+  },
+  "guides": {
+    "title": "Tính năng cốt lõi",
+    "subtitle": "Ba năng lực, thúc đẩy tăng trưởng thương hiệu tại thị trường Việt Nam",
+    "viewDocs": "Xem tài liệu",
+    "learnMore": "Tìm hiểu thêm",
+    "feature1": {
+      "title": "Vận hành TikTok Việt Nam",
+      "subtitle": "AI sáng tạo + Chiến lược bản địa hóa",
+      "description": "Lập chiến lược nội dung TikTok chuyên nghiệp, AI tự động tạo video và bài viết, tối ưu bản địa hóa tiếng Việt, liên tục cải thiện dựa trên dữ liệu."
+    },
+    "feature2": {
+      "title": "Xưởng video AI · BytePlus vận hành",
+      "subtitle": "Seedance 2.0 + đa công cụ, tiết kiệm hơn 60% chi phí",
+      "description": "Hệ sinh thái BytePlus tích hợp trực tiếp Seedance 2.0 và các công cụ AI video hàng đầu. Văn bản→video, hình ảnh→video. Từ video khám phá 15 giây đến phim thương hiệu 3 phút. Chỉ 200.000-400.000₫/video, giúp thương hiệu Việt tiết kiệm hơn 60% chi phí."
+    },
+    "feature3": {
+      "title": "Quản lý toàn diện mạng xã hội",
+      "subtitle": "Một nội dung, tự động đăng 15+ nền tảng",
+      "description": "Hỗ trợ TikTok, Facebook, YouTube, Instagram, Zalo và hơn 15 nền tảng. Tự động tương tác bình luận, tích hợp mô hình AI tiên tiến."
+    }
+  },
+  "experience": {
+    "title": "Dùng Nền tảng AI Việt Trí Thông, có thêm lưu lượng, thêm doanh số, thêm khách hàng",
+    "subtitle": "Từ vận hành TikTok đến đăng bài đa nền tảng, để AI làm thay bạn",
+    "tab1": {
+      "title": "Vận hành TikTok Việt Nam",
+      "subtitle": "AI sáng tạo + Chiến lược bản địa",
+      "description": "Chúng tôi xây dựng chiến lược nội dung TikTok cho thương hiệu của bạn, AI tự động tạo video và bài viết chuyên nghiệp, liên tục tối ưu để tăng độ phủ."
+    },
+    "tab2": {
+      "title": "Đăng bài đa nền tảng",
+      "subtitle": "Một nội dung, phủ mọi nền tảng",
+      "description": "Tạo một lần, đồng bộ toàn mạng. Hỗ trợ tất cả các nền tảng sau:"
+    },
+    "tab3": {
+      "title": "Sáng tạo video AI",
+      "subtitle": "Xử lý toàn quy trình bằng AI",
+      "description": "Từ lên kế hoạch đến sản xuất đến tối ưu, Seedance 2.0 và các công cụ AI hàng đầu vận hành. Văn bản→video, hình ảnh→video, hoàn toàn tự động."
+    },
+    "tab4": {
+      "title": "Tự động hóa tương tác mạng xã hội",
+      "subtitle": "Vận hành bởi tiện ích trình duyệt",
+      "description": "Tiện ích trình duyệt mạnh mẽ, tự động hóa tương tác trên mọi nền tảng mạng xã hội. Thích, bình luận, theo dõi, nuôi tài khoản — hoàn toàn tự động, tiết kiệm hàng giờ mỗi ngày."
+    }
+  },
+  "footer": {
+    "ctaTitle": "Dùng thử ngay, đăng ký tặng 100 điểm!",
+    "startTrial": "Bắt đầu ngay",
+    "resources": "Tài nguyên",
+    "account": "Tài khoản",
+    "legal": "Pháp lý",
+    "docs": "Tài liệu",
+    "login": "Đăng nhập",
+    "register": "Đăng ký",
+    "privacy": "Chính sách bảo mật",
+    "terms": "Điều khoản dịch vụ",
+    "dataProtection": "Thỏa thuận bảo vệ dữ liệu",
+    "dataDeletion": "Xóa dữ liệu",
+    "pluginGuide": "Hướng dẫn tiện ích",
+    "extensionPrivacy": "Chính sách bảo mật tiện ích",
+    "contact": "Liên hệ",
+    "supportedPlatforms": "Nền tảng hỗ trợ",
+    "copyright": "© 2026 Nền tảng AI Việt Trí Thông. Đã đăng ký bản quyền.",
+    "caseStudies": "Case Studies"
+  }
+}

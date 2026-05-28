@@ -1,0 +1,16 @@
+{
+  "noNotifications": "Không có thông báo",
+  "markAllAsRead": "Đánh dấu tất cả đã đọc",
+  "today": "Hôm nay",
+  "yesterday": "Hôm qua",
+  "earlier": "Trước đó",
+  "system": "Hệ thống",
+  "task": "Nhiệm vụ",
+  "promotion": "Khuyến mãi",
+  "reminder": "Nhắc nhở",
+  "viewDetails": "Xem chi tiết",
+  "delete": "Xóa",
+  "deleteConfirm": "Xác nhận xóa thông báo này?",
+  "deleteSuccess": "Đã xóa thông báo",
+  "loadMore": "Tải thêm"
+}

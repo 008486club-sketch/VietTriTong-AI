@@ -1,0 +1,117 @@
+{
+  "seo": {
+    "title": "Hướng dẫn Tiện ích Trình duyệt - Cài đặt Plugin Nền tảng AI Việt Trí Thông",
+    "description": "Hướng dẫn từng bước cài đặt và sử dụng tiện ích trình duyệt Nền tảng AI Việt Trí Thông để tự động hóa đăng bài và quản lý nội dung mạng xã hội.",
+    "keywords": "tiện ích trình duyệt, hướng dẫn plugin, hướng dẫn cài đặt, Chrome extension, tự động hóa mạng xã hội, Nền tảng AI Việt Trí Thông"
+  },
+  "title": "Hướng dẫn Tiện ích Trình duyệt",
+  "lastUpdated": "Cập nhật lần cuối",
+  "introduction": "Hướng dẫn này sẽ giúp bạn cài đặt và sử dụng tiện ích trình duyệt Nền tảng AI Việt Trí Thông, giúp bạn quản lý tài khoản mạng xã hội và đăng bài một cách thuận tiện hơn.",
+  "tableOfContents": "Mục lục",
+  "sections": {
+    "installation": "Cài đặt Tiện ích",
+    "manualInstall": "Cài đặt Thủ công",
+    "manualInstallDesc": "Dành cho kênh tải GitHub hoặc Trung Quốc",
+    "authorize": "Ủy quyền Tiện ích",
+    "loginAccount": "Đăng nhập Tài khoản Mạng xã hội",
+    "syncAccount": "Đồng bộ Tài khoản"
+  },
+  "steps": {
+    "step1": {
+      "title": "Bước 1: Mở Hộp thoại Quản lý Tiện ích",
+      "content": "Trên trang Nền tảng AI Việt Trí Thông, nhấp vào biểu tượng tiện ích ở góc trên bên phải để mở hộp thoại quản lý tiện ích trình duyệt.",
+      "caption": "Nhấp vào nút Tiện ích ở góc trên bên phải"
+    },
+    "step2": {
+      "title": "Bước 2: Tải Tiện ích",
+      "content": "Chọn phương thức tải trong hộp thoại và nhấp để tải tiện ích.",
+      "caption": "Chọn kênh tải phù hợp",
+      "note": "Sự khác biệt giữa cài đặt từ Chrome Web Store và GitHub Release:",
+      "noteItem1": "Tiện ích tải từ GitHub Release yêu cầu bạn bật chế độ nhà phát triển trong trình duyệt để cài đặt, nhưng tài nguyên cài đặt ở đây là tiện ích mới nhất.",
+      "noteItem2": "Tiện ích tải từ Chrome Web Store có thể cài đặt trực tiếp."
+    },
+    "step3": {
+      "title": "Bước 3: Kiểm tra Trạng thái Cài đặt",
+      "content": "Sau khi cài đặt, nhấp vào nút tiện ích mở rộng của trình duyệt để kiểm tra xem cài đặt đã thành công chưa.",
+      "caption": "Tìm tiện ích Nền tảng AI Việt Trí Thông trong thanh tiện ích trình duyệt"
+    },
+    "step4": {
+      "title": "Bước 4: Vào Trang Chi tiết Tiện ích",
+      "content": "Nếu cài đặt thành công, nhấp vào tiện ích để vào trang chi tiết tiện ích."
+    },
+    "step5": {
+      "title": "Bước 5: Ủy quyền Tiện ích",
+      "notLoggedInContent": "Nếu bạn chưa đăng nhập trên trang chủ Nền tảng AI Việt Trí Thông, nhấp \"Đến Trang chủ\" để đến trang chủ Nền tảng AI Việt Trí Thông và đăng nhập.",
+      "notLoggedInCaption": "Nhấp 'Đến Trang chủ' để đăng nhập trước",
+      "loggedInContent": "Nếu bạn đã đăng nhập trên trang chủ Nền tảng AI Việt Trí Thông, nhấp \"Ủy quyền Ngay\" để ủy quyền.",
+      "loggedInCaption": "Nhấp 'Ủy quyền Ngay' để ủy quyền tiện ích"
+    },
+    "step6": {
+      "title": "Bước 6: Xác nhận Tiện ích đã Sẵn sàng",
+      "content": "Đã cấp quyền thành công. Tiếp theo, mở nền tảng Nền tảng AI Việt Trí Thông, làm mới trang, bạn sẽ thấy tiện ích đã sẵn sàng. Nhấp vào để xem chi tiết.",
+      "caption1": "Ủy quyền thành công",
+      "caption2": "Quay lại nền tảng Nền tảng AI Việt Trí Thông để kiểm tra trạng thái tiện ích"
+    },
+    "step7": {
+      "title": "Bước 7: Xem Thông tin Tài khoản",
+      "content": "Nếu bạn đã đăng nhập vào các nền tảng được tiện ích hỗ trợ, bạn sẽ thấy tiện ích đã lấy được các tài khoản tương ứng.",
+      "loginContent": "Nhấp nút \"Tiện ích\" để xem trạng thái đăng nhập tài khoản. Nếu hiển thị chưa đăng nhập, vui lòng đăng nhập vào nền tảng mạng xã hội tương ứng trước.",
+      "caption": "Kiểm tra trạng thái đăng nhập tài khoản Xiaohongshu"
+    },
+    "step7b": {
+      "title": "Đăng nhập Tài khoản Xiaohongshu",
+      "content": "Nhấp \"Đăng nhập Ngay\" để chuyển đến trang Xiaohongshu để đăng nhập. Sau khi đăng nhập, bạn cũng cần đăng nhập vào Trung tâm Nhà sáng tạo.",
+      "caption1": "Vào nhanh Trung tâm Nhà sáng tạo từ góc trên bên phải",
+      "caption2": "Sau khi đăng nhập, làm mới trang để thấy tài khoản đã được ủy quyền",
+      "importantNote": "Lưu ý Quan trọng",
+      "importantNoteContent": "Trang chủ Xiaohongshu và Trung tâm Nhà sáng tạo cần đăng nhập riêng biệt. Chức năng tiện ích chỉ có thể sử dụng bình thường sau khi cả hai đều đã đăng nhập."
+    },
+    "step8": {
+      "title": "Bước 8: Đồng bộ Tài khoản",
+      "content": "Bạn có thể đồng bộ tài khoản vào quản lý tài khoản tại đây. Nhấp nút [Đồng bộ], tài khoản sẽ được đồng bộ vào cơ sở dữ liệu của chúng tôi.",
+      "caption": "Nhấp nút 'Đồng bộ' để đồng bộ tài khoản"
+    },
+    "step9": {
+      "title": "Xem Kết quả Đồng bộ",
+      "content": "Quay lại trang chủ Nền tảng AI Việt Trí Thông và nhấp \"Kênh của Tôi\" để vào trang quản lý tài khoản.",
+      "caption1": "Nhấp 'Kênh của Tôi' để vào quản lý tài khoản",
+      "caption2": "Bạn có thể thấy tài khoản Xiaohongshu đã được đồng bộ thành công"
+    },
+    "complete": {
+      "title": "Hoàn thành",
+      "content": "Bây giờ bạn có thể sử dụng nền tảng Nền tảng AI Việt Trí Thông bình thường!"
+    }
+  },
+  "manualInstall": {
+    "tip": "Mẹo",
+    "tipContent": "Nếu bạn đã cài đặt thành công tiện ích từ Chrome Web Store, bạn có thể bỏ qua phần này và chuyển trực tiếp đến chương \"Ủy quyền Tiện ích\".",
+    "step1": {
+      "title": "Vào Trang Quản lý Tiện ích Mở rộng",
+      "content": "Nhấp vào menu ba chấm ở góc trên bên phải trình duyệt, và nhấp để vào trang \"Quản lý Tiện ích Mở rộng\"."
+    },
+    "step2": {
+      "title": "Bật Chế độ Nhà phát triển",
+      "content": "Ở góc trên bên phải của trang tiện ích, bật \"Chế độ Nhà phát triển\"."
+    },
+    "step3": {
+      "title": "Tìm Tệp Tiện ích đã Tải",
+      "content": "Mở thư mục tải xuống của trình duyệt và tìm gói tiện ích .crx đã tải."
+    },
+    "step4": {
+      "title": "Kéo và Thả để Cài đặt Tiện ích",
+      "content": "Kéo và thả gói tiện ích .crx vào trang tiện ích mở rộng."
+    },
+    "step5": {
+      "title": "Xác nhận Cài đặt",
+      "content": "Trong hộp thoại bật lên, nhấp \"Thêm tiện ích\" để xác nhận cài đặt."
+    }
+  },
+  "faq": {
+    "title": "Câu hỏi Thường gặp",
+    "q1": {
+      "question": "Tại sao tiện ích vẫn hiển thị chưa đăng nhập sau khi tôi đã đăng nhập vào Xiaohongshu?",
+      "answer": "Có thể bạn chưa đăng nhập vào Trung tâm Nhà sáng tạo Xiaohongshu. Trên trang chủ Xiaohongshu, nhấp vào nút ở góc trên bên phải để đăng nhập nhanh vào Trung tâm Nhà sáng tạo Xiaohongshu."
+    }
+  },
+  "viewGuide": "Xem Hướng dẫn"
+}
