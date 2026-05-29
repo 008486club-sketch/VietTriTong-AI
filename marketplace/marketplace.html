@@ -520,54 +520,88 @@ let currentPage = 1;
 let currentTab = 'square';
 let currentUser = null;
 
-// 模拟用户登录态（演示用）
-const DEMO_USER = { id: 'demo-user-1', name: 'Nguyễn Văn A', role: 'creator' };
-const DEMO_BRAND = { id: 'demo-brand-1', name: 'Thương Hiệu ABC', role: 'brand' };
-
 // ============================================================
-// 操作函数
+// 任务数据加载
 // ============================================================
 
 async function loadTasks() {
   const grid = document.getElementById('taskGrid');
-  grid.innerHTML = '<div class="loading"><div class="spinner"></div>Đang tải nhiệm vụ...</div>';
   
-  try {
-    // 尝试调真实API
-    const params = new URLSearchParams({
-      page: currentPage.toString(),
-      page_size: '20',
-      sort: document.getElementById('sortFilter').value
-    });
-    const platform = document.getElementById('platformFilter').value;
-    if (platform) params.set('platform', platform);
-    
-    const res = await fetch(`${API_BASE}/tasks?${params}`);
-    if (res.ok) {
-      const data = await res.json();
-      tasks = data.items;
-      renderTasks(tasks);
-      return;
-    }
-  } catch(e) {
-    console.log('API not available, using demo data');
+  if (currentTab === 'square') {
+    grid.innerHTML = '<div class="loading"><div class="spinner"></div>Đang tải nhiệm vụ...</div>';
+    try {
+      const params = new URLSearchParams({
+        page: currentPage.toString(),
+        page_size: '20',
+        sort: document.getElementById('sortFilter').value
+      });
+      const platform = document.getElementById('platformFilter').value;
+      if (platform) params.set('platform', platform);
+      const res = await fetch(`${API_BASE}/tasks?${params}`);
+      if (res.ok) {
+        const data = await res.json();
+        tasks = data.items;
+        renderTasks(tasks);
+        return;
+      }
+    } catch(e) { console.log('API unavailable'); }
+    renderTasks([]);
+  } 
+  else if (currentTab === 'accepted') {
+    loadMyAcceptedTasks();
   }
-  
-  // 降级：使用模拟数据
-  tasks = getDemoTasks();
-  renderTasks(tasks);
+  else if (currentTab === 'published') {
+    loadMyPublishedTasks();
+  }
 }
 
-function getDemoTasks() {
-  return [
-    { id: '1', title: 'Quảng bá mỹ phẩm thiên nhiên trên TikTok', description: 'Tạo video giới thiệu sản phẩm mỹ phẩm thiên nhiên, tập trung vào thành phần và công dụng. Phong cách trẻ trung, năng động.', platform: 'tiktok', type: 'promotion', pricing_mode: 'fixed', price: 80000, quantity: 10, current_recruits: 4, status: 'active', deadline: '2026-06-15', created_at: '2026-05-26' },
-    { id: '2', title: 'Review nhà hàng Việt tại Hà Nội', description: 'Đến nhà hàng và quay video review chất lượng món ăn, không gian và dịch vụ. Yêu cầu video chân thực, có mặt tại quán.', platform: 'tiktok', type: 'promotion', pricing_mode: 'cpm', price: 120000, quantity: 5, current_recruits: 2, status: 'active', deadline: '2026-06-20', created_at: '2026-05-25' },
-    { id: '3', title: 'Giới thiệu ứng dụng học tiếng Việt', description: 'Tạo video hướng dẫn sử dụng app học tiếng Việt cho người nước ngoài. Video có thể là unboxing trải nghiệm học.', platform: 'youtube', type: 'promotion', pricing_mode: 'fixed', price: 150000, quantity: 3, current_recruits: 1, status: 'active', deadline: '2026-06-10', created_at: '2026-05-24' },
-    { id: '4', title: 'Tương tác bài viết thời trang mới', description: 'Like, comment và chia sẻ bài viết giới thiệu bộ sưu tập thời trang Thu Đông 2026', platform: 'instagram', type: 'interaction', pricing_mode: 'fixed', price: 20000, quantity: 20, current_recruits: 8, status: 'active', deadline: '2026-06-05', created_at: '2026-05-23' },
-    { id: '5', title: 'Unboxing điện thoại thông minh', description: 'Quay video unboxng điện thoại mới, đánh giá nhanh các tính năng nổi bật. Yêu cầu quay tại nhà với ánh sáng tốt.', platform: 'youtube', type: 'promotion', pricing_mode: 'fixed', price: 200000, quantity: 2, current_recruits: 2, status: 'active', deadline: '2026-06-08', created_at: '2026-05-22' },
-    { id: '6', title: 'Chia sẻ trải nghiệm mua sắm online', description: 'Đăng bài trên Facebook chia sẻ trải nghiệm mua hàng trên sàn thương mại điện tử. Yêu cầu có hình ảnh thực tế.', platform: 'facebook', type: 'interaction', pricing_mode: 'cpe', price: 35000, quantity: 15, current_recruits: 3, status: 'active', deadline: '2026-06-12', created_at: '2026-05-21' },
-  ];
+async function loadMyAcceptedTasks() {
+  const grid = document.getElementById('taskGrid');
+  grid.innerHTML = '<div class="loading"><div class="spinner"></div>Đang tải...</div>';
+  
+  const user = getUserInfo();
+  if (!user) {
+    grid.innerHTML = '<div style="text-align:center;padding:60px;color:var(--text-muted)">🔑 Vui lòng đăng nhập để xem nhiệm vụ đã nhận</div>';
+    return;
+  }
+  
+  try {
+    const res = await apiCall('GET', `/my-tasks?tab=accepted`);
+    if (res && res.items) {
+      renderAcceptedTasks(res.items);
+    } else {
+      grid.innerHTML = '<div style="text-align:center;padding:60px;color:var(--text-muted)">📭 Bạn chưa nhận nhiệm vụ nào</div>';
+    }
+  } catch(e) {
+    grid.innerHTML = '<div style="text-align:center;padding:60px;color:var(--text-muted)">❌ Không thể tải</div>';
+  }
 }
+
+async function loadMyPublishedTasks() {
+  const grid = document.getElementById('taskGrid');
+  grid.innerHTML = '<div class="loading"><div class="spinner"></div>Đang tải...</div>';
+  
+  const user = getUserInfo();
+  if (!user) {
+    grid.innerHTML = '<div style="text-align:center;padding:60px;color:var(--text-muted)">🔑 Vui lòng đăng nhập để xem nhiệm vụ đã đăng</div>';
+    return;
+  }
+  
+  try {
+    const res = await apiCall('GET', `/my-tasks?tab=published`);
+    if (res && res.items) {
+      renderPublishedTasks(res.items);
+    } else {
+      grid.innerHTML = '<div style="text-align:center;padding:60px;color:var(--text-muted)">📭 Bạn chưa đăng nhiệm vụ nào</div>';
+    }
+  } catch(e) {
+    grid.innerHTML = '<div style="text-align:center;padding:60px;color:var(--text-muted)">❌ Không thể tải</div>';
+  }
+}
+
+// ============================================================
+// 任务广场渲染
+// ============================================================
 
 function renderTasks(taskList) {
   const grid = document.getElementById('taskGrid');
@@ -580,19 +614,19 @@ function renderTasks(taskList) {
     const isFull = t.current_recruits >= t.quantity;
     const badgeClass = isFull ? 'badge-full' : 'badge-active';
     const badgeText = isFull ? 'Hết Chỗ' : 'Đang Tuyển';
-    const priceStr = t.price.toLocaleString('vi-VN');
+    const priceStr = (t.price || 0).toLocaleString('vi-VN');
     
     return `
       <div class="task-card" onclick="showTaskDetail('${t.id}')">
         <div class="task-card-header">
-          <span class="task-platform">${getPlatformIcon(t.platform)} ${t.platform.toUpperCase()}</span>
-          <span class="task-type ${t.type}">${t.type === 'promotion' ? '📢 Quảng Bá' : '💬 Tương Tác'}</span>
+          <span class="task-platform">${getPlatformIcon(t.platform)} ${(t.platform||'').toUpperCase()}</span>
+          <span class="task-type ${t.type||'promotion'}">${t.type === 'interaction' ? '💬 Tương Tác' : '📢 Quảng Bá'}</span>
         </div>
         <div class="task-title">${t.title}</div>
         <div class="task-desc">${t.description || ''}</div>
         <div class="task-meta" style="margin-bottom:12px">
-          <span class="task-meta-item">👥 ${t.current_recruits}/${t.quantity}</span>
-          <span class="task-meta-item">📅 ${t.deadline || 'Không GH'}</span>
+          <span class="task-meta-item">👥 ${t.current_recruits||0}/${t.quantity||0}</span>
+          <span class="task-meta-item">📅 ${t.deadline ? t.deadline.slice(0,10) : 'Không GH'}</span>
         </div>
         <div class="task-footer">
           <div class="task-price">${priceStr} <span>VNĐ</span></div>
@@ -601,8 +635,72 @@ function renderTasks(taskList) {
       </div>
     `;
   }).join('') + '</div>';
+}
+
+// ============================================================
+// 已接任务渲染 + 提交作品
+// ============================================================
+
+function renderAcceptedTasks(items) {
+  const grid = document.getElementById('taskGrid');
+  if (!items || items.length === 0) {
+    grid.innerHTML = '<div style="text-align:center;padding:60px;color:var(--text-muted)">📭 Bạn chưa nhận nhiệm vụ nào</div>';
+    return;
+  }
   
-  document.getElementById('pagination').style.display = taskList.length >= 20 ? 'block' : 'none';
+  grid.innerHTML = '<div class="task-grid">' + items.map(t => {
+    const statusMap = { 'doing':'⏳ Đang làm', 'pending':'🔍 Chờ duyệt', 'approved':'✅ Đã duyệt', 'settled':'💰 Đã thanh toán', 'rejected':'❌ Bị từ chối' };
+    const statusText = statusMap[t.status] || t.status;
+    const rewardStr = (t.reward || 0).toLocaleString('vi-VN');
+    
+    return `
+      <div class="task-card" style="cursor:default">
+        <div class="task-card-header">
+          <span class="task-platform">${getPlatformIcon(t.platform)} ${(t.platform||'').toUpperCase()}</span>
+          <span style="font-size:12px;padding:3px 10px;border-radius:20px;background:#f1f5f9;color:var(--text-muted)">${statusText}</span>
+        </div>
+        <div class="task-title">${t.title}</div>
+        <div class="task-desc">${t.description || ''}</div>
+        <div class="task-footer">
+          <div class="task-price">${rewardStr} <span>VNĐ</span></div>
+          ${t.status === 'doing' ? `<button class="btn btn-primary btn-sm" onclick="openSubmitModal('${t.task_id||t._id}','${t.id}')">📤 Nộp Bài</button>` : ''}
+          ${t.status === 'rejected' ? `<button class="btn btn-outline btn-sm" onclick="openSubmitModal('${t.task_id||t._id}','${t.id}')">🔄 Nộp Lại</button>` : ''}
+        </div>
+      </div>
+    `;
+  }).join('') + '</div>';
+}
+
+// ============================================================
+// 已发布任务渲染 + 审核面板
+// ============================================================
+
+function renderPublishedTasks(items) {
+  const grid = document.getElementById('taskGrid');
+  if (!items || items.length === 0) {
+    grid.innerHTML = '<div style="text-align:center;padding:60px;color:var(--text-muted)">📭 Bạn chưa đăng nhiệm vụ nào</div>';
+    return;
+  }
+  
+  grid.innerHTML = '<div class="task-grid">' + items.map(t => {
+    const priceStr = (t.price || 0).toLocaleString('vi-VN');
+    return `
+      <div class="task-card" onclick="openReviewPanel('${t._id||t.id}')">
+        <div class="task-card-header">
+          <span class="task-platform">${getPlatformIcon(t.platform)} ${(t.platform||'').toUpperCase()}</span>
+          <span class="badge badge-active">${t.current_recruits||0}/${t.quantity||0}</span>
+        </div>
+        <div class="task-title">${t.title}</div>
+        <div class="task-meta" style="margin-bottom:8px">
+          <span>👥 ${t.current_recruits||0} đã nhận</span>
+        </div>
+        <div class="task-footer">
+          <div class="task-price">${priceStr} <span>VNĐ</span></div>
+          <span style="font-size:12px;color:var(--primary)">📋 Xem bài nộp →</span>
+        </div>
+      </div>
+    `;
+  }).join('') + '</div>';
 }
 
 function getPlatformIcon(platform) {
@@ -617,13 +715,229 @@ function filterTasks() {
 
 function loadMore() {
   currentPage++;
-  // 演示用，实际API分页
 }
 
 function switchTab(tab, el) {
   currentTab = tab;
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   el.classList.add('active');
+  // 隐藏筛选栏（我的任务tab不需要）
+  const filters = document.querySelector('.filters');
+  filters.style.display = tab === 'square' ? 'flex' : 'none';
+  loadTasks();
+}
+
+// ============================================================
+// 提交作品弹窗
+// ============================================================
+
+function openSubmitModal(taskId, userTaskId) {
+  const modal = document.getElementById('detailModal');
+  modal.classList.add('show');
+  const body = document.getElementById('detailBody');
+  
+  body.innerHTML = `
+    <div style="margin-bottom:20px">
+      <h3 style="font-size:18px;font-weight:600;margin-bottom:4px">📤 Nộp Bài</h3>
+      <p style="font-size:13px;color:var(--text-muted)">Vui lòng cung cấp link bài viết đã đăng và ảnh chụp màn hình</p>
+    </div>
+    <div class="field">
+      <div class="field-label">Link Bài Viết</div>
+      <input type="text" id="submitWorkUrl" style="width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px" placeholder="https://tiktok.com/... hoặc link bài viết">
+    </div>
+    <div class="field">
+      <div class="field-label">Ảnh Chụp Màn Hình (tùy chọn)</div>
+      <textarea id="submitScreenshots" style="width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;min-height:60px" placeholder="Dán link ảnh chụp, mỗi link 1 dòng"></textarea>
+    </div>
+    <div style="padding:12px;background:#fff7ed;border-radius:8px;font-size:13px;color:#92400e;margin-top:12px">
+      💡 <strong>Mẹo:</strong> Bài nộp càng chi tiết, càng dễ được duyệt nhanh!
+    </div>
+    <div class="modal-footer" style="border:none;padding:0;margin-top:16px">
+      <button class="btn btn-outline" onclick="closeModal('detailModal')">Hủy</button>
+      <button class="btn btn-primary" onclick="submitWork('${taskId}')">📤 Gửi Bài</button>
+    </div>
+  `;
+}
+
+async function submitWork(taskId) {
+  const workUrl = document.getElementById('submitWorkUrl').value;
+  if (!workUrl) { alert('Vui lòng nhập link bài viết'); return; }
+  
+  closeModal('detailModal');
+  
+  try {
+    const res = await apiCall('POST', `/tasks/${taskId}/submit`, {
+      work_url: workUrl,
+      screenshot_urls: (document.getElementById('submitScreenshots').value || '').split('\n').filter(s => s.trim())
+    });
+    
+    if (res && res.status === 'submitted') {
+      alert('✅ Đã nộp bài thành công! Chờ chủ nhiệm vụ duyệt.');
+    } else {
+      alert('❌ Nộp bài thất bại, vui lòng thử lại');
+    }
+  } catch(e) {
+    alert('❌ Lỗi kết nối, vui lòng thử lại');
+  }
+  
+  loadTasks();
+}
+
+// ============================================================
+// 审核面板
+// ============================================================
+
+async function openReviewPanel(taskId) {
+  const modal = document.getElementById('detailModal');
+  modal.classList.add('show');
+  const body = document.getElementById('detailBody');
+  body.innerHTML = '<div class="loading"><div class="spinner"></div>Đang tải bài nộp...</div>';
+  
+  try {
+    const res = await fetch(`${API_BASE}/tasks/${taskId}`);
+    if (!res.ok) throw new Error('fail');
+    const task = await res.json();
+    
+    // 查询该任务的提交
+    const submissionsRes = await apiCall('GET', `/my-tasks?tab=accepted`);
+    let submissions = [];
+    if (submissionsRes && Array.isArray(submissionsRes.items)) {
+      submissions = submissionsRes.items.filter(s => s.task_id === taskId || s.taskId === taskId);
+    }
+    
+    if (!submissions || submissions.length === 0) {
+      body.innerHTML = `
+        <div style="text-align:center;padding:40px;color:var(--text-muted)">
+          📭 Chưa có ai nộp bài cho nhiệm vụ này
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline" onclick="closeModal('detailModal')">Đóng</button>
+        </div>
+      `;
+      return;
+    }
+    
+    body.innerHTML = `
+      <div style="margin-bottom:16px">
+        <h3 style="font-size:16px;font-weight:600">📋 Bài nộp: ${task.title}</h3>
+        <p style="font-size:13px;color:var(--text-muted)">${submissions.length} bài nộp</p>
+      </div>
+      ${submissions.map(s => {
+        const statusText = { 'pending':'🔍 Chờ duyệt', 'approved':'✅ Đã duyệt', 'settled':'💰 Đã thanh toán', 'rejected':'❌ Từ chối' }[s.status] || s.status;
+        return `
+          <div style="border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:12px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+              <span style="font-weight:600;font-size:14px">Người dùng: ${s.user_id?.slice(0,8) || 'Ẩn danh'}...</span>
+              <span style="font-size:12px;padding:3px 10px;border-radius:20px;background:#f1f5f9">${statusText}</span>
+            </div>
+            ${s.work_url ? `<div class="field"><div class="field-label">Link Bài</div><div class="field-value"><a href="${s.work_url}" target="_blank" style="color:var(--primary)">${s.work_url.slice(0,60)}...</a></div></div>` : ''}
+            ${s.screenshot_urls?.length ? `<div class="field"><div class="field-label">Ảnh Chụp</div><div class="field-value">${s.screenshot_urls.length} ảnh</div></div>` : ''}
+            <div style="display:flex;gap:8px;margin-top:12px">
+              ${s.status === 'pending' ? `
+                <button class="btn btn-primary btn-sm" onclick="reviewSubmission('${task._id||task.id}','${s._id||s.id}','approve')">✅ Duyệt</button>
+                <button class="btn btn-outline btn-sm" style="border-color:var(--danger);color:var(--danger)" onclick="reviewSubmission('${task._id||task.id}','${s._id||s.id}','reject')">❌ Từ Chối</button>
+              ` : ''}
+            </div>
+          </div>
+        `;
+      }).join('')}
+      <div class="modal-footer">
+        <button class="btn btn-outline" onclick="closeModal('detailModal')">Đóng</button>
+      </div>
+    `;
+  } catch(e) {
+    body.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-muted)">❌ Lỗi tải dữ liệu</div>';
+  }
+}
+
+async function reviewSubmission(taskId, userTaskId, action) {
+  closeModal('detailModal');
+  
+  try {
+    const res = await apiCall('POST', `/tasks/${taskId}/review?user_task_id=${userTaskId}&action=${action}`);
+    if (res && res.status) {
+      alert(action === 'approve' ? '✅ Đã duyệt! Tiền sẽ được thanh toán sau 7 ngày.' : '❌ Đã từ chối');
+    }
+  } catch(e) {
+    alert('❌ Thao tác thất bại');
+  }
+  
+  loadTasks();
+}
+
+// ============================================================
+// 任务详情弹窗（含接任务按钮）
+// ============================================================
+
+async function showTaskDetail(taskId) {
+  const modal = document.getElementById('detailModal');
+  modal.classList.add('show');
+  const body = document.getElementById('detailBody');
+  body.innerHTML = '<div class="loading"><div class="spinner"></div></div>';
+  
+  // 尝试从API获取详情
+  let task = tasks.find(t => t.id === taskId);
+  if (!task) {
+    try {
+      const res = await fetch(`${API_BASE}/tasks/${taskId}`);
+      if (res.ok) task = await res.json();
+    } catch(e) {}
+  }
+  
+  if (!task) { body.innerHTML = '<div style="text-align:center;padding:40px">Không tìm thấy</div>'; return; }
+  
+  const priceStr = (task.price || 0).toLocaleString('vi-VN');
+  const isFull = (task.current_recruits || 0) >= (task.quantity || 0);
+  const user = getUserInfo();
+  
+  body.innerHTML = `
+    <div class="field">
+      <div class="field-label">Tiêu Đề</div>
+      <div class="field-value" style="font-size:18px;font-weight:600">${task.title}</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Mô Tả</div>
+      <div class="field-value">${task.description || 'Không có mô tả'}</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Nền Tảng</div>
+      <div class="field-value">${getPlatformIcon(task.platform)} ${(task.platform||'').toUpperCase()}</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Phần Thưởng</div>
+      <div class="field-value" style="font-size:24px;font-weight:700;color:var(--primary)">${priceStr} VNĐ</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Đã Tuyển</div>
+      <div class="field-value">${task.current_recruits||0}/${task.quantity||0}</div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal('detailModal')">Đóng</button>
+      ${!isFull ? `<button class="btn btn-primary" onclick="acceptTask('${task._id||task.id}')">📥 Nhận Nhiệm Vụ</button>` : '<button class="btn btn-outline" disabled>Hết Chỗ</button>'}
+    </div>
+  `;
+}
+
+async function acceptTask(taskId) {
+  const user = getUserInfo();
+  if (!user) {
+    if (confirm('Vui lòng đăng nhập để nhận nhiệm vụ.')) window.location.href = '/auth/login';
+    return;
+  }
+  
+  closeModal('detailModal');
+  
+  try {
+    const res = await apiCall('POST', `/tasks/${taskId}/accept`);
+    if (res && res.id) {
+      alert('✅ Đã nhận nhiệm vụ! Vào tab "Đã Nhận" để xem và nộp bài.');
+    } else if (res && res.detail) {
+      alert('❌ ' + res.detail);
+    }
+  } catch(e) {
+    alert('❌ Không thể nhận nhiệm vụ. Vui lòng đăng nhập lại.');
+  }
+  
   loadTasks();
 }
 
