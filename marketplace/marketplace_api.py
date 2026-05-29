@@ -35,6 +35,7 @@ from fastapi import FastAPI, HTTPException, Depends, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
+import httpx
 from motor.motor_asyncio import AsyncIOMotorClient
 import redis.asyncio as redis
 
@@ -955,8 +956,49 @@ async def get_recharge_records(
     return {"total": total, "page": page, "page_size": page_size, "items": items}
 
 
-# ============================================================
-# 静态文件服务
+# ---------- Gemini AI 能力（绕过AI容器，直接调用） ----------
+
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+GEMINI_BASE = "https://generativelanguage.googleapis.com/v1beta/models"
+
+@app.post("/api/market/ai/chat")
+async def ai_chat(
+    request: Request,
+    user: dict = Depends(verify_auth),
+):
+    """AI聊天（优先千问，备选Gemini）"""
+    body = await request.json()
+    prompt = body.get("prompt", "")
+    messages = body.get("messages", [{"role": "user", "content": prompt}])
+    
+    # 优先用千问
+    dashscope_key = os.getenv("DASHSCOPE_API_KEY", "sk-ad3dcc4c4ea641688620cfffa7013229")
+    async with httpx.AsyncClient() as client:
+        resp = await client.post(
+            "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+            headers={"Authorization": f"Bearer {dashscope_key}", "Content-Type": "application/json"},
+            json={"model": "qwen3.6-plus-2026-04-02", "messages": messages, "max_tokens": 2000},
+            timeout=30
+        )
+        data = resp.json()
+        if "choices" in data and data["choices"]:
+            return {"content": data["choices"][0]["message"]["content"], "model": "qwen"}
+        # 千问不行就fallback到Gemini
+        try:
+            g_resp = await client.post(
+                f"{GEMINI_BASE}/gemini-2.0-flash:generateContent",
+                headers={"X-goog-api-key": GEMINI_API_KEY},
+                json={"contents": [{"parts": [{"text": prompt}]}]},
+                timeout=15
+            )
+            g_data = g_resp.json()
+            if "candidates" in g_data:
+                text = "".join(p.get("text","") for p in g_data["candidates"][0]["content"]["parts"])
+                return {"content": text, "model": "gemini"}
+        except:
+            pass
+        return {"content": "Xin lỗi, AI hiện không khả dụng. Vui lòng thử lại sau."}
+
 # ============================================================
 
 FRONTEND_DIR = os.path.join(os.path.dirname(__file__), "frontend")

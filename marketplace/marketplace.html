@@ -259,6 +259,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
     <nav class="nav">
       <a href="#" class="active">Chợ Nội Dung</a>
       <a href="#">Nhiệm Vụ Của Tôi</a>
+      <a href="#" onclick="showAIChat()">🤖 AI Chat</a>
       <button class="btn btn-primary btn-sm" onclick="showCreateTask()">+ Đăng Nhiệm Vụ</button>
     </nav>
   </div>
@@ -1118,9 +1119,76 @@ async function submitWithdraw() {
   loadWallet();
 }
 
-
 // ============================================================
-// 任务详情弹窗（含接任务按钮）
+// AI Chat（直接调Gemini）
+// ============================================================
+
+function showAIChat() {
+  const modal = document.getElementById('detailModal');
+  modal.classList.add('show');
+  const body = document.getElementById('detailBody');
+  
+  body.innerHTML = `
+    <div style="margin-bottom:16px">
+      <h3 style="font-size:18px;font-weight:600;margin-bottom:4px">🤖 AI Chat</h3>
+      <p style="font-size:13px;color:var(--text-muted)">Powered by Gemini + Qwen</p>
+    </div>
+    <div id="chatMessages" style="min-height:200px;max-height:400px;overflow-y:auto;margin-bottom:12px;padding:12px;background:#f8fafc;border-radius:8px">
+      <div style="text-align:center;padding:40px;color:var(--text-muted);font-size:14px">
+        👋 Hỏi tôi bất cứ điều gì về thị trường Việt Nam<br>
+        <span style="font-size:12px">(AI về TikTok, kinh doanh, dịch thuật...)</span>
+      </div>
+    </div>
+    <div style="display:flex;gap:8px">
+      <input type="text" id="chatInput" style="flex:1;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px" placeholder="Nhập câu hỏi..." onkeydown="if(event.key==='Enter') sendChat()">
+      <button class="btn btn-primary" onclick="sendChat()">Gửi</button>
+    </div>
+    <div class="modal-footer" style="border:none;padding:0;margin-top:12px">
+      <button class="btn btn-outline" onclick="closeModal('detailModal')">Đóng</button>
+    </div>
+  `;
+  
+  document.getElementById('chatInput').focus();
+}
+
+let _chatHistory = [];
+
+async function sendChat() {
+  const input = document.getElementById('chatInput');
+  const msgBox = document.getElementById('chatMessages');
+  const text = input.value.trim();
+  if (!text) return;
+  
+  input.value = '';
+  
+  // 显示用户消息
+  msgBox.innerHTML += `<div style="text-align:right;margin-bottom:8px"><div style="display:inline-block;background:var(--primary);color:white;padding:8px 14px;border-radius:16px 16px 4px 16px;font-size:14px;max-width:80%">${escapeHtml(text)}</div></div>`;
+  msgBox.scrollTop = msgBox.scrollHeight;
+  
+  // 显示loading
+  msgBox.innerHTML += `<div id="aiLoading" style="margin-bottom:8px"><div style="display:inline-block;background:#f1f5f9;color:var(--text-muted);padding:8px 14px;border-radius:16px 16px 16px 4px;font-size:14px">🤔 Đang suy nghĩ...</div></div>`;
+  
+  try {
+    const res = await apiCall('POST', '/ai/chat', { prompt: text });
+    const loading = document.getElementById('aiLoading');
+    if (loading) loading.remove();
+    
+    const reply = res?.content || 'Xin lỗi, tôi chưa thể trả lời câu hỏi này.';
+    msgBox.innerHTML += `<div style="margin-bottom:8px"><div style="display:inline-block;background:#f1f5f9;color:var(--text);padding:8px 14px;border-radius:16px 16px 16px 4px;font-size:14px;max-width:80%">${escapeHtml(reply)}</div></div>`;
+  } catch(e) {
+    const loading = document.getElementById('aiLoading');
+    if (loading) loading.remove();
+    msgBox.innerHTML += `<div style="margin-bottom:8px"><div style="display:inline-block;background:#fef2f2;color:#991b1b;padding:8px 14px;border-radius:16px;font-size:14px">❌ Lỗi kết nối</div></div>`;
+  }
+  
+  msgBox.scrollTop = msgBox.scrollHeight;
+}
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
 // ============================================================
 
 async function showTaskDetail(taskId) {
