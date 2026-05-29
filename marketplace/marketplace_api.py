@@ -220,8 +220,10 @@ async def create_task(
     user_id = user["user_id"]
     user_name = user.get("name", "")
     
-    # 计算总价（美分）
-    total_cost = int(task.price * task.quantity)
+    # 计算总价和平台服务费
+    unit_price = task.price  # 创作者实收单价
+    platform_fee = int(unit_price * PLATFORM_FEE_RATE)  # 平台服务费
+    total_cost = int((unit_price + platform_fee) * task.quantity)  # 品牌方总支出
     
     # 查余额
     balance_doc = await db.creditsBalance.find_one({"userId": user_id})
@@ -253,10 +255,11 @@ async def create_task(
         "type": task.type.value if isinstance(task.type, TaskType) else task.type,
         "platform": task.platform,
         "pricing_mode": task.pricing_mode.value if isinstance(task.pricing_mode, PricingMode) else task.pricing_mode,
-        "price": task.price,
+        "price": unit_price,      # 创作者实收单价
+        "platform_fee": platform_fee,  # 平台服务费
         "quantity": task.quantity,
         "current_recruits": 0,
-        "total_cost": total_cost,
+        "total_cost": total_cost,  # 品牌方总支出
         "status": TaskStatus.ACTIVE.value,
         "deadline": task.deadline,
         "material_ids": task.material_ids,
@@ -522,6 +525,20 @@ async def my_tasks(
         total = await db.user_tasks.count_documents(query)
         cursor = db.user_tasks.find(query).sort("created_at", -1).skip((page-1)*page_size).limit(page_size)
         items = await cursor.to_list(length=page_size)
+        # 格式化返回
+        items = [{
+            "id": str(item.get("_id", "")),
+            "task_id": item.get("task_id", ""),
+            "user_id": item.get("user_id", ""),
+            "status": item.get("status", ""),
+            "reward": item.get("reward", 0),
+            "pricing_mode": item.get("pricing_mode", "fixed"),
+            "work_url": item.get("work_url", ""),
+            "screenshot_urls": item.get("screenshot_urls", []),
+            "rejection_reason": item.get("rejection_reason", ""),
+            "created_at": item.get("created_at"),
+            "updated_at": item.get("updated_at"),
+        } for item in items]
     else:
         query = {"publisher_id": user_id}
         if status:
@@ -529,6 +546,21 @@ async def my_tasks(
         total = await db.tasks.count_documents(query)
         cursor = db.tasks.find(query).sort("created_at", -1).skip((page-1)*page_size).limit(page_size)
         items = await cursor.to_list(length=page_size)
+        # 格式化返回
+        items = [{
+            "id": str(item.get("_id", "")),
+            "title": item.get("title", ""),
+            "description": item.get("description", ""),
+            "type": item.get("type", ""),
+            "platform": item.get("platform", ""),
+            "pricing_mode": item.get("pricing_mode", ""),
+            "price": item.get("price", 0),
+            "quantity": item.get("quantity", 0),
+            "current_recruits": item.get("current_recruits", 0),
+            "status": item.get("status", ""),
+            "deadline": str(item.get("deadline", "")) if item.get("deadline") else None,
+            "created_at": item.get("created_at"),
+        } for item in items]
     
     return {
         "total": total,
@@ -602,6 +634,325 @@ async def get_balance(
     balance_doc = await db.creditsBalance.find_one({"userId": user_id})
     balance = balance_doc["balance"] if balance_doc else 0
     return {"balance": balance, "user_id": user_id}
+
+
+# ============================================================
+# 支付系统 —— 充值 / 提现 / 流水
+# ============================================================
+
+# ---------- 充值 ----------
+
+class RechargeRequest(BaseModel):
+    """充值请求"""
+    amount: int = Field(..., gt=0, description="充值金额（分）")
+    method: str = Field("bank_transfer", description="充值方式: wechat / alipay / bank_transfer")
+    remark: Optional[str] = Field(None, max_length=200)
+
+class RechargeResponse(BaseModel):
+    id: str
+    amount: int
+    bonus: int
+    total: int
+    status: str
+    pay_url: Optional[str] = None
+
+# 充值赠送比例
+RECHARGE_BONUS = {
+    50000: 0,      # 5万→无赠送
+    100000: 5000,  # 10万→送5000
+    200000: 15000, # 20万→送15000
+    500000: 50000, # 50万→送50000
+    1000000: 120000, # 100万→送12万
+}
+
+def calc_bonus(amount: int) -> int:
+    """计算充值赠送"""
+    bonus = 0
+    for threshold, b in sorted(RECHARGE_BONUS.items(), reverse=True):
+        if amount >= threshold:
+            bonus = max(bonus, b)
+    return bonus
+
+@app.post("/api/market/recharge", response_model=RechargeResponse)
+async def create_recharge(
+    req: RechargeRequest,
+    user: dict = Depends(verify_auth),
+    db=Depends(get_db),
+):
+    """
+    创建充值订单
+    - 品牌方提交充值申请
+    - 后台生成充值记录，状态为 pending
+    - 财务确认到账后，调用确认接口加积分
+    """
+    user_id = user["user_id"]
+    bonus = calc_bonus(req.amount)
+    
+    order = {
+        "_id": f"RE{datetime.utcnow().strftime('%Y%m%d%H%M%S')}{uuid.uuid4().hex[:6]}",
+        "userId": user_id,
+        "amount": req.amount,
+        "bonus": bonus,
+        "total": req.amount + bonus,
+        "method": req.method,
+        "remark": req.remark or "",
+        "status": "pending",  # pending → confirmed → cancelled
+        "createdAt": datetime.utcnow(),
+        "updatedAt": datetime.utcnow(),
+    }
+    await db.rechargeOrders.insert_one(order)
+    
+    return RechargeResponse(
+        id=order["_id"],
+        amount=order["amount"],
+        bonus=order["bonus"],
+        total=order["total"],
+        status=order["status"],
+        pay_url=None,
+    )
+
+
+@app.post("/api/market/recharge/{order_id}/confirm")
+async def confirm_recharge(
+    order_id: str,
+    user: dict = Depends(verify_auth),
+    db=Depends(get_db),
+):
+    """
+    确认充值到账（财务操作）
+    - 将充值金额+赠送积分加到用户账户
+    """
+    order = await db.rechargeOrders.find_one({"_id": order_id})
+    if not order:
+        raise HTTPException(404, "充值订单不存在")
+    if order["status"] != "pending":
+        raise HTTPException(400, "订单已处理")
+    
+    # 加积分
+    total = order["total"]
+    await db.creditsBalance.update_one(
+        {"userId": order["userId"]},
+        {"$inc": {"balance": total}},
+        upsert=True
+    )
+    await db.creditsRecord.insert_one({
+        "userId": order["userId"],
+        "amount": total,
+        "balance": total,
+        "type": "recharge",
+        "description": f"Nạp xu: {order['amount']} + tặng {order['bonus']}",
+        "createdAt": datetime.utcnow(),
+        "updatedAt": datetime.utcnow(),
+    })
+    
+    # 更新订单状态
+    await db.rechargeOrders.update_one(
+        {"_id": order_id},
+        {"$set": {"status": "confirmed", "confirmedAt": datetime.utcnow(), "updatedAt": datetime.utcnow()}}
+    )
+    
+    return {"status": "confirmed", "total": total, "message": f"Đã nạp {total} xu thành công"}
+
+
+# ---------- 提现 ----------
+
+class WithdrawRequest(BaseModel):
+    amount: int = Field(..., gt=0, description="提现金额（分）")
+    bank_name: str = Field(..., min_length=1, max_length=100)
+    bank_account: str = Field(..., min_length=1, max_length=50)
+    bank_holder: str = Field(..., min_length=1, max_length=100)
+
+WITHDRAW_MIN = 50000  # 最低提现 5万越南盾
+WITHDRAW_FEE = 0.05   # 5% 平台服务费
+PLATFORM_FEE_RATE = 0.15  # 15% 平台交易服务费
+
+
+@app.post("/api/market/withdraw")
+async def create_withdraw(
+    req: WithdrawRequest,
+    user: dict = Depends(verify_auth),
+    db=Depends(get_db),
+):
+    """
+    创作者提现申请
+    - 检查余额是否足够
+    - 扣除平台服务费后计算实际到账
+    - 状态: pending → approved → completed / rejected
+    """
+    user_id = user["user_id"]
+    
+    if req.amount < WITHDRAW_MIN:
+        raise HTTPException(400, f"Tối thiểu {WITHDRAW_MIN} xu mới được rút")
+    
+    # 查余额
+    bal_doc = await db.creditsBalance.find_one({"userId": user_id})
+    balance = bal_doc["balance"] if bal_doc else 0
+    if balance < req.amount:
+        raise HTTPException(400, f"Số dư không đủ. Cần {req.amount}, hiện có {balance}")
+    
+    fee = int(req.amount * WITHDRAW_FEE)
+    actual = req.amount - fee
+    
+    # 冻结提现金额
+    await db.creditsBalance.update_one(
+        {"userId": user_id},
+        {"$inc": {"balance": -req.amount}}
+    )
+    
+    withdraw = {
+        "_id": f"WD{datetime.utcnow().strftime('%Y%m%d%H%M%S')}{uuid.uuid4().hex[:6]}",
+        "userId": user_id,
+        "amount": req.amount,
+        "fee": fee,
+        "actual": actual,
+        "bank_name": req.bank_name,
+        "bank_account": req.bank_account,
+        "bank_holder": req.bank_holder,
+        "status": "pending",  # pending → approved → completed / rejected
+        "createdAt": datetime.utcnow(),
+        "updatedAt": datetime.utcnow(),
+    }
+    await db.withdrawOrders.insert_one(withdraw)
+    
+    return {
+        "id": withdraw["_id"],
+        "amount": withdraw["amount"],
+        "fee": withdraw["fee"],
+        "actual": withdraw["actual"],
+        "status": withdraw["status"],
+        "message": f"Đã gửi yêu cầu rút {actual} xu (phí {fee} xu)"
+    }
+
+
+@app.post("/api/market/withdraw/{withdraw_id}/process")
+async def process_withdraw(
+    withdraw_id: str,
+    action: str = Query(..., regex="^(approve|reject|complete)$"),
+    user: dict = Depends(verify_auth),
+    db=Depends(get_db),
+):
+    """
+    处理提现申请（运营操作）
+    - approve: 审核通过，标记为处理中
+    - complete: 确认打款完成
+    - reject: 拒绝，退回冻结金额
+    """
+    wd = await db.withdrawOrders.find_one({"_id": withdraw_id})
+    if not wd:
+        raise HTTPException(404, "提现申请不存在")
+    
+    if action == "approve":
+        await db.withdrawOrders.update_one(
+            {"_id": withdraw_id},
+            {"$set": {"status": "approved", "updatedAt": datetime.utcnow()}}
+        )
+        return {"status": "approved", "message": "Đã duyệt, chờ chuyển tiền"}
+    
+    elif action == "complete":
+        await db.withdrawOrders.update_one(
+            {"_id": withdraw_id},
+            {"$set": {"status": "completed", "completedAt": datetime.utcnow(), "updatedAt": datetime.utcnow()}}
+        )
+        return {"status": "completed", "message": "Đã chuyển tiền thành công"}
+    
+    elif action == "reject":
+        # 退回冻结金额
+        await db.creditsBalance.update_one(
+            {"userId": wd["userId"]},
+            {"$inc": {"balance": wd["amount"]}}
+        )
+        await db.withdrawOrders.update_one(
+            {"_id": withdraw_id},
+            {"$set": {"status": "rejected", "updatedAt": datetime.utcnow()}}
+        )
+        return {"status": "rejected", "message": "Đã từ chối rút tiền"}
+
+
+# ---------- 流水记录 ----------
+
+@app.get("/api/market/transactions")
+async def get_transactions(
+    page: int = Query(1, ge=1),
+    page_size: int = Query(20, ge=1, le=100),
+    user: dict = Depends(verify_auth),
+    db=Depends(get_db),
+):
+    """获取用户交易流水（充值+任务+提现）"""
+    user_id = user["user_id"]
+    
+    # 从creditsRecord查积分变动
+    total = await db.creditsRecord.count_documents({"userId": user_id})
+    cursor = db.creditsRecord.find({"userId": user_id}).sort("createdAt", -1).skip((page-1)*page_size).limit(page_size)
+    records = await cursor.to_list(length=page_size)
+    
+    items = []
+    for r in records:
+        items.append({
+            "id": str(r.get("_id", "")),
+            "type": r.get("type", ""),
+            "amount": r.get("amount", 0),
+            "balance": r.get("balance", 0),
+            "description": r.get("description", ""),
+            "createdAt": r.get("createdAt"),
+        })
+    
+    return {"total": total, "page": page, "page_size": page_size, "items": items}
+
+
+# ---------- 服务费统计 ----------
+
+@app.get("/api/market/platform-stats")
+async def get_platform_stats(
+    db=Depends(get_db),
+):
+    """平台数据统计（对外展示用）"""
+    total_tasks = await db.tasks.count_documents({"status": "active"})
+    total_users = await db.creditsBalance.count_documents({})
+    
+    # 平台总交易额（从settled的user_tasks算）
+    pipeline = [
+        {"$match": {"status": "settled"}},
+        {"$group": {"_id": None, "total_reward": {"$sum": "$reward"}}}
+    ]
+    cursor = db.user_tasks.aggregate(pipeline)
+    result = await cursor.to_list(length=1)
+    total_settled = result[0]["total_reward"] if result else 0
+    
+    return {
+        "active_tasks": total_tasks,
+        "total_users": total_users,
+        "total_settled": total_settled,
+        "platform_fee": int(total_settled * PLATFORM_FEE_RATE),
+    }
+
+
+# ---------- 充值记录查询 ----------
+
+@app.get("/api/market/recharge-records")
+async def get_recharge_records(
+    page: int = Query(1, ge=1),
+    page_size: int = Query(20, ge=1, le=100),
+    user: dict = Depends(verify_auth),
+    db=Depends(get_db),
+):
+    """查询用户的充值记录"""
+    user_id = user["user_id"]
+    total = await db.rechargeOrders.count_documents({"userId": user_id})
+    cursor = db.rechargeOrders.find({"userId": user_id}).sort("createdAt", -1).skip((page-1)*page_size).limit(page_size)
+    orders = await cursor.to_list(length=page_size)
+    
+    items = [{
+        "id": o["_id"],
+        "amount": o["amount"],
+        "bonus": o["bonus"],
+        "total": o["total"],
+        "method": o["method"],
+        "status": o["status"],
+        "createdAt": o["createdAt"],
+        "confirmedAt": o.get("confirmedAt"),
+    } for o in orders]
+    
+    return {"total": total, "page": page, "page_size": page_size, "items": items}
 
 
 # ============================================================
