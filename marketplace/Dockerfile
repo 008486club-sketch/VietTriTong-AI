@@ -6,6 +6,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY marketplace_api.py .
+COPY frontend/ frontend/
 
 EXPOSE 8010
 

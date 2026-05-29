@@ -33,6 +33,8 @@ from pydantic import BaseModel, Field, field_validator
 
 from fastapi import FastAPI, HTTPException, Depends, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from motor.motor_asyncio import AsyncIOMotorClient
 import redis.asyncio as redis
 
@@ -168,27 +170,27 @@ async def get_redis():
         await r.close()
 
 async def verify_auth(request: Request):
-    """验证用户身份"""
+    """验证用户身份 - 支持JWT + INTERNAL_TOKEN"""
     auth = request.headers.get("Authorization", "")
     if auth.startswith("Bearer "):
         token = auth[7:]
         if token == INTERNAL_TOKEN:
-            return {"user_id": "internal", "role": "admin"}
-        # TODO: 验证JWT
-        # 简单解码JWT（生产环境需完善）
+            return {"user_id": "internal", "role": "admin", "name": "Admin"}
         try:
-            payload = json.loads(
-                base64_decode(token.split(".")[1].encode() + b"==")
-            )
-            return {"user_id": payload.get("id", "unknown"), "role": "user"}
-        except:
+            import jwt
+            payload = jwt.decode(token, JWT_SECRET, algorithms=["HS256"])
+            return {
+                "user_id": payload.get("id", "unknown"),
+                "name": payload.get("name", ""),
+                "mail": payload.get("mail", ""),
+                "token": token,
+                "role": "user",
+            }
+        except jwt.ExpiredSignatureError:
+            raise HTTPException(401, "Token expired")
+        except jwt.InvalidTokenError:
             raise HTTPException(401, "Invalid token")
     raise HTTPException(401, "Authorization required")
-
-def base64_decode(data: bytes) -> bytes:
-    """Base64 URL-safe decode"""
-    import base64
-    return base64.urlsafe_b64decode(data)
 
 
 # ============================================================
@@ -216,12 +218,33 @@ async def create_task(
     - 需要预扣积分（冻结金额）
     """
     user_id = user["user_id"]
+    user_name = user.get("name", "")
     
-    # 计算总价
-    total_cost = task.price * task.quantity
+    # 计算总价（美分）
+    total_cost = int(task.price * task.quantity)
     
-    # 预扣积分（对接现有credits系统）
-    # TODO: 与越智通现有credits模块对接
+    # 查余额
+    balance_doc = await db.creditsBalance.find_one({"userId": user_id})
+    balance = balance_doc["balance"] if balance_doc else 0
+    
+    if balance < total_cost:
+        raise HTTPException(400, f"Số dư không đủ. Cần {total_cost} xu, hiện có {balance} xu")
+    
+    # 扣减积分
+    await db.creditsBalance.update_one(
+        {"userId": user_id},
+        {"$inc": {"balance": -total_cost}}
+    )
+    await db.creditsRecord.insert_one({
+        "userId": user_id,
+        "amount": -total_cost,
+        "balance": 0,
+        "type": "task",
+        "description": f"Tạo nhiệm vụ: {task.title}",
+        "metadata": {"task_title": task.title},
+        "createdAt": datetime.utcnow(),
+        "updatedAt": datetime.utcnow(),
+    })
     
     task_doc = {
         "_id": str(uuid.uuid4()),
@@ -242,6 +265,7 @@ async def create_task(
         "cpm_price": task.cpm_price,
         "cpe_price": task.cpe_price,
         "publisher_id": user_id,
+        "publisher_name": user_name,
         "created_at": datetime.utcnow(),
         "updated_at": datetime.utcnow(),
     }
@@ -542,16 +566,56 @@ async def trigger_settle(
         }}
     )
     
-    # TODO: 调用credits系统给创作者加积分
-    # await credits_service.add_credits({
-    #     "userId": user_task["user_id"],
-    #     "amount": user_task["reward"],
-    #     "type": "task_reward",
-    #     "description": f"内容交易市场结算-任务{user_task['task_id']}"
-    # })
+    # 发放积分给创作者
+    try:
+        await db.creditsBalance.update_one(
+            {"userId": user_task["user_id"]},
+            {"$inc": {"balance": user_task["reward"]}},
+            upsert=True
+        )
+        await db.creditsRecord.insert_one({
+            "userId": user_task["user_id"],
+            "amount": user_task["reward"],
+            "balance": user_task["reward"],
+            "type": "task_reward",
+            "description": f"Thanh toán nhiệm vụ",
+            "createdAt": datetime.utcnow(),
+            "updatedAt": datetime.utcnow(),
+        })
+    except Exception as e:
+        logger.error(f"Settle credits failed for {user_task_id}: {e}")
     
-    return {"status": "settled", "message": f"结算成功，金额: {user_task['reward']}"}
+    return {"status": "settled", "message": f"Đã thanh toán {user_task['reward']} xu cho người sáng tạo"}
 
+
+# ============================================================
+# 用户积分
+# ============================================================
+
+@app.get("/api/market/balance")
+async def get_balance(
+    user: dict = Depends(verify_auth),
+    db=Depends(get_db),
+):
+    """获取当前用户积分余额"""
+    user_id = user["user_id"]
+    balance_doc = await db.creditsBalance.find_one({"userId": user_id})
+    balance = balance_doc["balance"] if balance_doc else 0
+    return {"balance": balance, "user_id": user_id}
+
+
+# ============================================================
+# 静态文件服务
+# ============================================================
+
+FRONTEND_DIR = os.path.join(os.path.dirname(__file__), "frontend")
+
+@app.get("/marketplace")
+async def marketplace_page():
+    index_path = os.path.join(FRONTEND_DIR, "index.html")
+    if os.path.exists(index_path):
+        return FileResponse(index_path)
+    return {"error": "Frontend not deployed"}
 
 # ============================================================
 # 启动
