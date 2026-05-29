@@ -1,0 +1,40 @@
+name: Docker Build & Deploy
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+    
+    - name: Build marketplace image
+      uses: docker/build-push-action@v6
+      with:
+        context: ./marketplace
+        file: ./marketplace/Dockerfile
+        push: false
+        tags: viettritong/marketplace:latest
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Check Markdown links
+      uses: gaurav-nelson/github-action-markdown-link-check@v1
+    
+    - name: Spell check README
+      uses: codespell-project/actions-codespell@v2
+      with:
+        skip: .git,node_modules
