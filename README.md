@@ -1,12 +1,21 @@
 # 越智通AI平台 / VietTriTong AI Platform
 
-[![GitHub stars](https://img.shields.io/github/stars/008486club-sketch/VietTriTong-AI)](https://github.com/008486club-sketch/VietTriTong-AI/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/008486club-sketch/VietTriTong-AI?style=flat&logo=github)](https://github.com/008486club-sketch/VietTriTong-AI/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/008486club-sketch/VietTriTong-AI?style=flat&logo=github)](https://github.com/008486club-sketch/VietTriTong-AI/forks)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Required Node.js](https://img.shields.io/badge/node-20.18.x-brightgreen)](https://nodejs.org)
+[![Docker](https://img.shields.io/badge/docker-ready-2496ed?logo=docker)](https://docker.com)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
+[![Vietnam Market](https://img.shields.io/badge/focus-Vietnam-ff4444)](https://ai.yuezhitong.com)
+[![BytePlus Partner](https://img.shields.io/badge/BytePlus-Partner-3b82f6)](https://byteplus.com)
 
 **Monetize · Publish · Engage · Create —— 一站式越南市场AI社媒内容平台。**
 
 **Kiếm tiền · Xuất bản · Tương tác · Sáng tạo —— Nền tảng nội dung truyền thông xã hội AI cho thị trường Việt Nam.**
+
+---
+
+[![Star History Chart](https://api.star-history.com/svg?repos=008486club-sketch/VietTriTong-AI&type=Date)](https://star-history.com/#008486club-sketch/VietTriTong-AI&Date)
 
 ---
 
