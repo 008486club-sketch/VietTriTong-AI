@@ -294,6 +294,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
     <div class="tab active" onclick="switchTab('square', this)">🏪 Chợ Nội Dung</div>
     <div class="tab" onclick="switchTab('accepted', this)">📋 Đã Nhận</div>
     <div class="tab" onclick="switchTab('published', this)">📤 Đã Đăng</div>
+    <div class="tab" onclick="switchTab('wallet', this)">💰 Ví</div>
   </div>
 
   <!-- Filters -->
@@ -518,7 +519,6 @@ const API_BASE = '/api/market';
 let tasks = [];
 let currentPage = 1;
 let currentTab = 'square';
-let currentUser = null;
 
 // ============================================================
 // 任务数据加载
@@ -552,6 +552,9 @@ async function loadTasks() {
   }
   else if (currentTab === 'published') {
     loadMyPublishedTasks();
+  }
+  else if (currentTab === 'wallet') {
+    loadWallet();
   }
 }
 
@@ -724,6 +727,8 @@ function switchTab(tab, el) {
   // 隐藏筛选栏（我的任务tab不需要）
   const filters = document.querySelector('.filters');
   filters.style.display = tab === 'square' ? 'flex' : 'none';
+  // 钱包页也不需要筛选
+  if (tab === 'wallet') filters.style.display = 'none';
   loadTasks();
 }
 
@@ -864,6 +869,255 @@ async function reviewSubmission(taskId, userTaskId, action) {
   
   loadTasks();
 }
+
+
+// ============================================================
+// 钱包功能 —— 充值 / 提现 / 流水
+// ============================================================
+
+async function loadWallet() {
+  const grid = document.getElementById('taskGrid');
+  const user = getUserInfo();
+  if (!user) {
+    grid.innerHTML = '<div style="text-align:center;padding:60px;color:var(--text-muted)">🔑 Vui lòng đăng nhập để xem ví</div>';
+    return;
+  }
+  
+  grid.innerHTML = '<div class="loading"><div class="spinner"></div>Đang tải ví...</div>';
+  
+  try {
+    // 获取余额
+    const balRes = await apiCall('GET', '/balance');
+    const balance = balRes?.balance || 0;
+    
+    // 获取流水
+    const txRes = await apiCall('GET', '/transactions?page_size=10');
+    const transactions = txRes?.items || [];
+    
+    const balFormatted = balance.toLocaleString('vi-VN');
+    
+    grid.innerHTML = `
+      <div style="max-width:700px;margin:0 auto">
+        <!-- 余额卡 -->
+        <div style="background:linear-gradient(135deg,#1e40af,#3b82f6);border-radius:16px;padding:28px;color:white;margin-bottom:20px">
+          <div style="font-size:14px;opacity:0.8;margin-bottom:8px">💰 Số dư khả dụng</div>
+          <div style="font-size:36px;font-weight:700">${balFormatted} <span style="font-size:16px;opacity:0.8">xu</span></div>
+          <div style="display:flex;gap:12px;margin-top:20px">
+            <button class="btn" style="background:white;color:#1e40af;font-weight:600;flex:1" onclick="showRechargeModal()">➕ Nạp Xu</button>
+            <button class="btn" style="background:rgba(255,255,255,0.15);color:white;font-weight:600;flex:1" onclick="showWithdrawModal()">💸 Rút Tiền</button>
+          </div>
+        </div>
+        
+        <!-- 充值赠送说明 + 完整规则 -->
+        <div style="background:#f0f9ff;border:1px solid #bae6fd;border-radius:12px;padding:16px;margin-bottom:12px;font-size:13px;color:#0369a1">
+          🎁 <strong>Ưu đãi nạp xu:</strong><br>
+          Nạp 50.000 → tặng 0<br>
+          Nạp 100.000 → tặng 5.000 (5%)<br>
+          Nạp 200.000 → tặng 15.000 (7.5%)<br>
+          Nạp 500.000 → tặng 50.000 (10%)<br>
+          Nạp 1.000.000 → tặng 120.000 (12%)
+        </div>
+        
+        <!-- 平台规则 -->
+        <div style="background:#fefce8;border:1px solid #fde68a;border-radius:12px;padding:16px;margin-bottom:20px;font-size:13px;color:#92400e">
+          📋 <strong>Quy định nền tảng:</strong><br><br>
+          <strong>1. Đăng nhiệm vụ:</strong><br>
+          • Giá hiển thị là số xu người sáng tạo nhận được<br>
+          • Phí nền tảng: <strong>15%</strong> (ví dụ: đăng giá 80.000 → thanh toán 92.000)<br><br>
+          <strong>2. Rút tiền:</strong><br>
+          • Tối thiểu: <strong>50.000 xu</strong>/lần<br>
+          • Phí rút: <strong>5%</strong><br>
+          • Thời gian xử lý: 1-3 ngày làm việc<br>
+          • Hỗ trợ: chuyển khoản ngân hàng Việt Nam<br><br>
+          <strong>3. Hạn sử dụng xu:</strong><br>
+          • Xu có hiệu lực <strong>12 tháng</strong> kể từ ngày nạp<br>
+          • Xu khuyến mãi có hiệu lực <strong>6 tháng</strong><br><br>
+          💡 <strong>Ví dụ:</strong> Nạp 200.000 → nhận 215.000 xu. Đăng nhiệm vụ 80.000 xu → trừ 92.000 xu. Người sáng tạo nhận 80.000 xu. Nền tảng thu 12.000 xu.
+        </div>
+        
+        <!-- 流水记录 -->
+        <h3 style="font-size:16px;font-weight:600;margin-bottom:12px">📋 Lịch sử giao dịch</h3>
+        ${transactions.length === 0 ? '<div style="text-align:center;padding:24px;color:var(--text-muted);font-size:14px">Chưa có giao dịch nào</div>' : ''}
+        ${transactions.map(tx => {
+          const icon = tx.type === 'recharge' ? '📥' : tx.type === 'task_reward' ? '📤' : tx.type === 'task' ? '📋' : '🔄';
+          const color = tx.amount > 0 ? '#22c55e' : '#ef4444';
+          const amt = (tx.amount > 0 ? '+' : '') + tx.amount.toLocaleString('vi-VN');
+          const date = tx.createdAt ? new Date(tx.createdAt).toLocaleDateString('vi-VN') : '';
+          return `
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--border)">
+              <div>
+                <div style="font-size:14px;font-weight:500">${icon} ${tx.description || tx.type}</div>
+                <div style="font-size:11px;color:var(--text-muted)">${date}</div>
+              </div>
+              <div style="font-size:16px;font-weight:600;color:${color}">${amt}</div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    `;
+  } catch(e) {
+    grid.innerHTML = '<div style="text-align:center;padding:60px;color:var(--text-muted)">❌ Không thể tải ví</div>';
+  }
+}
+
+// ---------- 充值弹窗 ----------
+
+function showRechargeModal() {
+  const modal = document.getElementById('detailModal');
+  modal.classList.add('show');
+  const body = document.getElementById('detailBody');
+  
+  const amounts = [
+    { label: '50.000 xu', value: 50000, bonus: 0 },
+    { label: '100.000 xu', value: 100000, bonus: 5000 },
+    { label: '200.000 xu', value: 200000, bonus: 15000 },
+    { label: '500.000 xu', value: 500000, bonus: 50000 },
+    { label: '1.000.000 xu', value: 1000000, bonus: 120000 },
+  ];
+  
+  body.innerHTML = `
+    <div style="margin-bottom:20px">
+      <h3 style="font-size:18px;font-weight:600;margin-bottom:4px">💰 Nạp Xu</h3>
+      <p style="font-size:13px;color:var(--text-muted)">Chọn số tiền nạp, nhận thêm xu khuyến mãi</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px">
+      ${amounts.map((a, i) => `
+        <div class="recharge-option" data-amount="${a.value}" onclick="selectRecharge(this, ${a.value}, ${a.bonus})" style="
+          border:2px solid var(--border);border-radius:12px;padding:16px;text-align:center;cursor:pointer;
+          transition:all 0.2s;${i === 2 ? 'border-color:var(--primary);background:#eff6ff' : ''}"
+          onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='${i === 2 ? 'var(--primary)' : 'var(--border)'}'">
+          <div style="font-size:18px;font-weight:700">${a.label}</div>
+          ${a.bonus > 0 ? `<div style="font-size:12px;color:var(--primary);font-weight:500;margin-top:4px">+ Tặng ${a.bonus.toLocaleString('vi-VN')}</div>` : ''}
+        </div>
+      `).join('')}
+    </div>
+    <div class="modal-footer" style="border:none;padding:0">
+      <button class="btn btn-outline" onclick="closeModal('detailModal')">Hủy</button>
+      <button class="btn btn-primary" onclick="submitRecharge()" id="rechargeBtn" disabled>Chọn số tiền</button>
+    </div>
+  `;
+  
+  // 默认选中第三个
+  window._selectedRecharge = { amount: 200000, bonus: 15000 };
+}
+
+let _selectedRecharge = null;
+
+function selectRecharge(el, amount, bonus) {
+  document.querySelectorAll('.recharge-option').forEach(o => {
+    o.style.borderColor = 'var(--border)';
+    o.style.background = 'transparent';
+  });
+  el.style.borderColor = 'var(--primary)';
+  el.style.background = '#eff6ff';
+  
+  _selectedRecharge = { amount, bonus };
+  const btn = document.getElementById('rechargeBtn');
+  btn.disabled = false;
+  btn.textContent = `Nạp ${amount.toLocaleString('vi-VN')} + Tặng ${bonus.toLocaleString('vi-VN')}`;
+}
+
+async function submitRecharge() {
+  if (!_selectedRecharge) return;
+  
+  closeModal('detailModal');
+  
+  const user = getUserInfo();
+  if (!user) {
+    if (confirm('Vui lòng đăng nhập để nạp xu.')) window.location.href = '/auth/login';
+    return;
+  }
+  
+  try {
+    const res = await apiCall('POST', '/recharge', {
+      amount: _selectedRecharge.amount,
+      method: 'bank_transfer'
+    });
+    
+    if (res && res.id) {
+      alert(`✅ Đã tạo yêu cầu nạp xu!\n\nMã giao dịch: ${res.id}\nSố tiền: ${res.total.toLocaleString('vi-VN')} xu\n\nVui lòng chuyển khoản đến tài khoản ngân hàng của chúng tôi và ghi chú mã giao dịch.`);
+    } else {
+      alert('❌ Tạo yêu cầu thất bại');
+    }
+  } catch(e) {
+    alert('❌ Lỗi kết nối');
+  }
+  
+  loadWallet();
+}
+
+// ---------- 提现弹窗 ----------
+
+function showWithdrawModal() {
+  const modal = document.getElementById('detailModal');
+  modal.classList.add('show');
+  const body = document.getElementById('detailBody');
+  
+  body.innerHTML = `
+    <div style="margin-bottom:20px">
+      <h3 style="font-size:18px;font-weight:600;margin-bottom:4px">💸 Rút Tiền</h3>
+      <p style="font-size:13px;color:var(--text-muted)">Rút tối thiểu 50.000 xu. Phí rút 5%.</p>
+    </div>
+    <div class="field">
+      <div class="field-label">Số Xu Muốn Rút</div>
+      <input type="number" id="withdrawAmount" style="width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px" placeholder="50000" min="50000">
+    </div>
+    <div class="field">
+      <div class="field-label">Ngân Hàng</div>
+      <input type="text" id="withdrawBank" style="width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px" placeholder="VD: Vietcombank, Techcombank...">
+    </div>
+    <div class="field">
+      <div class="field-label">Số Tài Khoản</div>
+      <input type="text" id="withdrawAccount" style="width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px" placeholder="VD: 1234567890">
+    </div>
+    <div class="field">
+      <div class="field-label">Chủ Tài Khoản</div>
+      <input type="text" id="withdrawHolder" style="width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px" placeholder="VD: NGUYEN VAN A">
+    </div>
+    <div style="padding:12px;background:#f0fdf4;border-radius:8px;font-size:13px;color:#166534;margin-top:12px">
+      💡 Phí rút 5%. Số tiền thực nhận = Số xu rút - phí.<br>
+      Thời gian xử lý: 1-3 ngày làm việc.
+    </div>
+    <div class="modal-footer" style="border:none;padding:0;margin-top:16px">
+      <button class="btn btn-outline" onclick="closeModal('detailModal')">Hủy</button>
+      <button class="btn btn-primary" onclick="submitWithdraw()">💸 Gửi Yêu Cầu</button>
+    </div>
+  `;
+}
+
+async function submitWithdraw() {
+  const amount = parseInt(document.getElementById('withdrawAmount').value);
+  const bank = document.getElementById('withdrawBank').value;
+  const account = document.getElementById('withdrawAccount').value;
+  const holder = document.getElementById('withdrawHolder').value;
+  
+  if (!amount || amount < 50000) { alert('Tối thiểu 50.000 xu'); return; }
+  if (!bank) { alert('Vui lòng nhập tên ngân hàng'); return; }
+  if (!account) { alert('Vui lòng nhập số tài khoản'); return; }
+  if (!holder) { alert('Vui lòng nhập chủ tài khoản'); return; }
+  
+  closeModal('detailModal');
+  
+  try {
+    const res = await apiCall('POST', '/withdraw', {
+      amount: amount,
+      bank_name: bank,
+      bank_account: account,
+      bank_holder: holder
+    });
+    
+    if (res && res.id) {
+      alert(`✅ Đã gửi yêu cầu rút tiền!\n\nSố xu: ${res.amount.toLocaleString('vi-VN')}\nPhí: ${res.fee.toLocaleString('vi-VN')}\nThực nhận: ${res.actual.toLocaleString('vi-VN')}`);
+    } else if (res && res.detail) {
+      alert('❌ ' + res.detail);
+    }
+  } catch(e) {
+    alert('❌ Lỗi kết nối');
+  }
+  
+  loadWallet();
+}
+
 
 // ============================================================
 // 任务详情弹窗（含接任务按钮）
