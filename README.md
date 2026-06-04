@@ -46,7 +46,8 @@
 - **内容交易市场**：品牌方发布任务，创作者接单
 - **CPS/CPE/CPM** 三种结算模式
 - **AI审核**：自动判断内容匹配度
-- 🔗 **线上访问**: `https://ai.yuezhitong.com/api/market/tasks`
+- 🔗 **任务市场**: `https://ai.yuezhitong.com/marketplace`
+- 🔗 **AI视频Demo**: `https://ai.yuezhitong.com/zh-CN/welcome`（页面底部）
 
 ---
 
