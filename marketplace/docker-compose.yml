@@ -1,18 +1,22 @@
 version: '3.8'
 
+# ⚠️ 2026-09-02 安全修复：所有 secrets 改 ${ENV} 引用（.env 文件注入），禁止硬编码进 compose
+# 曾在公开仓库泄露 JWT_SECRET/INTERNAL_TOKEN/Mongo密码/Redis密码——已轮换后务必更新 .env
 services:
   marketplace:
     build: .
     container_name: yuezhitong-marketplace
     restart: unless-stopped
     ports:
-      - "8010:8010"
+      - "${PORT:-8010}:8010"
     environment:
-      MONGODB_URI: "mongodb://admin:password@mongodb:27017/?authSource=admin"
-      MONGODB_DB: yuezhitong
-      REDIS_URL: "redis://:password@redis:6379/0"
-      JWT_SECRET: "7PMmSxgGdcUHZnwXIdRGCqABtv4Q8EG5IbtDUCjbJ1GNcgcitZzWz2cRjLkiNwBi"
-      INTERNAL_TOKEN: "6SIYEflXz0pYFFc5S3uoCJz9nFX7KhTl00kXP64AM0m4aTxp"
+      MONGODB_URI: "${MONGODB_URI}"
+      MONGODB_DB: "${MONGODB_DB:-yuezhitong}"
+      REDIS_URL: "${REDIS_URL}"
+      JWT_SECRET: "${JWT_SECRET}"
+      INTERNAL_TOKEN: "${INTERNAL_TOKEN}"
+      DASHSCOPE_API_KEY: "${DASHSCOPE_API_KEY:-}"
+      GEMINI_API_KEY: "${GEMINI_API_KEY:-}"
       PORT: 8010
     networks:
       - yuezhitong-network
