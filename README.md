@@ -85,6 +85,22 @@ pnpm run dev
 
 ---
 
+
+## 🧩 内容交易市场（独立服务）/ Marketplace (standalone)
+
+> `marketplace/` 是独立 FastAPI 服务（内容交易市场后端），不属于 NextJS 应用。部署 secrets 一律从环境变量注入（2026-09-02 安全整改：曾在公开仓库泄露 API key / JWT / DB 密码，代码已全部 env 化）。
+
+```bash
+cd marketplace
+cp .env.example .env   # 填入真实值：MONGODB_URI / REDIS_URL / JWT_SECRET / INTERNAL_TOKEN
+docker compose up -d --build
+```
+
+- ⚠️ **禁止**在源码/配置里硬编码 secrets；`.env` 不入库（`.env.example` 为模板）
+- AI 聊天端点 `/api/market/ai/chat` 已下线（返回 503），不依赖第三方 AI key
+- 端口 8010（内部）；如需对公网，请经 Nginx 反代
+
+
 ## 🏗️ 系统架构 / Architecture
 
 ```
