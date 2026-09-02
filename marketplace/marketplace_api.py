@@ -956,49 +956,16 @@ async def get_recharge_records(
     return {"total": total, "page": page, "page_size": page_size, "items": items}
 
 
-# ---------- Gemini AI 能力（绕过AI容器，直接调用） ----------
-
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")  # ⚠️ 2026-09-02 安全修复：禁硬编码（曾在公开仓库泄露）
-GEMINI_BASE = "https://generativelanguage.googleapis.com/v1beta/models"
-
+# ---------- AI 聊天能力 ----------
+# ⚠️ 2026-09-02 麦总决定：DashScope + Gemini key 直接下线（曾泄露，不轮换不接新 key）
+# 端点保留但返回 503，前端可明确提示；不再依赖任何第三方 AI key
 @app.post("/api/market/ai/chat")
 async def ai_chat(
     request: Request,
     user: dict = Depends(verify_auth),
 ):
-    """AI聊天（优先千问，备选Gemini）"""
-    body = await request.json()
-    prompt = body.get("prompt", "")
-    messages = body.get("messages", [{"role": "user", "content": prompt}])
-    
-    # 优先用千问
-    # ⚠️ 2026-09-02 安全修复：key 从环境变量读，禁止硬编码进源码（曾在公开仓库泄露）
-    dashscope_key = os.environ.get("DASHSCOPE_API_KEY", "")
-    async with httpx.AsyncClient() as client:
-        resp = await client.post(
-            "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
-            headers={"Authorization": f"Bearer {dashscope_key}", "Content-Type": "application/json"},
-            json={"model": "qwen3.6-plus-2026-04-02", "messages": messages, "max_tokens": 2000},
-            timeout=30
-        )
-        data = resp.json()
-        if "choices" in data and data["choices"]:
-            return {"content": data["choices"][0]["message"]["content"], "model": "qwen"}
-        # 千问不行就fallback到Gemini
-        try:
-            g_resp = await client.post(
-                f"{GEMINI_BASE}/gemini-2.0-flash:generateContent",
-                headers={"X-goog-api-key": GEMINI_API_KEY},
-                json={"contents": [{"parts": [{"text": prompt}]}]},
-                timeout=15
-            )
-            g_data = g_resp.json()
-            if "candidates" in g_data:
-                text = "".join(p.get("text","") for p in g_data["candidates"][0]["content"]["parts"])
-                return {"content": text, "model": "gemini"}
-        except:
-            pass
-        return {"content": "Xin lỗi, AI hiện không khả dụng. Vui lòng thử lại sau."}
+    """AI聊天已下线（2026-09-02：外部 AI key 泄露后直接下线，不再接入第三方生成）"""
+    raise HTTPException(status_code=503, detail="AI 服务已下线 / AI đã ngừng hoạt động / AI service discontinued")
 
 # ============================================================
 
