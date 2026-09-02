@@ -115,6 +115,22 @@ pnpm run dev
 
 ---
 
+
+## 🧩 Marketplace (standalone service)
+
+> `marketplace/` is a standalone FastAPI service (content marketplace backend), not part of the Next.js app. Secrets are injected via environment variables only (2026-09-02 security remediation: API keys / JWT / DB passwords were previously committed to this public repo — all code is now env-based).
+
+```bash
+cd marketplace
+cp .env.example .env   # fill in: MONGODB_URI / REDIS_URL / JWT_SECRET / INTERNAL_TOKEN
+docker compose up -d --build
+```
+
+- ⚠️ **Never** hardcode secrets in source/config; `.env` stays out of git (`.env.example` is the template)
+- AI chat endpoint `/api/market/ai/chat` is discontinued (returns 503); no third-party AI keys
+- Listens on 8010 (internal); expose via Nginx reverse proxy if needed
+
+
 ## Architecture
 
 ```
