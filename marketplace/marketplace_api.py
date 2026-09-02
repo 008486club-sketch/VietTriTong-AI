@@ -958,7 +958,7 @@ async def get_recharge_records(
 
 # ---------- Gemini AI 能力（绕过AI容器，直接调用） ----------
 
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")  # ⚠️ 2026-09-02 安全修复：禁硬编码（曾在公开仓库泄露）
 GEMINI_BASE = "https://generativelanguage.googleapis.com/v1beta/models"
 
 @app.post("/api/market/ai/chat")
@@ -972,7 +972,8 @@ async def ai_chat(
     messages = body.get("messages", [{"role": "user", "content": prompt}])
     
     # 优先用千问
-    dashscope_key = os.getenv("DASHSCOPE_API_KEY", "sk-ad3dcc4c4ea641688620cfffa7013229")
+    # ⚠️ 2026-09-02 安全修复：key 从环境变量读，禁止硬编码进源码（曾在公开仓库泄露）
+    dashscope_key = os.environ.get("DASHSCOPE_API_KEY", "")
     async with httpx.AsyncClient() as client:
         resp = await client.post(
             "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
