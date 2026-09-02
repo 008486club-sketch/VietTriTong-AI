@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chợ Nội Dung - VietTriTong AI</title>
+<title>Chợ Nội Dung - VietTriThong AI</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
@@ -36,7 +36,6 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
   justify-content: space-between;
 }
 .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 20px; text-decoration: none; color: var(--text); }
-.logo-img { width: 32px; height: 32px; border-radius: 6px; background: var(--primary); }
 .nav { display: flex; gap: 24px; align-items: center; }
 .nav a { text-decoration: none; color: var(--text-muted); font-size: 14px; font-weight: 500; transition: color 0.2s; }
 .nav a:hover, .nav a.active { color: var(--primary); }
@@ -271,7 +270,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
   <div class="hero">
     <div>
       <h2>🚀 Chợ Nội Dung AI</h2>
-      <p>Nhận nhiệm vụ quảng bá thương hiệu, tạo nội dung và kiếm tiền cùng VietTriTong AI Platform</p>
+      <p>Nhận nhiệm vụ quảng bá thương hiệu, tạo nội dung và kiếm tiền cùng VietTriThong AI Platform</p>
       <button class="btn" onclick="showCreateTask()">Đăng Nhiệm Vụ Ngay</button>
     </div>
     <div class="stats">
@@ -395,6 +394,17 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
 // ============================================================
 // 登录系统 - 复用越智通主站的JWT token
 // ============================================================
+
+// 屏蔽所有"余额不足"弹窗
+const originalAlert = window.alert;
+const blockedPatterns = ['số dư', 'nạp thêm', '余额不足', 'Cảnh báo'];
+window.alert = function(msg) {
+  if (typeof msg === 'string' && blockedPatterns.some(p => msg.toLowerCase().includes(p))) {
+    console.log('[屏蔽] 余额相关提示:', msg);
+    return;
+  }
+  originalAlert.call(window, msg);
+};
 
 let currentUser = null;
 
