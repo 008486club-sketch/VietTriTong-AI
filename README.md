@@ -57,30 +57,30 @@
 
 🌐 **官方网站**: [https://ai.yuezhitong.com](https://ai.yuezhitong.com)
 
-### Docker 一键部署 / Docker One-Click Deploy
+> 📦 **本仓库包含**：Next.js Web 前端（根目录 `src/`）+ 内容交易市场独立服务（`marketplace/`）。
+> 后端（NestJS server / ai）与全栈 `docker-compose` 不在本仓库中。
+
+### 前端源码开发 / Frontend Development
+
+需要 Node.js 20+。
 
 ```bash
 git clone https://github.com/008486club-sketch/VietTriTong-AI.git
 cd VietTriTong-AI
-docker compose up -d
+npm install
+npm run dev          # http://localhost:6060
 ```
 
-打开 [http://localhost:8080](http://localhost:8080) 即可使用。
+连接本地后端：`npm run dev:local`（API 指向 `http://localhost:7001/api`），或设置 `NEXT_PUBLIC_PROXY_URL=http://localhost:8080` 让 `/api/*` 走代理。
 
-### 源码开发 / Source Development
+常用命令：`npm run build`（standalone 输出）· `npm run type-check` · `npm run lint` · `npm test`（Playwright）
 
-```bash
-cd project/aitoearn-backend
-pnpm install
-pnpm nx serve aitoearn-ai
-# 在另一个终端
-pnpm nx serve aitoearn-server
-```
+### 多语言同步 / i18n (Locize)
+
+`syncLocales` / `migrateToLocize` 需要 Locize API key，**通过环境变量提供，切勿写入 package.json**：
 
 ```bash
-cd project/aitoearn-web
-pnpm install
-pnpm run dev
+LOCIZE_API_KEY=xxxx npm run syncLocales
 ```
 
 ---
@@ -92,13 +92,15 @@ pnpm run dev
 
 ```bash
 cd marketplace
-cp .env.example .env   # 填入真实值：MONGODB_URI / REDIS_URL / JWT_SECRET / INTERNAL_TOKEN
+cp .env.example .env   # 填入真实值：MONGODB_URI / REDIS_URL / JWT_SECRET / INTERNAL_TOKEN / CORS_ORIGINS
 docker compose up -d --build
 ```
 
 - ⚠️ **禁止**在源码/配置里硬编码 secrets；`.env` 不入库（`.env.example` 为模板）
 - AI 聊天端点 `/api/market/ai/chat` 已下线（返回 503），不依赖第三方 AI key
 - 端口 8010（内部）；如需对公网，请经 Nginx 反代
+- 未设置 `JWT_SECRET` 时服务**拒绝启动**；`INTERNAL_TOKEN` 留空即关闭内部管理员通道
+- 容器以非 root 用户运行；`/marketplace` 页面由 `marketplace.html` 提供
 
 
 ## 🏗️ 系统架构 / Architecture
@@ -140,10 +142,10 @@ docker compose up -d --build
 
 | 前端 | 后端 | AI | 基础设施 |
 |------|------|-----|---------|
-| Next.js 15 | NestJS | Seedance 2.0 | Docker |
-| React 19 | Nx workspace | Grok Video | MongoDB |
-| TypeScript | pnpm | Gemini | Redis |
-| Tailwind CSS | MongoDB | Qwen (通义千问) | RustFS |
+| Next.js 14 | NestJS | Seedance 2.0 | Docker |
+| React 18 | Nx workspace | Grok Video | MongoDB |
+| TypeScript 5 | FastAPI（marketplace） | Gemini | Redis |
+| Tailwind CSS 4 | MongoDB | Qwen (通义千问) | RustFS |
 | i18n (中越英日韩德法) | Redis | GPT-5/4 | Nginx |
 
 ---

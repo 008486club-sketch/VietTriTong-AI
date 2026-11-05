@@ -48,20 +48,33 @@ Tự động hóa tương tác trên các nền tảng.
 
 🌐 **Trang web**: [https://ai.yuezhitong.com](https://ai.yuezhitong.com)
 
-### Docker
+> 📦 Kho mã này gồm **frontend Next.js** (`src/`) và **dịch vụ chợ nội dung độc lập** (`marketplace/`).
+> Backend NestJS (server / ai) và `docker-compose` toàn hệ thống không nằm trong kho này.
+
+### Phát triển frontend
+
+Yêu cầu Node.js 20+.
 
 ```bash
 git clone https://github.com/008486club-sketch/VietTriTong-AI.git
 cd VietTriTong-AI
-docker compose up -d
+npm install
+npm run dev          # http://localhost:6060
 ```
 
-### Phát triển
+### Chợ nội dung (dịch vụ độc lập)
+
+`marketplace/` là dịch vụ FastAPI độc lập. Mọi bí mật (secrets) chỉ được nạp qua biến môi trường.
 
 ```bash
-cd project/aitoearn-backend && pnpm install && pnpm nx serve aitoearn-ai
-cd project/aitoearn-web && pnpm install && pnpm run dev
+cd marketplace
+cp .env.example .env   # điền MONGODB_URI / REDIS_URL / JWT_SECRET / INTERNAL_TOKEN / CORS_ORIGINS
+docker compose up -d --build
 ```
+
+- ⚠️ **Không bao giờ** ghi cứng secrets vào mã nguồn; `.env` không được commit
+- Dịch vụ **từ chối khởi động** nếu thiếu `JWT_SECRET`
+- Điểm cuối AI `/api/market/ai/chat` đã ngừng hoạt động (trả về 503)
 
 ---
 
