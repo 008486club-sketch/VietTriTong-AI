@@ -23,6 +23,7 @@
 import os
 import asyncio
 import hashlib
+import hmac
 import json
 import logging
 import uuid
@@ -46,9 +47,15 @@ import redis.asyncio as redis
 MONGODB_URI = os.getenv("MONGODB_URI", "mongodb://localhost:27017")
 MONGODB_DB = os.getenv("MONGODB_DB", "yuezhitong")
 REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379")
-JWT_SECRET = os.getenv("JWT_SECRET", "dev-secret")
+JWT_SECRET = os.getenv("JWT_SECRET", "")
 INTERNAL_TOKEN = os.getenv("INTERNAL_TOKEN", "")
 PORT = int(os.getenv("PORT", "8010"))
+# 逗号分隔的允许来源；默认 "*"（仅 Bearer 头鉴权，不带 cookie）
+CORS_ORIGINS = [o.strip() for o in os.getenv("CORS_ORIGINS", "*").split(",") if o.strip()]
+
+# 启动即校验：缺少 JWT_SECRET 时拒绝启动，避免回退到可预测的默认密钥被伪造 token
+if not JWT_SECRET:
+    raise RuntimeError("JWT_SECRET is not set — refuse to start (see marketplace/.env.example)")
 
 # ============================================================
 # 数据模型
@@ -140,8 +147,9 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
+    allow_origins=CORS_ORIGINS,
+    # 浏览器规范不允许 "*" 与 credentials 同时使用；仅在指定来源时开启
+    allow_credentials="*" not in CORS_ORIGINS,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -174,8 +182,11 @@ async def verify_auth(request: Request):
     """验证用户身份 - 支持JWT + INTERNAL_TOKEN"""
     auth = request.headers.get("Authorization", "")
     if auth.startswith("Bearer "):
-        token = auth[7:]
-        if token == INTERNAL_TOKEN:
+        token = auth[7:].strip()
+        if not token:
+            raise HTTPException(401, "Authorization required")
+        # INTERNAL_TOKEN 为空时禁用内部通道（否则空 Bearer 即可拿到 admin）
+        if INTERNAL_TOKEN and hmac.compare_digest(token, INTERNAL_TOKEN):
             return {"user_id": "internal", "role": "admin", "name": "Admin"}
         try:
             import jwt
@@ -456,7 +467,7 @@ async def submit_work(
 async def review_work(
     task_id: str,
     user_task_id: str = Query(...),
-    action: str = Query(..., regex="^(approve|reject)$"),
+    action: str = Query(..., pattern="^(approve|reject)$"),
     reason: Optional[str] = None,
     user: dict = Depends(verify_auth),
     db=Depends(get_db),
@@ -828,7 +839,7 @@ async def create_withdraw(
 @app.post("/api/market/withdraw/{withdraw_id}/process")
 async def process_withdraw(
     withdraw_id: str,
-    action: str = Query(..., regex="^(approve|reject|complete)$"),
+    action: str = Query(..., pattern="^(approve|reject|complete)$"),
     user: dict = Depends(verify_auth),
     db=Depends(get_db),
 ):
