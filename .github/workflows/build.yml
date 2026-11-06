@@ -41,7 +41,10 @@ jobs:
         use-quiet-mode: 'no'
         use-verbose-mode: 'yes'
     
-    - name: Spell check README
-      uses: codespell-project/actions-codespell@v2
-      with:
-        skip: .git,node_modules
+    - name: Spell check docs
+      # 只查根目录对外文档。codespell 是英文词典，"Nam"（越南）这类词会误报，
+      # 故显式忽略；内部模块 README 不纳入，避免长期误报把 CI 变成背景噪音。
+      run: |
+        pip install --quiet codespell==2.4.3
+        codespell README.md README_EN.md README_VI.md CONTRIBUTING.md MCP_INTEGRATION.md \
+          --ignore-words-list nam
