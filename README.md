@@ -1,6 +1,6 @@
 # 越智通AI平台 / VietTriTong AI Platform
 
-[![GitHub stars](https://img.shields.io/github/stars/008486club-sketch/VietTriTong-AI?style=flat&logo=github)](https://github.com/008486club-sketch/VietTriTong-AI/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/008486club-sketch/VietTriTong-AI?style=flat&logo=github)](https://github.com/008486club-sketch/VietTriTong-AI)
 [![GitHub forks](https://img.shields.io/github/forks/008486club-sketch/VietTriTong-AI?style=flat&logo=github)](https://github.com/008486club-sketch/VietTriTong-AI/forks)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Required Node.js](https://img.shields.io/badge/node-20.18.x-brightgreen)](https://nodejs.org)

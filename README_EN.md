@@ -1,7 +1,7 @@
 # VietTriTong AI Platform (越智通AI平台)
 
-[![GitHub stars](https://img.shields.io/github/stars/008486club-sketch/VietTriTong-AI?style=flat&logo=github)](https://github.com/008486club-sketch/VietTriTong-AI/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/008486club-sketch/VietTriTong-AI?style=flat&logo=github)](https://github.com/008486club-sketch/VietTriTong-AI/forks)
+[![GitHub stars](https://img.shields.io/github/stars/008486club-sketch/VietTriTong-AI?style=flat&logo=github)](https://github.com/008486club-sketch/VietTriTong-AI)
+[![GitHub forks](https://img.shields.io/github/forks/008486club-sketch/VietTriTong-AI?style=flat&logo=github)](https://github.com/008486club-sketch/VietTriTong-AI)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Docker](https://img.shields.io/badge/docker-ready-2496ed?logo=docker)](https://docker.com)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
@@ -26,9 +26,9 @@ Supported Channels: TikTok, YouTube, Instagram, Facebook, Twitter (X), LinkedIn,
 
 | Option | Best for | Deployment needed? |
 |--------|----------|-------------------|
-| [① Use the Website](#use-web) | Everyone | ❌ No |
-| [② Docker One-Click Deploy](#use-docker) | Teams wanting self-hosted | ✅ Server needed |
-| [③ Build from Source](#use-source) | Developers | ✅ Dev environment needed |
+| [① Use the Website](#use-the-website) | Everyone | ❌ No |
+| [② Docker One-Click Deploy](#docker-one-click-deploy) | Teams wanting self-hosted | ✅ Server needed |
+| [③ Build from Source](#build-from-source) | Developers | ✅ Dev environment needed |
 
 ---
 
@@ -73,13 +73,13 @@ Automate engagement operations across supported platforms.
 
 ---
 
-## Use the Website {#use-web}
+## Use the Website
 
 🇻🇳 **Open**: [https://ai.yuezhitong.com](https://ai.yuezhitong.com)
 
 ---
 
-## Docker One-Click Deploy {#use-docker}
+## Docker One-Click Deploy
 
 Prerequisite: [Docker](https://docs.docker.com/get-docker/) installed.
 
@@ -93,7 +93,7 @@ Open **[http://localhost:8080](http://localhost:8080)** and you're ready to go.
 
 ---
 
-## Build from Source {#use-source}
+## Build from Source
 
 ### 1. Start the backend services
 
