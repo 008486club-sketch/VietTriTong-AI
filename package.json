@@ -173,5 +173,8 @@
     "*.{json,css,scss,md}": [
       "prettier --write"
     ]
+  },
+  "overrides": {
+    "xlsx": "0.18.5"
   }
 }
