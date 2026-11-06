@@ -45,5 +45,5 @@ pnpm run type-check
 
 ## 联系方式
 
-- 邮件: hello@yuezhitong.com
+- 邮件: mach@paytok.com
 - 网站: https://yuezhitong.com
