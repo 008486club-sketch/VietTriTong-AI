@@ -182,8 +182,8 @@ docker compose up -d --build
 ## 📞 联系我们 / Contact
 
 - **网站**: [https://yuezhitong.com](https://yuezhitong.com)
-- **邮件**: hello@yuezhitong.com
-- **Telegram**: [t.me/yuezhitong](https://t.me/yuezhitong)
+- **邮件**: mach@paytok.com
+- **GitHub**: [008486club-sketch/VietTriTong-AI](https://github.com/008486club-sketch/VietTriTong-AI/issues)
 
 ---
 
