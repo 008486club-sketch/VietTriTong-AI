@@ -65,7 +65,7 @@ cd VietTriTong-AI
 docker compose up -d
 ```
 
-打开 [http://localhost:8080](http://localhost:8080) 即可使用。
+打开 `http://localhost:8080` 即可使用。
 
 ### 源码开发 / Source Development
 

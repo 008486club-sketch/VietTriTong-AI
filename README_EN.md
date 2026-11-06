@@ -89,7 +89,7 @@ cd VietTriTong-AI
 docker compose up -d
 ```
 
-Open **[http://localhost:8080](http://localhost:8080)** and you're ready to go.
+Open **`http://localhost:8080`** and you're ready to go.
 
 ---
 
