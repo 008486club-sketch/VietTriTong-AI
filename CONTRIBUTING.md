@@ -21,27 +21,31 @@
 ### 开发环境
 
 ```bash
-# 安装依赖
-cd project/aitoearn-web && pnpm install
+# 安装依赖（仓库根目录，Node.js 20+）
+npm install
 
-# 启动开发模式
-pnpm run dev
+# 启动开发模式（http://localhost:6060）
+npm run dev
 
-# TypeScript 检查
-pnpm run type-check
+# TypeScript 检查 / Lint
+npm run type-check
+npm run lint
 ```
 
 ## 项目结构
 
-- `project/aitoearn-backend/` - Nx + pnpm 后端工作区
-- `project/aitoearn-web/` - Next.js + pnpm 前端项目
-- 根目录 - README、Docker 部署文档、docker-compose.yml
+- `src/` - Next.js 14 前端（App Router，`src/app/[lng]` 多语言路由）
+- `public/` - 静态资源
+- `marketplace/` - 内容交易市场独立 FastAPI 服务（自带 Dockerfile / docker-compose）
+- `scripts/` - 构建辅助脚本
+- 根目录 - README（中/英/越）、MCP 集成文档
 
 ## 代码规范
 
 - 使用 TypeScript
 - 遵循 ESLint 配置
 - PR 前确保 `type-check` 通过
+- **禁止提交任何密钥 / token / 密码**：一律使用环境变量（参考 `marketplace/.env.example`）
 
 ## 联系方式
 

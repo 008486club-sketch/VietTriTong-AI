@@ -83,34 +83,44 @@ Automate engagement operations across supported platforms.
 
 Prerequisite: [Docker](https://docs.docker.com/get-docker/) installed.
 
+The standalone marketplace service ships its own compose file:
+
 ```bash
 git clone https://github.com/008486club-sketch/VietTriTong-AI.git
-cd VietTriTong-AI
+cd VietTriTong-AI/marketplace
+cp .env.example .env                        # fill in JWT_SECRET / INTERNAL_TOKEN / MONGODB_URI / REDIS_URL
+docker network create yuezhitong-network    # the compose file expects this network to exist
 docker compose up -d
 ```
 
-Open **`http://localhost:8080`** and you're ready to go.
+Open **`http://localhost:8010/marketplace`** and you're ready to go.
+
+> 📦 This repository contains the **Next.js web frontend** (`src/`) and the **standalone marketplace service** (`marketplace/`).
+> The NestJS backend (server / ai) and the full-stack `docker-compose` are not part of this repo.
 
 ---
 
 ## Build from Source
 
-### 1. Start the backend services
+Requires Node.js 20+.
 
 ```bash
-cd project/aitoearn-backend
-pnpm install
-pnpm nx serve aitoearn-ai
-# in another terminal
-pnpm nx serve aitoearn-server
+git clone https://github.com/008486club-sketch/VietTriTong-AI.git
+cd VietTriTong-AI
+npm install
+npm run dev          # http://localhost:6060
 ```
 
-### 2. Start the frontend
+To use a local backend: `npm run dev:local` (API at `http://localhost:7001/api`), or set `NEXT_PUBLIC_PROXY_URL=http://localhost:8080` to proxy `/api/*`.
+
+Useful scripts: `npm run build` (standalone output) · `npm run type-check` · `npm run lint` · `npm test` (Playwright)
+
+### i18n (Locize)
+
+`syncLocales` / `migrateToLocize` need a Locize API key. **Pass it via environment variable — never commit it to package.json**:
 
 ```bash
-cd project/aitoearn-web
-pnpm install
-pnpm run dev
+LOCIZE_API_KEY=xxxx npm run syncLocales
 ```
 
 ---
@@ -122,13 +132,15 @@ pnpm run dev
 
 ```bash
 cd marketplace
-cp .env.example .env   # fill in: MONGODB_URI / REDIS_URL / JWT_SECRET / INTERNAL_TOKEN
+cp .env.example .env   # fill in: MONGODB_URI / REDIS_URL / JWT_SECRET / INTERNAL_TOKEN / CORS_ORIGINS
 docker compose up -d --build
 ```
 
 - ⚠️ **Never** hardcode secrets in source/config; `.env` stays out of git (`.env.example` is the template)
 - AI chat endpoint `/api/market/ai/chat` is discontinued (returns 503); no third-party AI keys
 - Listens on 8010 (internal); expose via Nginx reverse proxy if needed
+- The service **refuses to start** without `JWT_SECRET`; leaving `INTERNAL_TOKEN` empty disables the internal admin token
+- The container runs as a non-root user; `/marketplace` is served from `marketplace.html`
 
 
 ## Architecture
