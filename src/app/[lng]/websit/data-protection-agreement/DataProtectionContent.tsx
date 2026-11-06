@@ -371,7 +371,7 @@ export default function DataProtectionContent() {
                   <br />
                   Data Protection Officer: privacy@yuezhitong.com
                   <br />
-                  General Contact: hello@yuezhitong.com
+                  General Contact: mach@paytok.com
                 </p>
               </div>
             </section>

@@ -354,7 +354,7 @@ export default function ExtensionPrivacyPolicyPage() {
                 <p className={styles.contactText}>
                   <strong>Email:</strong>
                   {' '}
-                  hello@yuezhitong.com
+                  mach@paytok.com
                   <br />
                   <strong>Website:</strong>
                   {' '}

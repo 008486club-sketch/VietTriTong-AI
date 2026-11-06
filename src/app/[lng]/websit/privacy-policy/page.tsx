@@ -357,7 +357,7 @@ export default function PrivacyPolicyPage() {
                 If you decide at any time that you no longer wish to receive marketing
                 communications from us, please follow the unsubscribe instructions provided in any
                 of the communications. You may also opt out from receiving commercial email from us
-                by sending your request to us by email at hello@yuezhitong.com.
+                by sending your request to us by email at mach@paytok.com.
               </p>
               <p className={styles.sectionContent}>
                 In certain jurisdictions you have the right to request access and receive
@@ -397,7 +397,7 @@ export default function PrivacyPolicyPage() {
               <p className={styles.sectionContent}>
                 The site is not directed to persons under 16. If a parent or guardian becomes aware
                 that his or her child has provided us with personal information without their
-                consent, he or she should contact us at hello@yuezhitong.com. We do not knowingly
+                consent, he or she should contact us at mach@paytok.com. We do not knowingly
                 collect personal information from children under 16. If we become aware that a child
                 under 16 has provided us with personal information, we will delete such information
                 from our files.
@@ -434,7 +434,7 @@ export default function PrivacyPolicyPage() {
                 <p className={styles.contactText}>
                   <strong>Email:</strong>
                   {' '}
-                  hello@yuezhitong.com
+                  mach@paytok.com
                   <br />
                   <strong>Privacy Questions:</strong>
                   {' '}
@@ -442,7 +442,7 @@ export default function PrivacyPolicyPage() {
                 </p>
                 <p className={styles.contactText}>
                   If you have any thoughts or questions about this privacy policy please let us know
-                  at hello@yuezhitong.com
+                  at mach@paytok.com
                 </p>
               </div>
             </section>

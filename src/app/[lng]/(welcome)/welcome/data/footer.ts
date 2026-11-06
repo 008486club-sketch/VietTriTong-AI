@@ -38,7 +38,7 @@ export const footerAccount: FooterLink[] = [
 
 // 联系信息
 export const footerContact = {
-  email: 'hello@yuezhitong.com',
-  emailHref: 'mailto:hello@yuezhitong.com',
+  email: 'mach@paytok.com',
+  emailHref: 'mailto:mach@paytok.com',
   github: 'https://github.com/yuezhitong/VietTriThong',
 }

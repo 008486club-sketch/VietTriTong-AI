@@ -125,7 +125,7 @@ export default function TermsOfServicePage() {
                 maintaining the confidentiality of your account and password, and you accept
                 responsibility for all activities that occur under your account. If you believe that
                 your account is no longer secure, then you should immediately notify us at
-                hello@yuezhitong.com.
+                mach@paytok.com.
               </p>
             </section>
 
@@ -303,7 +303,7 @@ export default function TermsOfServicePage() {
               <h2 className={styles.sectionTitle}>14. Contact Information</h2>
               <p className={styles.sectionContent}>
                 The Service is offered by 越智通AI平台, Inc. You may contact us by emailing us at
-                hello@yuezhitong.com.
+                mach@paytok.com.
               </p>
             </section>
           </div>
